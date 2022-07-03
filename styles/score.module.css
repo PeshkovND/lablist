@@ -1,0 +1,40 @@
+.markContainer {
+    width: 75px;
+    height: 75px;
+    margin: 2px;
+
+
+    border-radius: 6px;
+    display: table;
+}
+
+.markContainer.done {
+    background: #259D88;
+}
+
+.markContainer.remake {
+    background: #D5A0C8;
+}
+
+.markContainer.needCheck {
+    background: #34828a;
+}
+
+.markScore {
+    width: 23px;
+    height: 26px;
+
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
