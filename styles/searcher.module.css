@@ -1,0 +1,24 @@
+.searcher {
+    display: inline-flex;
+    border-bottom: 2px solid #224973;
+    width: 400px;
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+
+.searchField {
+    width: 300px;
+    border: 0;
+    background: none;
+    margin-left: 10px;
+}
+
+.searchField:focus {
+    outline: none;
+}
+
+.searchIcon {
+    width: 22px;
+    height: 22px;
+}

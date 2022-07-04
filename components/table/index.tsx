@@ -10,9 +10,7 @@ export const Table = () => {
 
   const headerMaker = () => {
     return mainData[0].done.map((elem) => {
-      return (
-        <TableHeader key={elem.id} lab = {elem}/>
-      );
+      return <TableHeader key={elem.id} lab={elem} />;
     });
   };
 

@@ -14,8 +14,8 @@ export type Lab = {
 };
 
 export type DoneLab = {
-    id: number
-    labId: number;
-    status: number;
-    score: number;
+  id: number;
+  labId: number;
+  status: number;
+  score: number;
 };

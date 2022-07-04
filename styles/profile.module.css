@@ -1,0 +1,41 @@
+.profileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.profilePicContainer {
+    margin-right: 15px;
+}
+
+.profilePic {
+
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.name {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: #224973;
+    margin: 0
+}
+
+.mail {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    letter-spacing: 0.02em;
+
+    color: #9498A0;
+    margin: 0
+}

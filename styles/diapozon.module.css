@@ -1,0 +1,27 @@
+.inputer {
+    border: 1px solid #181818;
+    border-radius: 6px;
+    width: 115px;
+    height: 30px;
+    background: none;
+}
+
+.inputer:focus {
+    outline: none;
+}
+
+.text {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    letter-spacing: 0.02em;
+
+    color: #181818;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 15px
+}
