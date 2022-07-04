@@ -1,5 +1,5 @@
-import { DoneLab } from "../types";
-import styles from "../styles/score.module.css";
+import { DoneLab } from "../../../../types";
+import styles from "../../../../styles/score.module.css";
 
 interface ScoreProps {
   done: DoneLab;
