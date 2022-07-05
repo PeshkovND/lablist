@@ -8,6 +8,7 @@
     display: flex;
     width: 100%;
     margin-bottom: 0.8vh;
+    align-items: center;
 }
 
 .boxStatus {
@@ -15,20 +16,21 @@
     border-radius: 3px;
     height: 2vh;
     width: 2vh;
-    margin-right: 1vh;
+    margin-right: 1vw;
 }
 
 .date {
     color: #D5A0C8;
     margin: 0;
-    font-size: 2.3vh
+    font-size: 2.2vh;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .name {
-    font-family: 'Source Sans Pro';
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 2.1vh;
+    font-size: 2vh;
     /* identical to box height, or 129% */
 
     letter-spacing: 0.02em;
@@ -40,10 +42,10 @@
 }
 
 .labName {
-    font-family: 'Source Sans Pro';
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 2.1vh;
+    font-size: 2vh;
 
     letter-spacing: 0.02em;
 
@@ -56,23 +58,25 @@
 }
 
 .statusWord {
-    font-family: 'Source Sans Pro';
+    display: inline-block;
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 2.1vh;;
+    font-size: 2vh;;
 
     letter-spacing: 0.02em;
 
     color: #181818;
     margin: 0;
-    padding-right: 1vh;
+    padding-right: 0.3vw;
 }
 
 .status {
-    font-family: 'Source Sans Pro';
+    display: inline-block;
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 2.1vh;;
+    font-size: 2vh;;
 
     letter-spacing: 0.02em;
 

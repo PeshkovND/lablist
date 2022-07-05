@@ -1,6 +1,8 @@
 .main {
     display: grid;
     grid-template-columns: 15vh auto;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 .over {

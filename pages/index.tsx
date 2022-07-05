@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className={styles.main}>
       <Header />
-      <div style={{ height: "100vh" }}>
+      <div style={{ height: "100vh", width: '100%' }}>
         <div className={styles.over}>
           <div style={{ marginLeft: "20px" }}>
             <Searcher />

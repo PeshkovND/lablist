@@ -22,7 +22,7 @@ export const ResultTable = () => {
 
   return (
     <div className={styles.resultTable}>
-      <table>
+      <table style={{ maxHeight: "100%", maxWidth: '100%' }}>
         <thead>
           <tr className={styles.stickyHeader}>
             <th>

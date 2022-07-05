@@ -8,11 +8,11 @@ export const HistoryElem = () => {
         <p className={styles.date}>01.06.2022</p>
       </div>
       <p className={styles.name}>Сидорово-Загоруйский В.</p>
-      <p className={styles.labName}>Название длинное длинное для лабораторной работы</p>
-      <div className={styles.statusContainer}>
-        <p className={styles.statusWord}>Статус:</p>
-        <p className={styles.status}>Возвращена на доработку</p>
-      </div>
+      <p className={styles.labName}>
+        Название длинное длинное для лабораторной работы
+      </p>
+      <p className={styles.statusWord}>Статус:</p>
+      <p className={styles.status}>Возвращена на доработку</p>
     </div>
   );
 };
