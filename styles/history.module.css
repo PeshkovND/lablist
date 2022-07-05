@@ -1,0 +1,53 @@
+.historyContainer{
+    width: 100%;
+    height: auto;
+}
+
+.togler {
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.historyButton {
+    width: 11vh;
+    height: 3vh;
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vh;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #181818;
+
+    border-bottom: 1px solid #224973;
+}
+
+.messageButton {
+    width: 15vh;
+    height: 3vh;
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vh;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #9498A0;
+
+    border-bottom: 1px solid #9498A0;
+}
+
+.elemContainer{
+    background-color: #FFFFFF;
+    height: 95%;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+}

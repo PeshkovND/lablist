@@ -1,5 +1,5 @@
-import styles from "../../../styles/table.module.css";
-import { DoneLab } from "../../../types";
+import styles from "../../../../styles/table.module.css";
+import { DoneLab } from "../../../../types";
 
 interface TableHeaderProps {
   lab: DoneLab;

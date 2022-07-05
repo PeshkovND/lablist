@@ -1,5 +1,5 @@
-import { Student, DoneLab } from "../../../types";
-import styles from "../../../styles/table.module.css";
+import { Student, DoneLab } from "../../../../types";
+import styles from "../../../../styles/table.module.css";
 import { Score } from "./score/score";
 
 interface RowProps {

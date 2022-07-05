@@ -1,8 +1,10 @@
 import { data } from "../../data";
 import { useEffect, useState } from "react";
 import styles from "../../styles/table.module.css";
-import { Row } from "./row/row";
-import { TableHeader } from "./tableHeader/tableHeader";
+import { Row } from "./resultTable/row/row";
+import { TableHeader } from "./resultTable/tableHeader/tableHeader";
+import { ResultTable } from "./resultTable";
+import { History } from "./history";
 
 export const Table = () => {
   const [mainData, setMainData] = useState(data);
@@ -22,17 +24,8 @@ export const Table = () => {
 
   return (
     <div className={styles.table}>
-      <table>
-        <thead>
-          <tr className={styles.stickyHeader}>
-            <th>
-              <div className={styles.group}>Группа ОПГ-303, 2 курс</div>
-            </th>
-            {headerMaker()}
-          </tr>
-        </thead>
-        <tbody className={styles.stickyBody}>{rowMaker()}</tbody>
-      </table>
+      <ResultTable/>
+      <History/>
     </div>
   );
 };

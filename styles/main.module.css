@@ -1,9 +1,10 @@
 .main {
     display: grid;
-    grid-template-columns: 142px auto;
+    grid-template-columns: 15vh auto;
 }
 
 .over {
     display: flex;
     justify-content: space-between;
+    height: 16vh;
 }

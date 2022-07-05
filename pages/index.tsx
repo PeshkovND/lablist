@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className={styles.main}>
       <Header />
-      <div>
+      <div style={{ height: "100vh" }}>
         <div className={styles.over}>
           <div style={{ marginLeft: "20px" }}>
             <Searcher />
@@ -17,9 +17,7 @@ const Home = () => {
           </div>
           <Profile />
         </div>
-        <div>
           <Table />
-        </div>
       </div>
     </div>
   );

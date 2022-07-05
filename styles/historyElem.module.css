@@ -1,0 +1,81 @@
+.HistoryElemContainer {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2vh;
+}
+
+.dateContainer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.8vh;
+}
+
+.boxStatus {
+    background: #D5A0C8;
+    border-radius: 3px;
+    height: 2vh;
+    width: 2vh;
+    margin-right: 1vh;
+}
+
+.date {
+    color: #D5A0C8;
+    margin: 0;
+    font-size: 2.3vh
+}
+
+.name {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.1vh;
+    /* identical to box height, or 129% */
+
+    letter-spacing: 0.02em;
+
+    /* Secondary */
+
+    color: #224973;
+    margin: 0;
+}
+
+.labName {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.1vh;
+
+    letter-spacing: 0.02em;
+
+    color: #181818;
+    margin: 0;
+}
+
+.statusContainer {
+    display: flex;
+}
+
+.statusWord {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.1vh;;
+
+    letter-spacing: 0.02em;
+
+    color: #181818;
+    margin: 0;
+    padding-right: 1vh;
+}
+
+.status {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.1vh;;
+
+    letter-spacing: 0.02em;
+
+    color: #D5A0C8;
+    margin: 0;
+}
