@@ -9,6 +9,8 @@
     width: 6vw;
     height: 3vh;
     background: none;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
 }
 
 .inputer:focus {
