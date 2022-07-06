@@ -9,7 +9,7 @@ export type Student = {
 
 export type Lab = {
   id: number;
-  name: string;
+  number: string;
   subject: string;
 };
 
@@ -18,4 +18,12 @@ export type DoneLab = {
   labId: number;
   status: number;
   score: number;
+};
+
+export type HistoryType = {
+  id: number;
+  date: Date;
+  studentName: string;
+  labName: string;
+  status: number;
 };

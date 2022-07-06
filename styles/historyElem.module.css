@@ -1,7 +1,13 @@
 .HistoryElemContainer {
     width: 90%;
     margin: 0 auto;
-    padding-top: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    overflow-wrap: break-word;
+}
+
+.HistoryElemContainer:last-child {
+    padding-bottom: 2vh;
 }
 
 .dateContainer {
@@ -12,74 +18,78 @@
 }
 
 .boxStatus {
-    background: #D5A0C8;
     border-radius: 3px;
     height: 2vh;
     width: 2vh;
-    margin-right: 1vw;
+    margin-right: 0.5vw;
+}
+
+.boxStatus.remake{
+    background: #D5A0C8;
+}
+
+.boxStatus.done{
+    background: #259D88;
+}
+
+.boxStatus.send{
+    background: #FFBD80;
 }
 
 .date {
-    color: #D5A0C8;
     margin: 0;
     font-size: 2.2vh;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.name {
+.date.remake{
+    color: #D5A0C8;
+}
+
+.date.done{
+    color: #259D88;
+}
+
+.date.send{
+    color: #FFBD80;
+}
+
+.text {
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 2vh;
-    /* identical to box height, or 129% */
 
     letter-spacing: 0.02em;
+   
+    margin: 0;
+}
 
-    /* Secondary */
-
+.text.name{
     color: #224973;
-    margin: 0;
 }
 
-.labName {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2vh;
-
-    letter-spacing: 0.02em;
-
+.text.labName {
     color: #181818;
-    margin: 0;
 }
 
-.statusContainer {
-    display: flex;
-}
-
-.statusWord {
-    display: inline-block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2vh;;
-
-    letter-spacing: 0.02em;
-
+.text.statusWord {
+    display: inline;
     color: #181818;
-    margin: 0;
     padding-right: 0.3vw;
 }
 
-.status {
-    display: inline-block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2vh;;
+.text.done {
+    display: inline;
+    color: #259D88;
+}
 
-    letter-spacing: 0.02em;
+.text.send {
+    display: inline;
+    color: #FFBD80;
+}
 
+.text.remake {
+    display: inline;
     color: #D5A0C8;
-    margin: 0;
 }

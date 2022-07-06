@@ -1,12 +1,12 @@
-import { data } from "../../../data";
+import { labData } from "../../../data";
 import { useEffect, useState } from "react";
 import styles from "../../../styles/table.module.css";
 import { Row } from "./row/row";
 import { TableHeader } from "./tableHeader/tableHeader";
 
 export const ResultTable = () => {
-  const [mainData, setMainData] = useState(data);
-  useEffect(() => setMainData(data), []);
+  const [mainData, setMainData] = useState(labData);
+  useEffect(() => setMainData(labData), []);
 
   const headerMaker = () => {
     return mainData[0].done.map((elem) => {

@@ -1,6 +1,6 @@
-import { Student } from "../types";
+import { HistoryType, Student } from "../types";
 
-export const data: Student[] = [
+export const labData: Student[] = [
   {
     id: 0,
     name: "Александр",
@@ -422,3 +422,55 @@ export const data: Student[] = [
     ],
   },
 ];
+
+export const historyData: HistoryType[] = [
+  {
+    id: 0,
+    date: new Date(2022, 6, 1),
+    studentName: 'Сидорово-Загоруйский В.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 2
+  },
+  {
+    id: 1,
+    date: new Date(2022, 6, 15),
+    studentName: 'Мусоргский М.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 0
+  },
+  {
+    id: 2,
+    date: new Date(2022, 6, 20),
+    studentName: 'Склодовская-Кюри М.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 1
+  },
+  {
+    id: 3,
+    date: new Date(2022, 6, 28),
+    studentName: 'Лермонтов М.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 2
+  },
+  {
+    id: 4,
+    date: new Date(2022, 7, 1),
+    studentName: 'Королев С.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 0
+  },
+  {
+    id: 5,
+    date: new Date(2022, 7, 3),
+    studentName: 'Вертинская А.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 1
+  },
+  {
+    id: 6,
+    date: new Date(2022, 7, 5),
+    studentName: 'Пушкин А.',
+    labName: 'Название длинное длинное для лабораторной работы',
+    status: 2
+  },
+]
