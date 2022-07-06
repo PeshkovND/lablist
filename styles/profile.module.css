@@ -1,41 +1,46 @@
 .profileContainer {
     display: flex;
-    justify-content: space-between;
+    width: auto;
+    height: 8vh;
     align-items: center;
-    margin: 20px;
+    margin-right: 1.2vw;
+    margin-top: 1vh;
 }
 
-.profilePicContainer {
-    margin-right: 15px;
+.profilePicContainer{
+    width: 6vh;
+    height: 6vh;
 }
 
 .profilePic {
-
-    width: 60px;
-    height: 60px;
     border-radius: 10px;
+}
+
+.nameContainer{
+    margin-left: 1vw;
+    margin-right: 0.6vw;
 }
 
 .name {
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 2vh;
     letter-spacing: 0.04em;
+    margin: 0;
     color: #224973;
-    margin: 0
 }
 
 .mail {
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-
+    font-size: 2vh;
     letter-spacing: 0.02em;
-
     color: #9498A0;
-    margin: 0
+    margin: 0;
+}
+
+.strokeContainer{
+    align-items: center;
 }

@@ -1,8 +1,13 @@
+.diapazonContainer{
+    width: auto;
+    height: 4vh;
+}
+
 .inputer {
     border: 1px solid #181818;
     border-radius: 6px;
-    width: 115px;
-    height: 30px;
+    width: 6vw;
+    height: 3vh;
     background: none;
 }
 
@@ -14,14 +19,10 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1.1vw;
 
     letter-spacing: 0.02em;
 
     color: #181818;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 15px
+    margin: 0;
 }

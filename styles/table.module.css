@@ -1,10 +1,13 @@
 .table {
     background: #E8E8E8;
-    width: 100%;
+    width: 90.4vw;
     height: 84vh;
     display: grid;
     justify-content: space-between;
     grid-template-columns: 4fr 1fr;
+    margin-left: 1.3vw;
+    margin-right: 1.3vw;
+    border-radius: 6px;
 }
 
 .resultTable {

@@ -11,7 +11,7 @@ const Home = () => {
       <Header />
       <div style={{ height: "100vh", width: '100%' }}>
         <div className={styles.over}>
-          <div style={{ marginLeft: "20px" }}>
+          <div style={{ marginLeft: "1.3vw" }}>
             <Searcher />
             <Diapozon />
           </div>

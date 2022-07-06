@@ -8,15 +8,23 @@ export const Profile = () => {
         <Image
           src="/profileImage.png"
           alt=""
-          width={60}
-          height={60}
+          width={"100%"}
+          height={"100%"}
           className={styles.profilePic}
         />
       </div>
-      <div>
+      <div className={styles.nameContainer}>
         <p className={styles.name}>Пусилий Котовский</p>
         <p className={styles.mail}>kotik_kompotik@gmail.com</p>
       </div>
+      <div className={styles.strokeContainer}>
+        <Image
+          src="/stroke.png"
+          alt=""
+          width={"10%"}
+          height={"7%"}
+        />
+        </div>
     </div>
   );
 };
