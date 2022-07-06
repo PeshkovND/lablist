@@ -23,7 +23,9 @@
 
     color: #181818;
 
-    border-bottom: 1px solid #224973;
+    border-bottom: 2px solid #224973;
+    margin-left: auto;
+    margin-right: 10%;
 }
 
 .messageButton {
@@ -40,7 +42,9 @@
 
     color: #9498A0;
 
-    border-bottom: 1px solid #9498A0;
+    border-bottom: 2px solid #9498A0;
+    margin-left: left;
+    margin-right: auto;
 }
 
 .elemContainer {

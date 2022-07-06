@@ -2,15 +2,14 @@
     display: inline-flex;
     border-bottom: 2px solid #224973;
     width: auto;
-    height: 4vh;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    height: 3.5vh;
     align-items: center;
+    margin-top: 1.3vh;
 }
 
 .searchField {
     width: 20vw;
-    height: 4vh;
+    height: 3.5vh;
     border: 0;
     background: none;
     margin-left: 0.6vw;
@@ -21,6 +20,6 @@
 }
 
 .searchIcon {
-    width: 3vh;
-    height: 3vh;
+    width: 2.5vh;
+    height: 2.5vh;
 }

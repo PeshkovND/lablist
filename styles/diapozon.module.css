@@ -1,6 +1,8 @@
 .diapazonContainer{
+    margin-top: auto;
+    margin-bottom: auto;
     width: auto;
-    height: 4vh;
+    height: auto;
 }
 
 .inputer {
@@ -21,7 +23,7 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 1.1vw;
+    font-size: 1vw;
 
     letter-spacing: 0.02em;
 

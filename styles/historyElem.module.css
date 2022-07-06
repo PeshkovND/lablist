@@ -13,7 +13,7 @@
 .dateContainer {
     display: flex;
     width: 100%;
-    margin-bottom: 0.8vh;
+    margin-bottom: 0.6vh;
     align-items: center;
 }
 
@@ -38,7 +38,7 @@
 
 .date {
     margin: 0;
-    font-size: 2.2vh;
+    font-size: 1vw;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -58,7 +58,7 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 2vh;
+    font-size: 0.85vw;
 
     letter-spacing: 0.02em;
    
