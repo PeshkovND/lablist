@@ -9,15 +9,22 @@ const Home = () => {
   return (
     <div className={styles.main}>
       <Header />
-      <div style={{ height: "100vh", width: '100%' }}>
+      <div style={{ height: "100vh", width: "100%" }}>
         <div className={styles.over}>
-          <div style={{ marginLeft: "1.3vw", display:"flex", flexDirection:"column", justifyContent:"space-around" }}>
+          <div
+            style={{
+              marginLeft: "1.3vw",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+            }}
+          >
             <Searcher />
             <Diapozon />
           </div>
           <Profile />
         </div>
-          <Table />
+        <Table />
       </div>
     </div>
   );

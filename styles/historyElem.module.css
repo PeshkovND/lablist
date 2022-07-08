@@ -24,15 +24,15 @@
     margin-right: 0.5vw;
 }
 
-.boxStatus.remake{
+.boxStatus.remake {
     background: #D5A0C8;
 }
 
-.boxStatus.done{
+.boxStatus.done {
     background: #259D88;
 }
 
-.boxStatus.send{
+.boxStatus.send {
     background: #FFBD80;
 }
 
@@ -42,15 +42,15 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.date.remake{
+.date.remake {
     color: #D5A0C8;
 }
 
-.date.done{
+.date.done {
     color: #259D88;
 }
 
-.date.send{
+.date.send {
     color: #FFBD80;
 }
 
@@ -61,11 +61,11 @@
     font-size: 0.85vw;
 
     letter-spacing: 0.02em;
-   
+
     margin: 0;
 }
 
-.text.name{
+.text.name {
     color: #224973;
 }
 

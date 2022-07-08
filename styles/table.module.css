@@ -5,89 +5,47 @@
     display: grid;
     justify-content: space-between;
     grid-template-columns: 8fr 2fr;
+    grid-template-rows: 7vh auto;
     margin-left: 1.3vw;
     margin-right: 1.3vw;
     border-radius: 6px;
 }
 
-.resultTable {
+.resultTableContainer {
+    height: 100%;
+    width: 100%;
+    align-items: center;
     overflow: scroll;
-    height: 84vh;
-    width: 100%;
 }
 
-.student {
-    width: 292px;
-    height: 93px;
-    background: #FFFFFF;
-    border-radius: 6px;
+.tableNavContainer {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
 }
 
-.studentContainer {
-    background: #E8E8E8
-}
-
-.studentName {
-    position: relative;
-    left: 3.42%;
-    right: 53.42%;
-    margin: 0;
-
-
-    font-family: 'Source Sans Pro', sans-serif;
+.tableNavText {
+    font-family: 'Lora', serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
+    font-weight: 500;
+    font-size: 1.3vw;
 
     letter-spacing: 0.02em;
-
-    color: #181818;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.studentEmail {
-    position: relative;
-    left: 3.42%;
-    right: 41.44%;
-    margin: 0;
-
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 15px;
-
-    letter-spacing: 0.02em;
-    color: #9498A0;
+.tableNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.stickyHeader th {
-    position: sticky;
-    top: 0;
-}
-
-.header {
-    width: 100%;
-    height: 100%;
-    background: #E8E8E8;
-    z-index: 1;
-}
-
-.group {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #E8E8E8;
-    z-index: 1;
-}
-
-.stickyHeader th:first-child {
-    z-index: 2;
-    left: 0
-}
-
-.stickyBody th {
-    position: sticky;
-
-    left: 0
+.arrow {
+    display: inline;
+    margin-right: 0.7vw;
 }

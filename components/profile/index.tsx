@@ -18,13 +18,8 @@ export const Profile = () => {
         <p className={styles.mail}>kotik_kompotik@gmail.com</p>
       </div>
       <div className={styles.strokeContainer}>
-        <Image
-          src="/stroke.png"
-          alt=""
-          width={"10%"}
-          height={"7%"}
-        />
-        </div>
+        <Image src="/stroke.png" alt="" width={"10%"} height={"7%"} />
+      </div>
     </div>
   );
 };

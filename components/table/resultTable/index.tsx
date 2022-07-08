@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "../../../styles/table.module.css";
 import { Row } from "./row/row";
 import { TableHeader } from "./tableHeader/tableHeader";
+import Image from "next/image";
 
 export const ResultTable = () => {
   const [mainData, setMainData] = useState(labData);
@@ -20,19 +21,5 @@ export const ResultTable = () => {
     });
   };
 
-  return (
-    <div className={styles.resultTable}>
-      <table style={{ maxHeight: "100%", maxWidth: '100%' }}>
-        <thead>
-          <tr className={styles.stickyHeader}>
-            <th>
-              <div className={styles.group}>Группа ОПГ-303, 2 курс</div>
-            </th>
-            {headerMaker()}
-          </tr>
-        </thead>
-        <tbody className={styles.stickyBody}>{rowMaker()}</tbody>
-      </table>
-    </div>
-  );
+  return <div className={styles.resultTableContainer}></div>;
 };
