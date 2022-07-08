@@ -12,10 +12,9 @@
 }
 
 .resultTableContainer {
-    height: 100%;
+    height: 77vh;
     width: 100%;
     align-items: center;
-    overflow: scroll;
 }
 
 .tableNavContainer {
@@ -24,6 +23,16 @@
     align-items: center;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
+    background: #E8E8E8;
+}
+
+.tableNavContainer.header {
+    height: 7%;
+}
+
+.tableNavContainer.scores {
+    height: 93%;
+    overflow: auto;
 }
 
 .tableNavText {
@@ -48,4 +57,36 @@
 .arrow {
     display: inline;
     margin-right: 0.7vw;
+}
+
+.group {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4vh;
+
+    letter-spacing: 0.04em;
+    color: #181818;
+    margin: 0;
+}
+
+.count {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.45vh;
+
+    letter-spacing: 0.02em;
+    color: #181818;
+    margin:0
+}
+
+.scoresContainer{
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
 }

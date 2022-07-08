@@ -9,8 +9,10 @@ export type Student = {
 
 export type Lab = {
   id: number;
-  number: string;
+  number: number;
   subject: string;
+  name: string;
+  deadline: Date
 };
 
 export type DoneLab = {

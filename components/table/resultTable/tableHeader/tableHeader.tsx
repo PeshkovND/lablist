@@ -1,14 +1,37 @@
-import styles from "../../../../styles/table.module.css";
-import { DoneLab } from "../../../../types";
+import { useEffect, useState } from "react";
+import { labData, labs } from "../../../../data";
+import styles from "../../../../styles/tableHeader.module.css";
 
-interface TableHeaderProps {
-  lab: DoneLab;
-}
+export const TableHeader = () => {
+  const [lrData, setLrRow] = useState(labs);
+  useEffect(() => setLrRow(labs), []);
 
-export const TableHeader = (props: TableHeaderProps) => {
-  return (
-    <th>
-      <div className={styles.header}>{"№ " + props.lab.labId}</div>
-    </th>
-  );
+  const dateMaker = (date: Date) => {
+    const day: number = date.getDate();
+    let strDay: string = String(day);
+    if (day < 10) {
+      strDay = "0" + strDay;
+    }
+
+    const month: number = date.getMonth();
+    let strMonth: string = String(month);
+    if (month < 10) {
+      strMonth = "0" + strMonth;
+    }
+
+    return strDay + "." + strMonth + ".";
+  };
+
+  const parseLabs = () => {
+    return lrData.map((elem) => {
+      return (
+        <div className={styles.labContainer} key={elem.id}>
+          <p className={styles.labNumber}>№{elem.number}</p>
+          <p className={styles.labDeadline}>{'Срок ' + dateMaker(elem.deadline)}</p>
+        </div>
+      );
+    });
+  };
+
+  return <div className={styles.headerContainer}>{parseLabs()}</div>;
 };

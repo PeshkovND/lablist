@@ -1,25 +1,35 @@
-import { labData } from "../../../data";
+import { labData, labs } from "../../../data";
 import { useEffect, useState } from "react";
 import styles from "../../../styles/table.module.css";
-import { Row } from "./row/row";
 import { TableHeader } from "./tableHeader/tableHeader";
-import Image from "next/image";
+import { Scores } from "./scores";
 
 export const ResultTable = () => {
-  const [mainData, setMainData] = useState(labData);
-  useEffect(() => setMainData(labData), []);
+  const [scoreData, setScoreData] = useState(labData);
+  useEffect(() => setScoreData(labData), []);
 
-  const headerMaker = () => {
-    return mainData[0].done.map((elem) => {
-      return <TableHeader key={elem.id} lab={elem} />;
-    });
-  };
+  const [lrData, setLrRow] = useState(labs);
+  useEffect(() => setLrRow(labs), []);
 
-  const rowMaker = () => {
-    return mainData.map((elem) => {
-      return <Row key={elem.id} student={elem} />;
-    });
-  };
+  const currentGroup = 'ОПГ-303'
+  const course = 2
 
-  return <div className={styles.resultTableContainer}></div>;
+  const manCount = (len: number) =>{
+    const rem: number = len % 10
+    if(rem <= 4 && rem >= 2) {
+      return String(len) + ' человека'
+    }
+    return String(len) + ' человек'
+  }
+
+  return <div className={styles.resultTableContainer}>
+    <div className={styles.tableNavContainer +' '+ styles.header}>
+      <div>
+        <p className={styles.group}>Группа: {currentGroup}, {course} курс</p>
+        <p className={styles.count}>{manCount(scoreData.length)}</p>
+      </div>
+      <TableHeader/>
+    </div>
+    <Scores/>
+  </div>;
 };

@@ -1,0 +1,33 @@
+.headerContainer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+
+}
+
+.labContainer{
+    text-align: center;
+}
+
+.labNumber {
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4vh;
+
+    letter-spacing: 0.04em;
+
+    color: #181818;
+    margin: 0;
+}
+
+.labDeadline{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.45vh;
+
+    letter-spacing: 0.02em;
+    color: #181818;
+    margin:0
+}
