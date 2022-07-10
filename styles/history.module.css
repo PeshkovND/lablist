@@ -60,7 +60,7 @@
 }
 
 .elemContainer::-webkit-scrollbar {
-    width: 0.8vw;
+    width: 0.7vw;
 }
 
 .elemContainer::-webkit-scrollbar-thumb {

@@ -2,6 +2,7 @@ export type Student = {
   id: number;
   name: string;
   surname: string;
+  photo: string | null;
   group: string;
   done: DoneLab[];
   email: string;

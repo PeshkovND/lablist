@@ -1,0 +1,57 @@
+.studentCard {
+    display: grid;
+    grid-template-columns: 11vh auto;
+    background: #FFFFFF;
+    border-radius: 6px;
+    margin-right: 0.5vw;
+    width: auto;
+    height: 11vh;
+    margin-bottom: 1vh;
+}
+
+.studentProfileContainer {
+    margin: 0.75vh;
+    height: 9.5vh;
+    width: 9.5vh;
+}
+
+.studentNameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0.75vh;
+    margin-bottom: 0.75vh;
+    height: 9.5vh;
+    width: auto;
+}
+
+.studentPic {
+    border-radius: 6px;
+}
+
+.attentionPic {
+    height: 2.7vh;
+    width: 2.7vh;
+}
+
+.attentionContainer {
+    display: grid;
+    grid-template-columns: auto 2.7vh;
+    margin-right: 0.7vh;
+}
+
+.name {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+
+    letter-spacing: 0.02em;
+
+    color: #181818;
+    margin: 0;
+}
+
+.name:last-child {
+    margin-bottom: 0.3vh;
+}

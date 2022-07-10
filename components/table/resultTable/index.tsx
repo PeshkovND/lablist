@@ -2,7 +2,7 @@ import { labData, labs } from "../../../data";
 import { useEffect, useState } from "react";
 import styles from "../../../styles/table.module.css";
 import { TableHeader } from "./tableHeader/tableHeader";
-import { Scores } from "./scores";
+import { TableContent } from "./tableContent";
 
 export const ResultTable = () => {
   const [scoreData, setScoreData] = useState(labData);
@@ -30,6 +30,6 @@ export const ResultTable = () => {
       </div>
       <TableHeader/>
     </div>
-    <Scores/>
+    <TableContent/>
   </div>;
 };
