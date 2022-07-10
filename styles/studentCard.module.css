@@ -6,7 +6,13 @@
     margin-right: 0.5vw;
     width: auto;
     height: 11vh;
+    margin-top: 1vh;
     margin-bottom: 1vh;
+}
+
+.studentCard:first-child {
+    margin-top: 0;
+
 }
 
 .studentProfileContainer {

@@ -2,11 +2,11 @@ import styles from "../../../../../styles/studentCard.module.css";
 import Image from "next/image";
 import { Student, DoneLab } from "../../../../../types";
 
-interface HistoryElemProps {
+interface StudentProps {
   elem: Student;
 }
 
-export const StudentCard = (props: HistoryElemProps) => {
+export const StudentCard = (props: StudentProps) => {
 
   const checkPhoto = (elem: string | null) =>{
     if (elem) {

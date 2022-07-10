@@ -1,4 +1,6 @@
 .headerContainer {
+    margin-left: 0.3vw;
+    margin-right: 0.3vw;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
 
