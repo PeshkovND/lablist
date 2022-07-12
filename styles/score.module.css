@@ -12,8 +12,19 @@
     text-align: center;
     width: 9.5vh;
     height: 9.5vh;
-    background: #259D88;
     border-radius: 6px;
+}
+
+.score.done {
+    background: #259D88;
+}
+
+.score.send {
+    background: #FFBD80;
+}
+
+.score.return {
+    background: #D5A0C8;
 }
 
 .scoreNumber {

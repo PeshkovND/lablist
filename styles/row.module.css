@@ -12,3 +12,7 @@
 .rowContainer:first-child{
     padding-top: 0;
 }
+
+.rowContainer:last-child{
+    border-bottom: 0.1vh solid #ffffff;
+}
