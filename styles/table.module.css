@@ -28,27 +28,36 @@
 
 .tableNavContainer.header {
     height: 7%;
+    overflow-y: scroll;
+}
+
+.tableNavContainer.header::-webkit-scrollbar {
+    width: 0.7vw;
+}
+
+.tableNavContainer.header::-webkit-scrollbar-track{
+    width: 0.7vw;
 }
 
 .tableNavContainer.scores {
     align-items:flex-start;
     height: 93%;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 .tableNavContainer.scores::-webkit-scrollbar {
     width: 0.7vw;
 }
 
-.tableNavContainer.scores::-webkit-scrollbar-track {
-    background: #FFFFFF;
-    border-top-right-radius: 6px;
-}
 
 .tableNavContainer.scores::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 10px 10px rgb(193, 193, 193);
-    border: solid 0.3vw white;
+    border: solid 0.3vw #E8E8E8;
     border-radius: 15px;
+}
+
+.tableNavContainer.scores::-webkit-scrollbar-track{
+    width: 0.7vw;
 }
 
 .tableNavText {
