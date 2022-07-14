@@ -22,13 +22,14 @@
     grid-template-columns: 25% 75%;
     align-items: center;
     margin-left: 0.5vw;
-    margin-right: 0.5vw;
+    margin-right: 0.7vw;
     background: #E8E8E8;
 }
 
 .tableNavContainer.header {
     height: 7%;
     overflow-y: scroll;
+    margin-right: 0;
 }
 
 .tableNavContainer.header::-webkit-scrollbar {
@@ -40,6 +41,7 @@
 }
 
 .tableNavContainer.scores {
+    margin-right: 0;
     align-items:flex-start;
     height: 93%;
     overflow-y: scroll;
@@ -82,6 +84,7 @@
 .arrow {
     display: inline;
     margin-right: 0.7vw;
+    cursor: pointer;
 }
 
 .group {

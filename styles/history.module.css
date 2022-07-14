@@ -25,8 +25,8 @@
     color: #181818;
 
     border-bottom: 2px solid #224973;
-    margin-left: auto;
-    margin-right: auto;
+
+    cursor: pointer;
 }
 
 .messageButton {
@@ -44,8 +44,8 @@
     color: #9498A0;
 
     border-bottom: 2px solid #9498A0;
-    margin-left: auto;
-    margin-right: auto;
+
+    cursor: pointer;
 }
 
 .elemContainer {

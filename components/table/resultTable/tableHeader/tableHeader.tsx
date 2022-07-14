@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { labData, labs } from "../../../../data";
+import { labs } from "../../../../data";
 import styles from "../../../../styles/tableHeader.module.css";
 
 export const TableHeader = () => {
@@ -13,7 +13,7 @@ export const TableHeader = () => {
       strDay = "0" + strDay;
     }
 
-    const month: number = date.getMonth();
+    const month: number = date.getMonth() + 1;
     let strMonth: string = String(month);
     if (month < 10) {
       strMonth = "0" + strMonth;

@@ -8,6 +8,7 @@
     height: 11vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    cursor: pointer;
 }
 
 .studentCard:first-child {

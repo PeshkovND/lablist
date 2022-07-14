@@ -11,7 +11,7 @@ export const Table = () => {
         <p className={styles.tableNavText}>Студенты:</p>
         <div className={styles.tableNav}>
           <p className={styles.tableNavText}>Выполнение работ:</p>
-          <div>
+          <div style={{marginRight: '0.4vw'}}>
             <div className={styles.arrow}>
               <Image
                 src="/leftArrow.png"

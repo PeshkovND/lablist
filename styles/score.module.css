@@ -13,6 +13,7 @@
     width: 9.5vh;
     height: 9.5vh;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .score.done {

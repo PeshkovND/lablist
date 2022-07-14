@@ -10,6 +10,7 @@
 .profilePicContainer {
     width: 7vh;
     height: 7vh;
+    cursor: pointer;
 }
 
 .profilePic {
@@ -19,6 +20,7 @@
 .nameContainer {
     margin-left: 1vw;
     margin-right: 0.6vw;
+    cursor: pointer;
 }
 
 .name {
@@ -42,5 +44,6 @@
 }
 
 .strokeContainer {
+    cursor: pointer;
     align-items: center;
 }
