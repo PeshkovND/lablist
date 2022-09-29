@@ -1,0 +1,90 @@
+.historyElemContainer {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    overflow-wrap: break-word;
+}
+
+.historyElemContainer:last-child {
+    padding-bottom: 2vh;
+}
+
+.dateContainer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.6vh;
+    align-items: center;
+}
+
+.boxStatus {
+    border-radius: 3px;
+    height: 2vh;
+    width: 2vh;
+    margin-right: 0.5vw;
+}
+
+.boxStatus.remake {
+    background: #D5A0C8;
+}
+
+.boxStatus.done {
+    background: #259D88;
+}
+
+.boxStatus.send {
+    background: #FFBD80;
+}
+
+.date {
+    margin: 0;
+    font-size: 1vw;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.date.remake {
+    color: #D5A0C8;
+}
+
+.date.done {
+    color: #259D88;
+}
+
+.date.send {
+    color: #FFBD80;
+}
+
+.text {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.85vw;
+
+    letter-spacing: 0.02em;
+
+    margin: 0;
+}
+
+.text.name {
+    color: #224973;
+}
+
+.text.labName {
+    color: #181818;
+}
+
+.text.statusWord {
+    color: #181818;
+}
+
+.text.done {
+    color: #259D88;
+}
+
+.text.send {
+    color: #FFBD80;
+}
+
+.text.remake {
+    color: #D5A0C8;
+}
