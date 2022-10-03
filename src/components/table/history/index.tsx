@@ -1,4 +1,4 @@
-import styles from "../../../styles/history.module.css";
+import styles from "./history.module.css";
 import { HistoryElem } from "./historyElem";
 import { historyData } from "../../../data";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ export const History = () => {
   useEffect(() => setMainData(historyData), []);
 
   const renderHistory = () => {
-    return historyData.map((elem) => {
+    return data.map((elem) => {
       return <HistoryElem key={elem.id} elem={elem} />;
     });
   };

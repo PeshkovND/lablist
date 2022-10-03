@@ -1,15 +1,12 @@
-import { labData, labs } from "../../../data";
+import { labData } from "../../../data";
 import { useEffect, useState } from "react";
-import styles from "../../../styles/table.module.css";
+import styles from "./resultTable.module.css";
 import { TableHeader } from "./tableHeader/tableHeader";
 import { TableContent } from "./tableContent";
 
 export const ResultTable = () => {
   const [scoreData, setScoreData] = useState(labData);
   useEffect(() => setScoreData(labData), []);
-
-  const [lrData, setLrRow] = useState(labs);
-  useEffect(() => setLrRow(labs), []);
 
   const currentGroup = 'ОПГ-303'
   const course = 2

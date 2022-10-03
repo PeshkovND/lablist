@@ -1,0 +1,50 @@
+.resultTableContainer {
+    height: 77vh;
+    width: 100%;
+    align-items: center;
+}
+
+.tableNavContainer {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+    margin-left: 0.5vw;
+    margin-right: 0.7vw;
+    background: #E8E8E8;
+}
+
+.tableNavContainer.header {
+    height: 7%;
+    overflow-y: scroll;
+    margin-right: 0;
+}
+
+.tableNavContainer.header::-webkit-scrollbar {
+    width: 0.7vw;
+}
+
+.tableNavContainer.header::-webkit-scrollbar-track{
+    width: 0.7vw;
+}
+
+.group {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4vh;
+
+    letter-spacing: 0.04em;
+    color: #181818;
+    margin: 0;
+}
+
+.count {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.45vh;
+
+    letter-spacing: 0.02em;
+    color: #181818;
+    margin:0
+}

@@ -1,4 +1,4 @@
-import styles from "../../../../../styles/row.module.css";
+import styles from "./row.module.css";
 import { DoneLab, Student } from "../../../../../types";
 import { Score } from "./score";
 

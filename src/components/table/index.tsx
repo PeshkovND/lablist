@@ -1,4 +1,4 @@
-import styles from "../../styles/table.module.css";
+import styles from "./table.module.css";
 import { ResultTable } from "./resultTable";
 import { History } from "./history";
 

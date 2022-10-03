@@ -1,4 +1,4 @@
-import styles from "../../styles/diapozon.module.css";
+import styles from "./diapozon.module.css";
 
 export const Diapozon = () => {
   return (

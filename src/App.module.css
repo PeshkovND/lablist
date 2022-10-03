@@ -1,0 +1,12 @@
+.main {
+  display: grid;
+  grid-template-columns: 7vw 93vw;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.over {
+  display: flex;
+  justify-content: space-between;
+  height: 16vh;
+}

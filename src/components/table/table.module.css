@@ -1,0 +1,46 @@
+.table {
+    background: #E8E8E8;
+    width: 90.4vw;
+    height: 84vh;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 8fr 2fr;
+    grid-template-rows: 7vh auto;
+    margin-left: 1.3vw;
+    margin-right: 1.3vw;
+    border-radius: 6px;
+}
+
+.tableNavContainer {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+    margin-left: 0.5vw;
+    margin-right: 0.7vw;
+    background: #E8E8E8;
+}
+
+.arrow {
+    display: inline;
+    margin-right: 0.7vw;
+    cursor: pointer;
+}
+
+.tableNavText {
+    font-family: 'Lora', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3vw;
+
+    letter-spacing: 0.02em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tableNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

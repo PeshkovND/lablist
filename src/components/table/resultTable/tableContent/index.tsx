@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { labData, labs } from "../../../../data";
-import styles from "../../../../styles/table.module.css";
+import { labData } from "../../../../data";
+import styles from "./tableContent.module.css";
 import { Row } from "./row";
 import { StudentCard } from "./studentCard";
 
@@ -9,13 +9,13 @@ export const TableContent = () => {
     useEffect(() => setScoreData(labData), []);
     
     const parseStudents = () => {
-        return labData.map(elem =>{
+        return scoreData.map(elem =>{
             return <StudentCard key={elem.id} elem={elem}/>
         })
     }
 
     const parseRow = () => {
-      return labData.map(elem =>{
+      return scoreData.map(elem =>{
           return <Row key={elem.id} elem={elem}/>
       })
   }

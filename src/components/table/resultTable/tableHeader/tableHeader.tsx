@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { labs } from "../../../../data";
-import styles from "../../../../styles/tableHeader.module.css";
+import styles from "./tableHeader.module.css";
 
 export const TableHeader = () => {
   const [lrData, setLrRow] = useState(labs);

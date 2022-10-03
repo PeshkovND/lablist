@@ -56,7 +56,7 @@
     margin-right: auto;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .elemContainer::-webkit-scrollbar {

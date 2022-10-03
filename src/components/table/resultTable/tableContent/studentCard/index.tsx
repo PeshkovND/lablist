@@ -1,4 +1,4 @@
-import styles from "../../../../../styles/studentCard.module.css";
+import styles from "./studentCard.module.css";
 import { Student, DoneLab } from "../../../../../types";
 
 interface StudentProps {

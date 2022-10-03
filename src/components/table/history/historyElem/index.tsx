@@ -1,4 +1,4 @@
-import styles from "../../../../styles/historyElem.module.css";
+import styles from "./historyElem.module.css";
 import { HistoryType } from "../../../../types";
 
 interface HistoryElemProps {

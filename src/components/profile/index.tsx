@@ -1,4 +1,4 @@
-import styles from "../../styles/profile.module.css";
+import styles from "./profile.module.css";
 
 export const Profile = () => {
   return (
