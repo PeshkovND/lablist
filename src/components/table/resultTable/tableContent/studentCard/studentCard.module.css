@@ -1,13 +1,12 @@
 .studentCard {
-    display: grid;
-    grid-template-columns: 11vh auto;
+    display: flex;
+    justify-content: flex-start;
     background: #FFFFFF;
     border-radius: 6px;
     margin-right: 0.5vw;
-    width: auto;
-    height: 11vh;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    height: 5.424vw;
+    margin-top: 0.35vw;
+    margin-bottom: 0.35vw;
     cursor: pointer;
 }
 
@@ -16,35 +15,39 @@
 
 }
 
-.studentProfileContainer {
-    margin: 0.75vh;
-    height: 9.5vh;
-    width: 9.5vh;
+.studentPicContainer{
+    margin-left: 2.7%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-.studentNameContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 0.75vh;
-    margin-bottom: 0.75vh;
-    height: 9.5vh;
-    width: auto;
+.studentPicAlign {
+    height: 85%;
 }
+
 
 .studentPic {
+    height: 100%;
     border-radius: 6px;
 }
 
-.attentionPic {
-    height: 2.7vh;
-    width: 2.7vh;
+.studentNameContainer {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .attentionContainer {
-    display: grid;
-    grid-template-columns: auto 2.7vh;
-    margin-right: 0.7vh;
+    height: 25%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2.8%;
+    margin-top: 3%;
 }
 
 .name {
@@ -52,13 +55,10 @@
     font-style: normal;
     font-weight: 400;
     font-size: 1vw;
-
-    letter-spacing: 0.02em;
-
     color: #181818;
     margin: 0;
 }
 
 .name:last-child {
-    margin-bottom: 0.3vh;
+    margin-bottom: 0.35vw;
 }

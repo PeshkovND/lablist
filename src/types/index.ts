@@ -3,6 +3,7 @@ export type Student = {
   name: string;
   surname: string;
   photo: string | null;
+  course: String;
   group: string;
   done: DoneLab[];
   email: string;

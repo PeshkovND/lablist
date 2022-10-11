@@ -7,7 +7,8 @@ interface StudentProps {
 
 export const StudentCard = (props: StudentProps) => {
 
-  const checkPhoto = (elem: string | null) =>{
+
+  const checkPhoto = (elem: string | null) => {
     if (elem) {
       return elem
     }
@@ -16,10 +17,10 @@ export const StudentCard = (props: StudentProps) => {
     }
   }
 
-  const checkAttention = (array: DoneLab[]) =>{
+  const checkAttention = (array: DoneLab[]) => {
     const res = array.filter(elem => elem.status === 1)
-    if (res.length != 0){
-      return <img src="/attention.png" alt="" width={"100%"} height={"100%"} />
+    if (res.length !== 0) {
+      return <img src="/attention.png" alt="" height={"100%"} />
     }
 
     else {
@@ -29,27 +30,25 @@ export const StudentCard = (props: StudentProps) => {
 
   return (
     <div className={styles.studentCard}>
-      <div className={styles.studentProfileContainer}>
-        <img
-          src={checkPhoto(props.elem.photo)}
-          alt=""
-          width={"100%"}
-          height={"100%"}
-          className={styles.studentPic}
-        />
+      <div className={styles.studentPicContainer}>
+        <div className={styles.studentPicAlign}>
+          <img
+            src={checkPhoto(props.elem.photo)}
+            alt=""
+            className={styles.studentPic}
+          />
+        </div>
       </div>
       <div className={styles.studentNameContainer}>
         <div className={styles.attentionContainer}>
-          <div></div>
-          <div className={styles.attentionPic}>
-            {checkAttention(props.elem.done)}
-          </div>
+          {checkAttention(props.elem.done)}
         </div>
         <div>
-            <p className={styles.name}>{props.elem.surname}</p>
-            <p className={styles.name}>{props.elem.name}</p>
+          <p className={styles.name}>{props.elem.surname}</p>
+          <p className={styles.name}>{props.elem.name}</p>
         </div>
       </div>
+
     </div>
   );
 };
