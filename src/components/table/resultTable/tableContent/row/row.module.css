@@ -1,10 +1,11 @@
 .rowContainer{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    height: 11vh;
-    padding-top: 0.5vh;
-    padding-bottom: 0.4vh;
-    border-bottom: 0.1vh solid #9498A0;
+    align-items: center;
+    height: 5.424vw;
+    padding-bottom: 0.075vw;
+    padding-top: 0.175vw;
+    border-bottom: 0.1vw solid #9498A0;
     margin-left: 0.3vw;
     margin-right: 0.3vw;
 }

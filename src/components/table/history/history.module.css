@@ -4,7 +4,7 @@
 }
 
 .togler {
-    height: 7%;
+    height: 8%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -50,7 +50,7 @@
 
 .elemContainer {
     background-color: #FFFFFF;
-    height: 93%;
+    height: 92%;
     width: 92%;
     margin-left: auto;
     margin-right: auto;

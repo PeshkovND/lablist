@@ -21,11 +21,11 @@ export const Score = (props: ScoreProps) => {
         color = styles.return;
     }
     return (
-      <div className={styles.score + ' ' + color}>
-        <div className={styles.centerText}>
-          <p className={styles.scoreNumber}>{elem.score}</p>
+        <div className={styles.score + ' ' + color}>
+          <div className={styles.centerText}>
+            <p className={styles.scoreNumber}>{elem.score}</p>
+          </div>
         </div>
-      </div>
     );
   };
 

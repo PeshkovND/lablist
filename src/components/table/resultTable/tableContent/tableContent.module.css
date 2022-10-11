@@ -9,8 +9,7 @@
 
 .tableNavContainer.scores {
     margin-right: 0;
-    align-items:flex-start;
-    height: 93%;
+    height: 92%;
     overflow-y: auto;
 }
 
