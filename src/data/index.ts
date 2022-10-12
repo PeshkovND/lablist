@@ -6,7 +6,8 @@ export const labData: Student[] = [
     name: "Александр",
     surname: "Александров",
     photo: "/user1.png",
-    email: "example@mail.ru",
+    email: "alex@mail.ru",
+    phone: '+78005553535',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     done: [
@@ -21,6 +22,18 @@ export const labData: Student[] = [
       { id: 8, labId: 8, status: 3, score: 0 },
       { id: 9, labId: 9, status: 3, score: 0 },
     ],
+    contacts: [
+      {
+        id: 0,
+        type: 'vk',
+        value: 'https://vk.com/alex',
+      },
+      {
+        id: 1,
+        type: 'tg',
+        value: '@alex',
+      },
+    ]
   },
   {
     id: 1,
@@ -29,7 +42,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: "/user2.png",
-    email: "example@mail.ru",
+    email: "ivan@mail.ru",
+    phone: '+78006666666',
     done: [
       { id: 11, labId: 0, status: 0, score: 10 },
       { id: 12, labId: 1, status: 0, score: 10 },
@@ -42,6 +56,23 @@ export const labData: Student[] = [
       { id: 19, labId: 8, status: 3, score: 0 },
       { id: 20, labId: 9, status: 3, score: 0 },
     ],
+    contacts: [
+      {
+        id: 2,
+        type: 'vk',
+        value: 'https://vk.com/ivan',
+      },
+      {
+        id: 3,
+        type: 'instagram',
+        value: 'ivan2001',
+      },
+      {
+        id: 4,
+        type: 'tg',
+        value: '@ivan',
+      },
+    ]
   },
   {
     id: 2,
@@ -50,7 +81,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: "/user3.png",
-    email: "example@mail.ru",
+    email: "gena@mail.ru",
+    phone: '+79041111111',
     done: [
       { id: 22, labId: 0, status: 3, score: 0 },
       { id: 23, labId: 1, status: 3, score: 0 },
@@ -63,6 +95,13 @@ export const labData: Student[] = [
       { id: 31, labId: 8, status: 3, score: 0 },
       { id: 32, labId: 9, status: 3, score: 0 },
     ],
+    contacts: [
+      {
+        id: 5,
+        type: 'vk',
+        value: 'https://vk.com/gena',
+      },
+    ]
   },
   {
     id: 3,
@@ -71,7 +110,8 @@ export const labData: Student[] = [
     photo: "/user6.png",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    email: "example@mail.ru",
+    email: "elena@mail.ru",
+    phone: '+79042222222',
     done: [
       { id: 34, labId: 0, status: 0, score: 10 },
       { id: 35, labId: 1, status: 0, score: 10 },
@@ -84,12 +124,40 @@ export const labData: Student[] = [
       { id: 42, labId: 8, status: 0, score: 9 },
       { id: 43, labId: 9, status: 0, score: 10 },
     ],
+    contacts: [
+      {
+        id: 6,
+        type: 'vk',
+        value: 'https://vk.com/elena',
+      },
+      {
+        id: 7,
+        type: 'instagram',
+        value: 'elena2001',
+      },
+      {
+        id: 8,
+        type: 'tg',
+        value: '@elena',
+      },
+      {
+        id: 9,
+        type: 'skype',
+        value: 'elena',
+      },
+      {
+        id: 28,
+        type: 'discord',
+        value: 'elena#1234',
+      },
+    ]
   },
   {
     id: 4,
     name: "Дмитрий",
     surname: "Дмитриев",
-    email: "example@mail.ru",
+    email: "dmitry@mail.ru",
+    phone: '+79043333333',
     photo: null,
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
@@ -110,7 +178,8 @@ export const labData: Student[] = [
     id: 5,
     name: "Алексей",
     surname: "Алексеев",
-    email: "example@mail.ru",
+    email: "lexa@mail.ru",
+    phone: '+79044444444',
     photo: '/user4.png',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
@@ -126,6 +195,13 @@ export const labData: Student[] = [
       { id: 64, labId: 8, status: 2, score: 0 },
       { id: 65, labId: 9, status: 2, score: 0 },
     ],
+    contacts: [
+      {
+        id: 10,
+        type: 'vk',
+        value: 'https://vk.com/alexey',
+      },
+    ]
   },
   {
     id: 6,
@@ -133,7 +209,8 @@ export const labData: Student[] = [
     surname: "Данилов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    email: "example@mail.ru",
+    email: "danil@mail.ru",
+    phone: '+79046666666',
     photo: '/user5.png',
     done: [
       { id: 67, labId: 0, status: 0, score: 10 },
@@ -154,7 +231,8 @@ export const labData: Student[] = [
     surname: "Вячеславов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    email: "example@mail.ru",
+    email: "slava@mail.ru",
+    phone: '+79047777777',
     photo: null,
     done: [
       { id: 78, labId: 0, status: 0, score: 10 },
@@ -168,15 +246,23 @@ export const labData: Student[] = [
       { id: 86, labId: 8, status: 3, score: 0 },
       { id: 87, labId: 9, status: 3, score: 0 },
     ],
+    contacts: [
+      {
+        id: 11,
+        type: 'vk',
+        value: 'https://vk.com/slava',
+      },
+    ]
   },
   {
     id: 8,
     name: "Евгений",
     surname: "Евгеньев",
     photo: '/user1.png',
+    phone: '+79048888888',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    email: "example@mail.ru",
+    email: "evgeniy@mail.ru",
     done: [
       { id: 89, labId: 0, status: 0, score: 10 },
       { id: 90, labId: 1, status: 0, score: 10 },
@@ -189,6 +275,13 @@ export const labData: Student[] = [
       { id: 97, labId: 8, status: 0, score: 10 },
       { id: 98, labId: 9, status: 0, score: 10 },
     ],
+    contacts: [
+      {
+        id: 12,
+        type: 'vk',
+        value: 'https://vk.com/zhenya',
+      },
+    ]
   },
   {
     id: 9,
@@ -197,7 +290,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user7.png',
-    email: "example@mail.ru",
+    email: "ekatrina@mail.ru",
+    phone: '+79049999999',
     done: [
       { id: 100, labId: 0, status: 0, score: 10 },
       { id: 101, labId: 1, status: 0, score: 10 },
@@ -210,6 +304,18 @@ export const labData: Student[] = [
       { id: 108, labId: 8, status: 1, score: 0 },
       { id: 109, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 13,
+        type: 'vk',
+        value: 'https://vk.com/katya',
+      },
+      {
+        id: 14,
+        type: 'tg',
+        value: '@katya',
+      },
+    ]
   },
   {
     id: 10,
@@ -218,7 +324,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user6.png',
-    email: "example@mail.ru",
+    email: "maria@mail.ru",
+    phone: '+79040000000',
     done: [
       { id: 111, labId: 0, status: 0, score: 10 },
       { id: 112, labId: 1, status: 0, score: 10 },
@@ -231,6 +338,18 @@ export const labData: Student[] = [
       { id: 119, labId: 8, status: 0, score: 7 },
       { id: 120, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 15,
+        type: 'vk',
+        value: 'https://vk.com/maria',
+      },
+      {
+        id: 16,
+        type: 'tg',
+        value: '@maria',
+      },
+    ]
   },
   {
     id: 11,
@@ -239,7 +358,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user2.png',
-    email: "example@mail.ru",
+    email: "stepa@mail.ru",
+    phone: '+79081111111',
     done: [
       { id: 122, labId: 0, status: 0, score: 10 },
       { id: 123, labId: 1, status: 0, score: 10 },
@@ -252,6 +372,13 @@ export const labData: Student[] = [
       { id: 130, labId: 8, status: 0, score: 7 },
       { id: 131, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 17,
+        type: 'vk',
+        value: 'https://vk.com/stepa',
+      },
+    ]
   },
   {
     id: 12,
@@ -260,7 +387,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user3.png',
-    email: "example@mail.ru",
+    email: "artem@mail.ru",
+    phone: '+79082222222',
     done: [
       { id: 133, labId: 0, status: 0, score: 10 },
       { id: 134, labId: 1, status: 0, score: 10 },
@@ -281,7 +409,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: null,
-    email: "example@mail.ru",
+    email: "stanislave@mail.ru",
+    phone: '+79083333333',
     done: [
       { id: 144, labId: 0, status: 0, score: 10 },
       { id: 145, labId: 1, status: 0, score: 10 },
@@ -294,6 +423,13 @@ export const labData: Student[] = [
       { id: 152, labId: 8, status: 0, score: 7 },
       { id: 153, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 18,
+        type: 'tg',
+        value: '@stanislave',
+      },
+    ]
   },
   {
     id: 14,
@@ -302,7 +438,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user5.png',
-    email: "example@mail.ru",
+    email: "andrew@mail.ru",
+    phone: '+79084444444',
     done: [
       { id: 156, labId: 0, status: 0, score: 10 },
       { id: 157, labId: 1, status: 0, score: 10 },
@@ -315,6 +452,13 @@ export const labData: Student[] = [
       { id: 164, labId: 8, status: 0, score: 7 },
       { id: 165, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 19,
+        type: 'vk',
+        value: 'https://vk.com/andrew',
+      },
+    ]
   },
   {
     id: 15,
@@ -323,7 +467,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/unk.png',
-    email: "example@mail.ru",
+    email: "misha@mail.ru",
+    phone: '+79085555555',
     done: [
       { id: 167, labId: 0, status: 0, score: 10 },
       { id: 168, labId: 1, status: 0, score: 10 },
@@ -344,7 +489,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user4.png',
-    email: "example@mail.ru",
+    email: "nikita@mail.ru",
+    phone: '+79086666666',
     done: [
       { id: 178, labId: 0, status: 0, score: 10 },
       { id: 179, labId: 1, status: 0, score: 10 },
@@ -365,7 +511,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user3.png',
-    email: "example@mail.ru",
+    email: "anton@mail.ru",
+    phone: '+79087777777',
     done: [
       { id: 189, labId: 0, status: 0, score: 10 },
       { id: 190, labId: 1, status: 0, score: 10 },
@@ -378,6 +525,18 @@ export const labData: Student[] = [
       { id: 197, labId: 8, status: 0, score: 7 },
       { id: 198, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 20,
+        type: 'vk',
+        value: 'https://vk.com/anton',
+      },
+      {
+        id: 21,
+        type: 'tg',
+        value: '@anton',
+      },
+    ]
   },
   {
     id: 18,
@@ -386,7 +545,8 @@ export const labData: Student[] = [
     photo: '/user1.png',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    email: "example@mail.ru",
+    email: "sam@mail.ru",
+    phone: '+79088888888',
     done: [
       { id: 200, labId: 0, status: 0, score: 10 },
       { id: 201, labId: 1, status: 0, score: 10 },
@@ -399,6 +559,18 @@ export const labData: Student[] = [
       { id: 208, labId: 8, status: 0, score: 7 },
       { id: 209, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 22,
+        type: 'vk',
+        value: 'https://vk.com/sam',
+      },
+      {
+        id: 23,
+        type: 'tg',
+        value: '@sam',
+      },
+    ]
   },
   {
     id: 19,
@@ -407,7 +579,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user2.png',
-    email: "example@mail.ru",
+    email: "vladik@mail.ru",
+    phone: '+79089999999',
     done: [
       { id: 211, labId: 0, status: 0, score: 10 },
       { id: 212, labId: 1, status: 0, score: 10 },
@@ -420,6 +593,13 @@ export const labData: Student[] = [
       { id: 219, labId: 8, status: 0, score: 7 },
       { id: 220, labId: 9, status: 1, score: 0 },
     ],
+    contacts: [
+      {
+        id: 24,
+        type: 'vk',
+        value: 'https://vk.com/vlad',
+      },
+    ]
   },
   {
     id: 20,
@@ -428,7 +608,8 @@ export const labData: Student[] = [
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     photo: '/user3.png',
-    email: "example@mail.ru",
+    email: "vladimir@mail.ru",
+    phone: '+79080000000',
     done: [
       { id: 222, labId: 0, status: 0, score: 10 },
       { id: 223, labId: 1, status: 0, score: 10 },

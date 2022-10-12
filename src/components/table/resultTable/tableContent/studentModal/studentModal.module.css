@@ -10,7 +10,6 @@
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: 0.3s;
 }
 
 .modal.active {
@@ -23,7 +22,7 @@
     background: #ECF3FD;
     border-radius: 6px;
     transform: scale(0.5);
-    transition: 0.2s all;
+    padding-bottom: 2vmin;
 }
 
 .modalContent.active {
@@ -68,6 +67,10 @@
     flex-grow: 1;
 }
 
+.studentCourseContainer {
+    flex-grow: 4;
+}
+
 .studentName {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
@@ -98,5 +101,76 @@
 
 .group {
     color: #224973;
-    ;
+}
+
+.infoFlexContainer {
+    display: grid;
+    grid-template-columns: 44.75% 44.75%;
+    justify-content: space-evenly;
+    width: 100%;
+    max-height: 40vmin;
+}
+
+.infoContainer {
+    max-height: 34vmin;
+    background: #FFFFFF;
+    border-radius: 6px;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    color: #224973;
+    font-weight: 400;
+    font-size: 2vmin;
+    letter-spacing: 0.02em;
+}
+
+.infoContentContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 90%;
+    margin: 4% auto;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 2.6vmin;
+    letter-spacing: 0.04em;
+
+    margin: 0;
+}
+
+.info {
+    margin-top: 3%;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.anotherTitle{
+    color: #181818;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.anotherInfoContainer{
+    height: 14vmin;
+    overflow: auto;
+    background: #E8E8E8;
+    border-radius: 6px;
+}
+
+.anotherInfoContainer::-webkit-scrollbar {
+    width: 1.6vmin;
+}
+
+
+.anotherInfoContainer::-webkit-scrollbar-thumb {
+    background: #C7E8EF;
+    border-radius: 6px;
+}
+
+.anotherInfoContainer::-webkit-scrollbar-track{
+    border: 0.3vmin solid #C7E8EF;
+    border-radius: 6px;
+    background-color: white;
 }

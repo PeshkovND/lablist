@@ -1,3 +1,9 @@
+export type Contact = {
+  id: number;
+  type: string;
+  value: string;
+}
+
 export type Student = {
   id: number;
   name: string;
@@ -7,6 +13,8 @@ export type Student = {
   group: string;
   done: DoneLab[];
   email: string;
+  phone: string;
+  contacts?: Contact[]
 };
 
 export type Lab = {
