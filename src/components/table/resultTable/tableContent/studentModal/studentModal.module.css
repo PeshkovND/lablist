@@ -109,6 +109,7 @@
     justify-content: space-evenly;
     width: 100%;
     max-height: 40vmin;
+    margin-bottom: 3%;
 }
 
 .infoContainer {
@@ -133,6 +134,9 @@
 }
 
 .title {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    color: #224973;
     font-weight: 600;
     font-size: 2.6vmin;
     letter-spacing: 0.04em;
@@ -173,4 +177,36 @@
     border: 0.3vmin solid #C7E8EF;
     border-radius: 6px;
     background-color: white;
+}
+
+.compliteContainer{
+    display: grid;
+    grid-template-columns: 48.1185% 48.1185%;
+    margin-left: 3.5%;
+    width: 93%;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.statistic{
+    width: 90%;
+    height: 90%;
+    margin: 4% auto;
+}
+
+.counter {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.3vmin;
+    letter-spacing: 0.02em;
+
+
+    color: #181818;
+}
+
+.counter span{
+    color: #224973;
 }

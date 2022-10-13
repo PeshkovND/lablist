@@ -1,6 +1,6 @@
 .rowContainer{
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    display: flex;
+    justify-content: left;
     align-items: center;
     height: 5.424vw;
     padding-bottom: 0.075vw;
