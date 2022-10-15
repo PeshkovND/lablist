@@ -24,7 +24,7 @@
 
     color: #181818;
 
-    border-bottom: 2px solid #224973;
+    border-bottom: 0.05vw solid #224973;
 
     cursor: pointer;
 }
@@ -43,7 +43,7 @@
 
     color: #9498A0;
 
-    border-bottom: 2px solid #9498A0;
+    border-bottom: 0.05vw solid #9498A0;
 
     cursor: pointer;
 }
@@ -54,8 +54,8 @@
     width: 92%;
     margin-left: auto;
     margin-right: auto;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: 0.5vw;
+    border-top-right-radius: 0.5vw;
     overflow-y: auto;
 }
 
@@ -65,10 +65,10 @@
 
 .elemContainer::-webkit-scrollbar-track {
     border: 0.15vw solid #C7E8EF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }
 
 .elemContainer::-webkit-scrollbar-thumb {
     background: #C7E8EF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }

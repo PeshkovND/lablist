@@ -20,7 +20,7 @@
 .modalContent {
     width: 85vmin;
     background: #ECF3FD;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     transform: scale(0.5);
     padding-bottom: 2vmin;
 }
@@ -115,7 +115,7 @@
 .infoContainer {
     max-height: 34vmin;
     background: #FFFFFF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
@@ -160,7 +160,7 @@
     height: 14vmin;
     overflow: auto;
     background: #E8E8E8;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }
 
 .anotherInfoContainer::-webkit-scrollbar {
@@ -170,12 +170,12 @@
 
 .anotherInfoContainer::-webkit-scrollbar-thumb {
     background: #C7E8EF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }
 
 .anotherInfoContainer::-webkit-scrollbar-track{
     border: 0.3vmin solid #C7E8EF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     background-color: white;
 }
 
@@ -185,7 +185,7 @@
     margin-left: 3.5%;
     width: 93%;
     background-color: white;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }
 
 .statistic{

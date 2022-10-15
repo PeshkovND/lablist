@@ -21,7 +21,7 @@ export const TableContent = () => {
 
   const parseStudents = () => {
     return scoreData.map(elem => {
-      return <div key={elem.id} onClick={() => setModalActiveStudent(elem)}><StudentCard elem={elem} /></div>
+      return <div className={styles.studentElemContainer} key={elem.id} onClick={() => setModalActiveStudent(elem)}><StudentCard elem={elem} /></div>
     })
   }
 

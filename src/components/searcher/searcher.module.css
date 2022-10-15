@@ -1,6 +1,6 @@
 .searcher {
     display: inline-flex;
-    border-bottom: 2px solid #224973;
+    border-bottom: 0.05vw solid #224973;
     width: auto;
     height: 3.5vh;
     align-items: center;

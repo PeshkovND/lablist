@@ -30,15 +30,14 @@ export const StudentCard = (props: StudentProps) => {
 
   return (
     <div className={styles.studentCard}>
-      <div className={styles.studentPicContainer}>
-        <div className={styles.studentPicAlign}>
+        <div className={styles.studentPicContainer}>
           <img
             src={checkPhoto(props.elem.photo)}
             alt=""
             className={styles.studentPic}
           />
         </div>
-      </div>
+
       <div className={styles.studentNameContainer}>
         <div className={styles.attentionContainer}>
           {checkAttention(props.elem.done)}

@@ -6,8 +6,8 @@
 }
 
 .inputer {
-    border: 1px solid #181818;
-    border-radius: 6px;
+    border: 0.05vw solid #181818;
+    border-radius: 0.5vw;
     width: 6vw;
     height: 3vh;
     background: none;

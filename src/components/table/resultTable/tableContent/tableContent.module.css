@@ -20,12 +20,12 @@
 
 .tableNavContainer.scores::-webkit-scrollbar-thumb {
     background: #C7E8EF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }
 
 .tableNavContainer.scores::-webkit-scrollbar-track{
     border: 0.15vw solid #C7E8EF;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     background-color: white;
 }
 
@@ -33,8 +33,8 @@
     width: 100%;
     height: 100%;
     background-color: #FFFFFF;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-top-right-radius: 0.5vw;
+    border-top-left-radius: 0.5vw;
     margin-left: auto;
     margin-right: auto;
 }
@@ -42,4 +42,15 @@
 .studentsContainer{
     width: 100%;
     height: 100%;
+}
+
+.studentElemContainer{
+    margin-top: 0.35vw;
+    margin-bottom: 0.35vw;
+    margin-right: 0.5vw;
+    cursor: pointer;
+}
+
+.studentElemContainer:first-child{
+    margin-top: 0;
 }

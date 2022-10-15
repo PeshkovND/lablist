@@ -15,5 +15,6 @@
 }
 
 .rowContainer:last-child{
-    border-bottom: 0.1vh solid #ffffff;
+    border-bottom: none;
+    padding-bottom: 0.175vw;
 }

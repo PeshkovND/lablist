@@ -1,17 +1,10 @@
 .studentCard {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     background: #FFFFFF;
-    border-radius: 6px;
-    margin-right: 0.5vw;
+    border-radius: 0.5vw;
     height: 5.424vw;
-    margin-top: 0.35vw;
-    margin-bottom: 0.35vw;
-    cursor: pointer;
-}
-
-.studentCard:first-child {
-    margin-top: 0;
 
 }
 
@@ -21,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 85%;
 }
 
 .studentPicAlign {
@@ -31,7 +24,7 @@
 
 .studentPic {
     height: 100%;
-    border-radius: 6px;
+    border-radius: 0.5vw;
 }
 
 .studentNameContainer {
