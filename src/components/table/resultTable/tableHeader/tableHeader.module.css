@@ -1,12 +1,20 @@
+.headerWindow{
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .headerContainer {
-    margin-left: 0.3vw;
-    margin-right: 0.3vw;
+    width: 100%;
     display: flex;
-    justify-content: left;
+    transition: translate;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
 }
 
 .labContainer{
-    width: 10%;
+    min-width: 10%;
+    max-width: 10%;
     text-align: center;
     cursor: pointer;
 }

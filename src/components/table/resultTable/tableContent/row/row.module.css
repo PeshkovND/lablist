@@ -1,13 +1,12 @@
 .rowContainer{
+    width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
     height: 5.424vw;
-    padding-bottom: 0.075vw;
+    padding-bottom: 0.175vw;
     padding-top: 0.175vw;
-    border-bottom: 0.1vw solid #9498A0;
-    margin-left: 0.3vw;
-    margin-right: 0.3vw;
+
 }
 
 .rowContainer:first-child{

@@ -4,7 +4,11 @@ import styles from "./resultTable.module.css";
 import { TableHeader } from "./tableHeader/tableHeader";
 import { TableContent } from "./tableContent";
 
-export const ResultTable = () => {
+interface ResultProps {
+  step: number;
+}
+
+export const ResultTable = (props: ResultProps) => {
   const [scoreData, setScoreData] = useState(labData);
   useEffect(() => setScoreData(labData), []);
 
@@ -25,8 +29,8 @@ export const ResultTable = () => {
         <p className={styles.group}>Группа: {currentGroup}, {course} курс</p>
         <p className={styles.count}>{manCount(scoreData.length)}</p>
       </div>
-      <TableHeader/>
+      <TableHeader step={props.step}/>
     </div>
-    <TableContent/>
+    <TableContent step={props.step}/>
   </div>;
 };

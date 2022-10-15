@@ -6,7 +6,11 @@ import { StudentCard } from "./studentCard";
 import { StudentModal } from "./studentModal";
 import { Student } from "../../../../types";
 
-export const TableContent = () => {
+interface ContentProps {
+  step: number;
+}
+
+export const TableContent = (props: ContentProps) => {
   const [scoreData, setScoreData] = useState(labData);
   const [modalActive, setModalActive] = useState(false);
   const [modalStudent, setModalStudent] = useState<Student | null>(null);
@@ -36,10 +40,14 @@ export const TableContent = () => {
       <div className={styles.studentsContainer}>
         {parseStudents()}
       </div>
-      <div className={styles.scoresContainer}>
-        {parseRow()}
+      <div className={styles.scoresWindow}>
+        <div className={styles.scoresConteiner} style={{
+          transform: `translate(calc(${props.step}*-10%))`
+        }}>
+          {parseRow()}
+        </div>
       </div>
-      <StudentModal key={modalStudent?.id} active={modalActive} setActive={setModalActive} student = {modalStudent} setStudent = {setModalStudent}/>
+      <StudentModal key={modalStudent?.id} active={modalActive} setActive={setModalActive} student={modalStudent} setStudent={setModalStudent} />
     </div>
   );
 };

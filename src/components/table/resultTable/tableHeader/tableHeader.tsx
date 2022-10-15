@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { labs } from "../../../../data";
 import styles from "./tableHeader.module.css";
 
-export const TableHeader = () => {
+interface HeaderProps {
+  step: number;
+}
+
+export const TableHeader = (props: HeaderProps) => {
   const [lrData, setLrRow] = useState(labs);
   useEffect(() => setLrRow(labs), []);
 
@@ -33,5 +37,9 @@ export const TableHeader = () => {
     });
   };
 
-  return <div className={styles.headerContainer}>{parseLabs()}</div>;
+  return (
+    <div className={styles.headerWindow}><div className={styles.headerContainer} style={{
+      transform: `translate(calc(${props.step}*-10%))`
+    }}>{parseLabs()}</div>
+    </div>)
 };

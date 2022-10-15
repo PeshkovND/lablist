@@ -21,6 +21,8 @@ export const labData: Student[] = [
       { id: 7, labId: 7, status: 3, score: 0 },
       { id: 8, labId: 8, status: 3, score: 0 },
       { id: 9, labId: 9, status: 3, score: 0 },
+      { id: 232, labId: 10, status: 3, score: 0 },
+      { id: 233, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -55,6 +57,8 @@ export const labData: Student[] = [
       { id: 18, labId: 7, status: 2, score: 0 },
       { id: 19, labId: 8, status: 3, score: 0 },
       { id: 20, labId: 9, status: 3, score: 0 },
+      { id: 234, labId: 10, status: 3, score: 0 },
+      { id: 235, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -94,6 +98,8 @@ export const labData: Student[] = [
       { id: 30, labId: 7, status: 3, score: 0 },
       { id: 31, labId: 8, status: 3, score: 0 },
       { id: 32, labId: 9, status: 3, score: 0 },
+      { id: 236, labId: 10, status: 3, score: 0 },
+      { id: 237, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -123,6 +129,8 @@ export const labData: Student[] = [
       { id: 41, labId: 7, status: 0, score: 10 },
       { id: 42, labId: 8, status: 0, score: 9 },
       { id: 43, labId: 9, status: 0, score: 10 },
+      { id: 238, labId: 10, status: 3, score: 0 },
+      { id: 239, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -172,6 +180,8 @@ export const labData: Student[] = [
       { id: 52, labId: 7, status: 2, score: 0 },
       { id: 53, labId: 8, status: 3, score: 0 },
       { id: 54, labId: 9, status: 3, score: 0 },
+      { id: 240, labId: 10, status: 3, score: 0 },
+      { id: 241, labId: 11, status: 3, score: 0 },
     ],
   },
   {
@@ -194,6 +204,8 @@ export const labData: Student[] = [
       { id: 63, labId: 7, status: 1, score: 0 },
       { id: 64, labId: 8, status: 2, score: 0 },
       { id: 65, labId: 9, status: 2, score: 0 },
+      { id: 242, labId: 10, status: 3, score: 0 },
+      { id: 243, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -223,6 +235,8 @@ export const labData: Student[] = [
       { id: 74, labId: 7, status: 3, score: 0 },
       { id: 75, labId: 8, status: 3, score: 0 },
       { id: 76, labId: 9, status: 3, score: 0 },
+      { id: 244, labId: 10, status: 3, score: 0 },
+      { id: 245, labId: 11, status: 3, score: 0 },
     ],
   },
   {
@@ -245,6 +259,8 @@ export const labData: Student[] = [
       { id: 85, labId: 7, status: 2, score: 0 },
       { id: 86, labId: 8, status: 3, score: 0 },
       { id: 87, labId: 9, status: 3, score: 0 },
+      { id: 246, labId: 10, status: 3, score: 0 },
+      { id: 247, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -274,6 +290,8 @@ export const labData: Student[] = [
       { id: 96, labId: 7, status: 0, score: 10 },
       { id: 97, labId: 8, status: 0, score: 10 },
       { id: 98, labId: 9, status: 0, score: 10 },
+      { id: 248, labId: 10, status: 0, score: 10 },
+      { id: 249, labId: 11, status: 0, score: 10 },
     ],
     contacts: [
       {
@@ -303,6 +321,8 @@ export const labData: Student[] = [
       { id: 107, labId: 7, status: 1, score: 0 },
       { id: 108, labId: 8, status: 1, score: 0 },
       { id: 109, labId: 9, status: 1, score: 0 },
+      { id: 250, labId: 10, status: 3, score: 0 },
+      { id: 251, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -337,6 +357,8 @@ export const labData: Student[] = [
       { id: 118, labId: 7, status: 0, score: 10 },
       { id: 119, labId: 8, status: 0, score: 7 },
       { id: 120, labId: 9, status: 1, score: 0 },
+      { id: 252, labId: 10, status: 3, score: 0 },
+      { id: 253, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -371,6 +393,8 @@ export const labData: Student[] = [
       { id: 129, labId: 7, status: 0, score: 10 },
       { id: 130, labId: 8, status: 0, score: 7 },
       { id: 131, labId: 9, status: 1, score: 0 },
+      { id: 254, labId: 10, status: 3, score: 0 },
+      { id: 255, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -400,6 +424,8 @@ export const labData: Student[] = [
       { id: 140, labId: 7, status: 0, score: 10 },
       { id: 141, labId: 8, status: 0, score: 7 },
       { id: 142, labId: 9, status: 1, score: 0 },
+      { id: 256, labId: 10, status: 3, score: 0 },
+      { id: 257, labId: 11, status: 3, score: 0 },
     ],
   },
   {
@@ -422,6 +448,8 @@ export const labData: Student[] = [
       { id: 151, labId: 7, status: 0, score: 10 },
       { id: 152, labId: 8, status: 0, score: 7 },
       { id: 153, labId: 9, status: 1, score: 0 },
+      { id: 258, labId: 10, status: 3, score: 0 },
+      { id: 259, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -451,6 +479,8 @@ export const labData: Student[] = [
       { id: 163, labId: 7, status: 0, score: 10 },
       { id: 164, labId: 8, status: 0, score: 7 },
       { id: 165, labId: 9, status: 1, score: 0 },
+      { id: 260, labId: 10, status: 3, score: 0 },
+      { id: 261, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -480,6 +510,8 @@ export const labData: Student[] = [
       { id: 174, labId: 7, status: 0, score: 10 },
       { id: 175, labId: 8, status: 0, score: 7 },
       { id: 176, labId: 9, status: 1, score: 0 },
+      { id: 262, labId: 10, status: 3, score: 0 },
+      { id: 263, labId: 11, status: 3, score: 0 },
     ],
   },
   {
@@ -502,6 +534,8 @@ export const labData: Student[] = [
       { id: 185, labId: 7, status: 0, score: 10 },
       { id: 186, labId: 8, status: 0, score: 7 },
       { id: 187, labId: 9, status: 1, score: 0 },
+      { id: 264, labId: 10, status: 3, score: 0 },
+      { id: 265, labId: 11, status: 3, score: 0 },
     ],
   },
   {
@@ -524,6 +558,8 @@ export const labData: Student[] = [
       { id: 196, labId: 7, status: 0, score: 10 },
       { id: 197, labId: 8, status: 0, score: 7 },
       { id: 198, labId: 9, status: 1, score: 0 },
+      { id: 266, labId: 10, status: 3, score: 0 },
+      { id: 267, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -558,6 +594,8 @@ export const labData: Student[] = [
       { id: 207, labId: 7, status: 0, score: 10 },
       { id: 208, labId: 8, status: 0, score: 7 },
       { id: 209, labId: 9, status: 1, score: 0 },
+      { id: 268, labId: 10, status: 3, score: 0 },
+      { id: 269, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -592,6 +630,8 @@ export const labData: Student[] = [
       { id: 218, labId: 7, status: 0, score: 10 },
       { id: 219, labId: 8, status: 0, score: 7 },
       { id: 220, labId: 9, status: 1, score: 0 },
+      { id: 270, labId: 10, status: 3, score: 0 },
+      { id: 271, labId: 11, status: 3, score: 0 },
     ],
     contacts: [
       {
@@ -621,6 +661,8 @@ export const labData: Student[] = [
       { id: 229, labId: 7, status: 0, score: 10 },
       { id: 230, labId: 8, status: 0, score: 7 },
       { id: 231, labId: 9, status: 1, score: 0 },
+      { id: 272, labId: 10, status: 3, score: 0 },
+      { id: 273, labId: 11, status: 3, score: 0 },
     ],
   },
 ];
@@ -746,6 +788,20 @@ export const labs: Lab[] = [
     number: 10,
     subject: "ООП",
     name: "лр 10",
+    deadline: new Date(2022, 7, 13),
+  },
+  {
+    id: 10,
+    number: 11,
+    subject: "ООП",
+    name: "лр 11",
+    deadline: new Date(2022, 7, 13),
+  },
+  {
+    id: 11,
+    number: 12,
+    subject: "ООП",
+    name: "лр 12",
     deadline: new Date(2022, 7, 13),
   },
 ];
