@@ -1,5 +1,7 @@
-import { DoneLab, Student } from "../../../../../types";
+import { messeges } from "../../../../../data";
+import { DoneLab, Student, Message } from "../../../../../types";
 import { ContactElem } from "./contactElem";
+import { MessageElem } from "./messegeElem";
 import styles from "./studentModal.module.css";
 
 interface ModalProps {
@@ -12,6 +14,7 @@ interface ModalProps {
 export const StudentModal = (props: ModalProps) => {
 
   const doneLabs: DoneLab[] = props.student ? props.student.done.filter((elem) => elem.status === 0) : []
+  const userMessages: Message[] = messeges.filter(elem => (elem.from === props.student?.id && elem.to === 100) || (elem.from === 100 && elem.to === props.student?.id))
   const setUnactive = () => {
     props.setActive(false)
     props.setStudent(null)
@@ -36,6 +39,15 @@ export const StudentModal = (props: ModalProps) => {
     }
   }
 
+  const parseMessages = (student: Student) => {
+
+    return (
+      <div className={styles.messagesContainer}>
+          {userMessages.map(elem => { return <MessageElem key={elem.id} message={elem} student={props.student} /> })}
+      </div>
+    )
+  }
+
   const checkWork = (doneLabs: DoneLab[]) => {
     const count = doneLabs.length
     const rem = count % 10;
@@ -58,7 +70,7 @@ export const StudentModal = (props: ModalProps) => {
             <div onClick={() => setUnactive()} className={styles.closeClickContainer}>
               <img
                 src={'/close.svg'}
-                className={styles.closePicture}
+                width={'100%'}
                 alt='Закрыть'
               />
             </div>
@@ -80,7 +92,7 @@ export const StudentModal = (props: ModalProps) => {
               </div>
             </div>
           </div>
-          <div className={styles.infoFlexContainer}>
+          <div className={styles.infoGridContainer}>
             <div className={styles.infoContainer}>
               <div className={styles.infoContentContainer}>
                 <p className={styles.title}>Контактная информация</p>
@@ -91,7 +103,10 @@ export const StudentModal = (props: ModalProps) => {
               </div>
             </div>
             <div className={styles.infoContainer}>
-              <p className={styles.title}>Сообщения</p>
+              <div className={styles.infoContentContainer}>
+                <p className={styles.title}>Сообщения</p>
+                {parseMessages(student)}
+              </div>
             </div>
           </div>
           <div className={styles.compliteContainer}>

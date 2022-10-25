@@ -41,10 +41,6 @@
     cursor: pointer;
 }
 
-.closePicture {
-    width: 100%;
-}
-
 .studentProfileContainer {
     height: 12vmin;
     display: flex;
@@ -105,34 +101,35 @@
     color: #224973;
 }
 
-.infoFlexContainer {
+.infoGridContainer {
     display: grid;
     grid-template-columns: 44.75% 44.75%;
     justify-content: space-evenly;
     width: 100%;
-    max-height: 40vmin;
+    max-height: 34vmin;
     margin-bottom: 3%;
 }
 
 .infoContainer {
-    max-height: 34vmin;
     background: #FFFFFF;
     border-radius: 0.5vw;
-
+    max-height: 31vmin;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     color: #224973;
     font-weight: 400;
     font-size: 2vmin;
     letter-spacing: 0.02em;
+    padding-bottom: 1.5vmin;
+    padding-top: 1.5vmin;
 }
 
 .infoContentContainer{
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 90%;
-    margin: 4% auto;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .title {
@@ -159,7 +156,7 @@
 }
 
 .anotherInfoContainer{
-    height: 14vmin;
+    height: 100%;
     overflow: auto;
     background: #E8E8E8;
     border-radius: 0.5vw;
@@ -211,4 +208,25 @@
 
 .counter span{
     color: #224973;
+}
+
+.messagesContainer{
+    margin-top: 3%;
+    overflow-y: auto;
+}
+
+.messagesContainer::-webkit-scrollbar {
+    width: 1.6vmin;
+}
+
+
+.messagesContainer::-webkit-scrollbar-thumb {
+    background: #C7E8EF;
+    border-radius: 0.5vw;
+}
+
+.messagesContainer::-webkit-scrollbar-track{
+    border: 0.3vmin solid #C7E8EF;
+    border-radius: 0.5vw;
+    background-color: white;
 }

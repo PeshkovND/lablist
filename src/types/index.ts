@@ -39,3 +39,11 @@ export type HistoryType = {
   labName: string;
   status: number;
 };
+
+export type Message = {
+  id: number;
+  from: number;
+  to: number;
+  theme: string;
+  content: string;
+}
