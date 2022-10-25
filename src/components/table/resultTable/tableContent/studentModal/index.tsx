@@ -22,7 +22,7 @@ export const StudentModal = (props: ModalProps) => {
       return elem
     }
     else {
-      return '/unk.png'
+      return '/unk.svg'
     }
   }
 
@@ -57,7 +57,7 @@ export const StudentModal = (props: ModalProps) => {
           <div className={styles.closeContainer}>
             <div onClick={() => setUnactive()} className={styles.closeClickContainer}>
               <img
-                src={'/close.png'}
+                src={'/close.svg'}
                 className={styles.closePicture}
                 alt='Закрыть'
               />

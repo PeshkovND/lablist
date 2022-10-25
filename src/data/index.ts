@@ -5,7 +5,7 @@ export const labData: Student[] = [
     id: 0,
     name: "Александр",
     surname: "Александров",
-    photo: "/user1.png",
+    photo: "/user1.svg",
     email: "alex@mail.ru",
     phone: '+78005553535',
     group: "ФИТ-191",
@@ -43,7 +43,7 @@ export const labData: Student[] = [
     surname: "Иванов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: "/user2.png",
+    photo: "/user2.svg",
     email: "ivan@mail.ru",
     phone: '+78006666666',
     done: [
@@ -84,7 +84,7 @@ export const labData: Student[] = [
     surname: "Генадиев",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: "/user3.png",
+    photo: "/user3.svg",
     email: "gena@mail.ru",
     phone: '+79041111111',
     done: [
@@ -113,7 +113,7 @@ export const labData: Student[] = [
     id: 3,
     name: "Елена",
     surname: "Еленовна",
-    photo: "/user6.png",
+    photo: "/user6.svg",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     email: "elena@mail.ru",
@@ -190,7 +190,7 @@ export const labData: Student[] = [
     surname: "Алексеев",
     email: "lexa@mail.ru",
     phone: '+79044444444',
-    photo: '/user4.png',
+    photo: '/user4.svg',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     done: [
@@ -223,7 +223,7 @@ export const labData: Student[] = [
     course: "2 курс, очное отделение",
     email: "danil@mail.ru",
     phone: '+79046666666',
-    photo: '/user5.png',
+    photo: '/user5.svg',
     done: [
       { id: 67, labId: 0, status: 0, score: 10 },
       { id: 68, labId: 1, status: 2, score: 0 },
@@ -274,7 +274,7 @@ export const labData: Student[] = [
     id: 8,
     name: "Евгений",
     surname: "Евгеньев",
-    photo: '/user1.png',
+    photo: '/user1.svg',
     phone: '+79048888888',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
@@ -307,7 +307,7 @@ export const labData: Student[] = [
     surname: "Екатеринова",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user7.png',
+    photo: '/user7.svg',
     email: "ekatrina@mail.ru",
     phone: '+79049999999',
     done: [
@@ -343,7 +343,7 @@ export const labData: Student[] = [
     surname: "Мариновна",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user6.png',
+    photo: '/user6.svg',
     email: "maria@mail.ru",
     phone: '+79040000000',
     done: [
@@ -379,7 +379,7 @@ export const labData: Student[] = [
     surname: "Степанов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user2.png',
+    photo: '/user2.svg',
     email: "stepa@mail.ru",
     phone: '+79081111111',
     done: [
@@ -410,7 +410,7 @@ export const labData: Student[] = [
     surname: "Артёмов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user3.png',
+    photo: '/user3.svg',
     email: "artem@mail.ru",
     phone: '+79082222222',
     done: [
@@ -465,7 +465,7 @@ export const labData: Student[] = [
     surname: "Андреев",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user5.png',
+    photo: '/user5.svg',
     email: "andrew@mail.ru",
     phone: '+79084444444',
     done: [
@@ -496,7 +496,7 @@ export const labData: Student[] = [
     surname: "Михаилов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/unk.png',
+    photo: null,
     email: "misha@mail.ru",
     phone: '+79085555555',
     done: [
@@ -520,7 +520,7 @@ export const labData: Student[] = [
     surname: "Никитов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user4.png',
+    photo: '/user4.svg',
     email: "nikita@mail.ru",
     phone: '+79086666666',
     done: [
@@ -544,7 +544,7 @@ export const labData: Student[] = [
     surname: "Антонов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user3.png',
+    photo: '/user3.svg',
     email: "anton@mail.ru",
     phone: '+79087777777',
     done: [
@@ -578,7 +578,7 @@ export const labData: Student[] = [
     id: 18,
     name: "Sam",
     surname: "Jetstream",
-    photo: '/user1.png',
+    photo: '/user1.svg',
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
     email: "sam@mail.ru",
@@ -616,7 +616,7 @@ export const labData: Student[] = [
     surname: "Владиславов",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user2.png',
+    photo: '/user2.svg',
     email: "vladik@mail.ru",
     phone: '+79089999999',
     done: [
@@ -647,7 +647,7 @@ export const labData: Student[] = [
     surname: "Владимиров",
     group: "ФИТ-191",
     course: "2 курс, очное отделение",
-    photo: '/user3.png',
+    photo: '/user3.svg',
     email: "vladimir@mail.ru",
     phone: '+79080000000',
     done: [

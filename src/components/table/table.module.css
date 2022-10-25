@@ -19,8 +19,14 @@
     margin-right: 0.7vw;
 }
 
+.arrowsContainer{
+    display: flex;
+    align-items: center;
+    width: 8%
+}
+
 .arrow {
-    display: inline;
+    display: flex;
     margin-right: 0.7vw;
     cursor: pointer;
     -webkit-touch-callout: none;
@@ -28,7 +34,9 @@
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; 
+    user-select: none;
+    width: 100%;
+    align-items: center;
 }
 
 .tableNavText {

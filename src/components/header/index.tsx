@@ -4,25 +4,28 @@ export const Header = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerImage}>
-        <img src="/logo.png" alt="" width={"14vh"} height={"33vh"} />
+        <img src="/logo.svg" alt="" width={"19%"} />
       </div>
       <div className={styles.headerImage}>
-        <img src="/add.png" alt="" width={"40vh"} height={"40vh"} />
+        <img src="/add.svg" alt="" width={"35%"}/>
       </div>
       <div className={styles.headerImage}>
-        <img src="/pct1.png" alt="" width={"25vh"} height={"21vh"} />
+        <img src="/home.svg" alt="" width={"25%"}/>
       </div>
       <div className={styles.headerImage}>
-        <img src="/pct2.png" alt="" width={"25vh"} height={"25vh"} />
+        <img src="/journal.svg" alt="" width={"25%"}/>
       </div>
       <div className={styles.headerImage}>
-        <img src="/pct3.png" alt="" width={"25vh"} height={"25vh"} />
+        <img src="/folder.svg" alt="" width={"25%"}/>
       </div>
       <div className={styles.headerImage}>
-        <img src="/pct4.png" alt="" width={"21vh"} height={"25vh"} />
+        <img src="/book.svg" alt="" width={"25%"}/>
       </div>
       <div className={styles.headerImage}>
-        <img src="/pct5.png" alt="" width={"25vh"} height={"25vh"} />
+        <img src="/notebook.svg" alt="" width={"22%"}/>
+      </div>
+      <div className={styles.headerImage}>
+        <img src="/presentations.svg" alt="" width={"27%"}/>
       </div>
     </div>
   );

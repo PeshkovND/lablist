@@ -13,14 +13,14 @@ export const StudentCard = (props: StudentProps) => {
       return elem
     }
     else {
-      return '/unk.png'
+      return '/unk.svg'
     }
   }
 
   const checkAttention = (array: DoneLab[]) => {
     const res = array.filter(elem => elem.status === 1)
     if (res.length !== 0) {
-      return <img src="/attention.png" alt="" height={"100%"} />
+      return <img src="/attention.svg" alt="" height={"100%"} />
     }
 
     else {

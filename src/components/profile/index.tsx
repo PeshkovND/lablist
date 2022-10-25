@@ -5,7 +5,7 @@ export const Profile = () => {
     <div className={styles.profileContainer}>
       <div className={styles.profilePicContainer}>
         <img
-          src="/profileImage.png"
+          src="/profileImage.svg"
           alt=""
           width={"100%"}
           height={"100%"}
@@ -17,7 +17,7 @@ export const Profile = () => {
         <p className={styles.mail}>kotik_kompotik@gmail.com</p>
       </div>
       <div className={styles.strokeContainer}>
-        <img src="/stroke.png" alt="" width={"10%"} height={"7%"} />
+        <img src="/stroke.svg" alt="" width={"10%"} height={"7%"} />
       </div>
     </div>
   );

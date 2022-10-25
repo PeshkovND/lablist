@@ -21,17 +21,17 @@ export const Table = () => {
   const checkArrow = (step: number, maxStep: number, arrow: boolean) => {
     if (arrow === false) {
       if (step <= 0 || maxStep <= 0) {
-        return '/leftArrowUnactive.png'
+        return 100
       }
-      else { return '/leftArrow.png' }
+      else { return 0}
     }
     else {
       if (arrow === true) {
         if (step >= maxStep || maxStep <= 0) {
-          return '/rightArrowUnactive.png'
+          return 100
         }
         else {
-          return '/rightArrow.png'
+          return 0
         }
       }
     }
@@ -43,22 +43,21 @@ export const Table = () => {
           <p className={styles.tableNavText}>Студенты:</p>
           <div className={styles.tableNav}>
             <p className={styles.tableNavText}>Выполнение работ:</p>
-            <div style={{ marginRight: '0.4vw' }}>
+            <div className={styles.arrowsContainer}>
               <div className={styles.arrow} onClick={() => handleClick(step, -1)}>
                 <img
-                  src={checkArrow(step, maxStep, false)}
+                  src={'/arrow.svg'}
                   alt=""
-                  width={"20%"}
-                  height={"10%"}
-                  className={styles.arrow}
+                  width={'100%'}
+                  style={{ transform: 'rotate(180deg)',  filter: `grayscale(${checkArrow(step, maxStep, false)}%)`}}
                 />
               </div>
               <div className={styles.arrow} onClick={() => handleClick(step, 1)}>
                 <img
-                  src={checkArrow(step, maxStep, true)}
+                  src={'/arrow.svg'}
                   alt=""
-                  width={"20%"}
-                  height={"10%"}
+                  width={'100%'}
+                  style={{filter: `grayscale(${checkArrow(step, maxStep, true)}%)`}}
                 />
               </div>
             </div>
