@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { labs } from "../../../../data";
+import { Journal } from "../../../../types";
 import styles from "./tableHeader.module.css";
 
 interface HeaderProps {
   step: number;
+  journal: Journal
 }
 
 export const TableHeader = (props: HeaderProps) => {
-  const [lrData, setLrRow] = useState(labs);
-  useEffect(() => setLrRow(labs), []);
+  const [labData, setLabData] = useState(props.journal.labs.sort((a, b) => a.num > b.num ? 1 : -1));
+  useEffect(() => setLabData(props.journal.labs), [props.journal.labs]);
 
   const dateMaker = (date: Date) => {
     const day: number = date.getDate();
@@ -26,12 +27,18 @@ export const TableHeader = (props: HeaderProps) => {
     return strDay + "." + strMonth + ".";
   };
 
+  const checkdeadline = (deadline: Date | undefined) => {
+    if (deadline) {
+      return <p className={styles.labDeadline}>{'Срок ' + dateMaker(deadline)}</p>
+    }
+  }
+
   const parseLabs = () => {
-    return lrData.map((elem) => {
+    return labData.map((elem) => {
       return (
-        <div className={styles.labContainer} key={elem.id}>
-          <p className={styles.labNumber}>№{elem.number}</p>
-          <p className={styles.labDeadline}>{'Срок ' + dateMaker(elem.deadline)}</p>
+        <div className={styles.labContainer} key={elem.num}>
+          <p className={styles.labNumber}>№{elem.num}</p>
+          {checkdeadline(elem.deadline)}        
         </div>
       );
     });

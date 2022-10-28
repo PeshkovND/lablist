@@ -1,37 +1,41 @@
 import { useEffect, useState } from "react";
-import { labData } from "../../../../data";
+import { journals, labs, users } from "../../../../data";
 import styles from "./tableContent.module.css";
 import { Row } from "./row";
 import { StudentCard } from "./studentCard";
 import { StudentModal } from "./studentModal";
-import { Student } from "../../../../types";
+import { Journal, User, Lab } from "../../../../types";
 
 interface ContentProps {
   step: number;
+  journal: Journal
 }
 
 export const TableContent = (props: ContentProps) => {
-  const [scoreData, setScoreData] = useState(labData);
+  const [labsData, setLabsData] = useState(labs.filter((elem) => elem.journalId === props.journal.id));
+  const [studentsData, setStudentsData] = useState(users.filter((elem) => props.journal.students.includes(elem.id)).sort((a, b) => a.id > b.id ? 1 : -1));
   const [modalActive, setModalActive] = useState(false);
-  const [modalStudent, setModalStudent] = useState<Student | null>(null);
+  const [modalStudent, setModalStudent] = useState<User | null>(null);
 
-  useEffect(() => setScoreData(labData), []);
+  useEffect(() => setLabsData(labs.filter((elem) => elem.journalId === props.journal.id)), []);
+  useEffect(() => setStudentsData(users.filter((elem) => props.journal.students.includes(elem.id)).sort((a, b) => a.id > b.id ? 1 : -1)), []);
 
-
-  const setModalActiveStudent = (student: Student) => {
+  const setModalActiveStudent = (student: User) => {
     setModalActive(true);
     setModalStudent(student)
   }
 
   const parseStudents = () => {
-    return scoreData.map(elem => {
-      return <div className={styles.studentElemContainer} key={elem.id} onClick={() => setModalActiveStudent(elem)}><StudentCard elem={elem} /></div>
+    return studentsData.map(elem => {
+      const studentLabs = labsData.filter(i => elem.id === i.userId)
+      return <div className={styles.studentElemContainer} key={elem.id} onClick={() => setModalActiveStudent(elem)}><StudentCard student={elem} labs={studentLabs} /></div>
     })
   }
 
   const parseRow = () => {
-    return scoreData.map(elem => {
-      return <Row key={elem.id} elem={elem} />
+    return studentsData.map(elem => {
+      const studentLabs = labsData.filter(i => elem.id === i.userId).sort((a, b) => a.num > b.num ? 1 : -1)
+      return <Row key={elem.id} student={elem} studentLabs={studentLabs} labs={props.journal.labs} journal={props.journal} />
     })
   }
 

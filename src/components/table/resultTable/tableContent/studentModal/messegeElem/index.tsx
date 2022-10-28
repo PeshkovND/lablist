@@ -1,9 +1,9 @@
-import { Message, Student } from "../../../../../../types"
+import { Message, User } from "../../../../../../types"
 import styles from './messageElem.module.css'
 
 interface MessageProps {
     message: Message;
-    student: Student | null;
+    student: User | null;
 }
 
 interface arrow {
@@ -14,7 +14,7 @@ interface arrow {
 
 export const MessageElem = (props: MessageProps) => {
 
-    const checkArrow = (message: Message, student: Student | null): arrow => {
+    const checkArrow = (message: Message, student: User | null): arrow => {
         if (student) {
             if (message.to === student.id)
                 return { rotate: 180, grayscale: 100, style: styles.send }

@@ -1,36 +1,33 @@
-import { labData } from "../../../data";
 import { useEffect, useState } from "react";
 import styles from "./resultTable.module.css";
-import { TableHeader } from "./tableHeader/tableHeader";
+import { TableHeader } from "./tableHeader";
 import { TableContent } from "./tableContent";
+import { Journal } from "../../../types";
 
 interface ResultProps {
   step: number;
+  journal: Journal
 }
 
 export const ResultTable = (props: ResultProps) => {
-  const [scoreData, setScoreData] = useState(labData);
-  useEffect(() => setScoreData(labData), []);
-
-  const currentGroup = 'ОПГ-303'
-  const course = 2
-
-  const manCount = (len: number) =>{
+  const [count, setCount] = useState(0);
+  useEffect(() => setCount(props.journal.students.length), [props.journal.students.length]);
+  const manCount = (len: number) => {
     const rem: number = len % 10
-    if(rem <= 4 && rem >= 2) {
+    if (rem <= 4 && rem >= 2) {
       return String(len) + ' человека'
     }
     return String(len) + ' человек'
   }
 
   return <div className={styles.resultTableContainer}>
-    <div className={styles.tableNavContainer +' '+ styles.header}>
+    <div className={styles.tableNavContainer + ' ' + styles.header}>
       <div>
-        <p className={styles.group}>Группа: {currentGroup}, {course} курс</p>
-        <p className={styles.count}>{manCount(scoreData.length)}</p>
+        <p className={styles.group}>{props.journal.discription}</p>
+        <p className={styles.count}>{manCount(count)}</p>
       </div>
-      <TableHeader step={props.step}/>
+      <TableHeader journal={props.journal} step={props.step} />
     </div>
-    <TableContent step={props.step}/>
+    <TableContent journal={props.journal} step={props.step} />
   </div>;
 };

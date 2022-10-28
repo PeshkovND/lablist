@@ -1,8 +1,9 @@
 import styles from "./studentCard.module.css";
-import { Student, DoneLab } from "../../../../../types";
+import { User, Lab } from "../../../../../types";
 
 interface StudentProps {
-  elem: Student;
+  student: User;
+  labs: Lab[];
 }
 
 export const StudentCard = (props: StudentProps) => {
@@ -17,9 +18,9 @@ export const StudentCard = (props: StudentProps) => {
     }
   }
 
-  const checkAttention = (array: DoneLab[]) => {
-    const res = array.filter(elem => elem.status === 1)
-    if (res.length !== 0) {
+  const checkAttention = (array: Lab[]) => {
+    const res = array.find(elem => elem.status === 1)
+    if (res) {
       return <img src="/attention.svg" alt="" height={"100%"} />
     }
 
@@ -30,21 +31,21 @@ export const StudentCard = (props: StudentProps) => {
 
   return (
     <div className={styles.studentCard}>
-        <div className={styles.studentPicContainer}>
-          <img
-            src={checkPhoto(props.elem.photo)}
-            alt=""
-            className={styles.studentPic}
-          />
-        </div>
+      <div className={styles.studentPicContainer}>
+        <img
+          src={checkPhoto(props.student.photo)}
+          alt=""
+          className={styles.studentPic}
+        />
+      </div>
 
       <div className={styles.studentNameContainer}>
         <div className={styles.attentionContainer}>
-          {checkAttention(props.elem.done)}
+          {checkAttention(props.labs)}
         </div>
         <div>
-          <p className={styles.name}>{props.elem.surname}</p>
-          <p className={styles.name}>{props.elem.name}</p>
+          <p className={styles.name}>{props.student.surname}</p>
+          <p className={styles.name}>{props.student.name}</p>
         </div>
       </div>
 
