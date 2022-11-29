@@ -10,10 +10,10 @@ export const Score = (props: ScoreProps) => {
     let color: string;
     if (props.lab) {
       switch (props.lab.status) {
-        case 0:
+        case "Принята":
           color = styles.done;
           break;
-        case 1:
+        case "Сдана на проверку":
           color = styles.send;
           break;
         default:

@@ -1,52 +1,47 @@
-import { useEffect, useState } from "react";
-import { Journal } from "../../../../types";
+import { useAppSelector } from "../../../../hooks";
 import styles from "./tableHeader.module.css";
 
 interface HeaderProps {
   step: number;
-  journal: Journal
 }
 
 export const TableHeader = (props: HeaderProps) => {
-  const [labData, setLabData] = useState(props.journal.labs.sort((a, b) => a.num > b.num ? 1 : -1));
-  useEffect(() => setLabData(props.journal.labs), [props.journal.labs]);
+  const journal = useAppSelector((state) => state.journal.journal);
 
-  const dateMaker = (date: Date) => {
-    const day: number = date.getDate();
-    let strDay: string = String(day);
-    if (day < 10) {
-      strDay = "0" + strDay;
+  if (journal) {
+
+    const labData = [...journal.labs].sort((a, b) => a.num > b.num ? 1 : -1);
+
+    const dateMaker = (date: string) => {
+      const strDay: string = date.substring(8, 10);
+
+      const strMonth: string = date.substring(5, 7);
+
+      return strDay + "." + strMonth;
+    };
+
+    const checkdeadline = (deadline: string | undefined) => {
+      if (deadline) {
+        return <p className={styles.labDeadline}>{'Срок ' + dateMaker(deadline)}</p>
+      }
     }
 
-    const month: number = date.getMonth() + 1;
-    let strMonth: string = String(month);
-    if (month < 10) {
-      strMonth = "0" + strMonth;
-    }
+    const parseLabs = () => {
+      return labData.map((elem) => {
+        return (
+          <div className={styles.labContainer} key={elem.num}>
+            <p className={styles.labNumber}>№{elem.num}</p>
+            {checkdeadline(elem.deadline)}
+          </div>
+        );
+      });
+    };
 
-    return strDay + "." + strMonth + ".";
-  };
-
-  const checkdeadline = (deadline: Date | undefined) => {
-    if (deadline) {
-      return <p className={styles.labDeadline}>{'Срок ' + dateMaker(deadline)}</p>
-    }
+    return (
+      <div className={styles.headerWindow}><div className={styles.headerContainer} style={{
+        transform: `translate(calc(${props.step}*-10%))`
+      }}>{parseLabs()}</div>
+      </div>)
   }
-
-  const parseLabs = () => {
-    return labData.map((elem) => {
-      return (
-        <div className={styles.labContainer} key={elem.num}>
-          <p className={styles.labNumber}>№{elem.num}</p>
-          {checkdeadline(elem.deadline)}        
-        </div>
-      );
-    });
-  };
-
-  return (
-    <div className={styles.headerWindow}><div className={styles.headerContainer} style={{
-      transform: `translate(calc(${props.step}*-10%))`
-    }}>{parseLabs()}</div>
-    </div>)
-};
+  return <div></div>;
+}

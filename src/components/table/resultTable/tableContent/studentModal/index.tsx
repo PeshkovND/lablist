@@ -1,5 +1,5 @@
 import { messeges } from "../../../../../data";
-import { Lab, User, Message } from "../../../../../types";
+import { User, Message } from "../../../../../types";
 import { ContactElem } from "./contactElem";
 import { MessageElem } from "./messegeElem";
 import styles from "./studentModal.module.css";
@@ -13,14 +13,13 @@ interface ModalProps {
 
 export const StudentModal = (props: ModalProps) => {
 
-  // const doneLabs: DoneLab[] = props.student ? props.student.done.filter((elem) => elem.status === 0) : []
-  const userMessages: Message[] = messeges.filter(elem => (elem.from === props.student?.id && elem.to === 100) || (elem.from === 100 && elem.to === props.student?.id))
+  const userMessages: Message[] = messeges.filter(elem => (String(elem.from) === props.student?._id && elem.to === 100) || (elem.from === 100 && String(elem.to) === props.student?._id))
   const setUnactive = () => {
     props.setActive(false)
     props.setStudent(null)
   }
 
-  const checkPhoto = (elem: string | null) => {
+  const checkPhoto = (elem: string | undefined) => {
     if (elem) {
       return elem
     }
@@ -33,7 +32,7 @@ export const StudentModal = (props: ModalProps) => {
     if (student.contacts) {
       return (
         <div className={styles.anotherInfoContainer}>
-          {student.contacts.map(elem => { return <ContactElem key={elem.id} contact={elem} /> })}
+          {student.contacts.map(elem => { return <ContactElem key={Math.random()} contact={elem} /> })}
         </div>
       )
     }
@@ -100,7 +99,7 @@ export const StudentModal = (props: ModalProps) => {
                 <p className={styles.title}>Контактная информация</p>
                 <p className={styles.info}>{student.email}</p>
                 <p className={styles.info}>{student.phone}</p>
-                {student.contacts ? <p className={styles.anotherTitle}>Другие контакты:</p> : null}
+                {student.contacts.length !== 0 ? <p className={styles.anotherTitle}>Другие контакты:</p> : null}
                 {parseContacts(student)}
               </div>
             </div>

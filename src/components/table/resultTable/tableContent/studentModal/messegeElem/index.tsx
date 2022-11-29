@@ -16,7 +16,7 @@ export const MessageElem = (props: MessageProps) => {
 
     const checkArrow = (message: Message, student: User | null): arrow => {
         if (student) {
-            if (message.to === student.id)
+            if (String(message.to) === student._id)
                 return { rotate: 180, grayscale: 100, style: styles.send }
             else return { rotate: 0, grayscale: 0, style: '' }
         }

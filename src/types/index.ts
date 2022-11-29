@@ -1,64 +1,36 @@
 export type Journal = {
-  id: number;
+  _id: number;
   labs: {
     num: number;
-    deadline?: Date;
+    deadline?: string;
+    name?: string
   }[];
   discription: string;
-  students: number[]
+  students: string[]
 }
 
 export type Lab = {
-  userId: number;
-  journalId: number;
+  userId: string;
+  journalId: string;
   num: number;
-  status: number;
+  status: string;
   score: number;
 }
 
 export type User = {
-  id: number;
-  photo: string | null;
+  _id: string;
+  photo?: string;
   name: string;
   surname: string;
-  contacts?: Contact[]
+  contacts: Contact[]
   email: string;
   phone: string;
 }
 
 export type Contact = {
-  id: number;
   type: string;
   value: string;
 }
-
-// export type Student = {
-//   id: number;
-//   name: string;
-//   surname: string;
-//   photo: string | null;
-//   course: String;
-//   group: string;
-//   done: DoneLab[];
-//   email: string;
-//   phone: string;
-//   contacts?: Contact[]
-// };
-
-// export type Lab = {
-//   id: number;
-//   number: number;
-//   subject: string;
-//   name: string;
-//   deadline: Date
-// };
-
-// export type DoneLab = {
-//   id: number;
-//   labId: number;
-//   status: number;
-//   score: number;
-// };
 
 export type HistoryType = {
   id: number;
@@ -74,4 +46,22 @@ export type Message = {
   to: number;
   theme: string;
   content: string;
+}
+
+export type AllUsersState = {
+  users: User[],
+  loading: boolean,
+  error: boolean
+}
+
+export type AllLabsState = {
+  labs: Lab[],
+  loading: boolean,
+  error: boolean
+}
+
+export type JournalState = {
+  journal: Journal | null,
+  loading: boolean,
+  error: boolean
 }

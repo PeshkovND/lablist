@@ -9,7 +9,7 @@ interface StudentProps {
 export const StudentCard = (props: StudentProps) => {
 
 
-  const checkPhoto = (elem: string | null) => {
+  const checkPhoto = (elem: string | undefined) => {
     if (elem) {
       return elem
     }
@@ -19,7 +19,7 @@ export const StudentCard = (props: StudentProps) => {
   }
 
   const checkAttention = (array: Lab[]) => {
-    const res = array.find(elem => elem.status === 1)
+    const res = array.find(elem => elem.status === "Сдана на проверку")
     if (res) {
       return <img src="/attention.svg" alt="" height={"100%"} />
     }

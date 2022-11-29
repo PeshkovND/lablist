@@ -2,11 +2,13 @@ import styles from "./table.module.css";
 import { ResultTable } from "./resultTable";
 import { History } from "./history";
 import { useState } from "react";
-import { journals } from "../../data";
+import { useAppSelector } from "../../hooks";
 
 export const Table = () => {
   const [step, setStep] = useState(0)
-  const maxStep = journals[0].labs.length - 10;
+
+  const journal = useAppSelector((state) => state.journal.journal);
+  const maxStep = journal ? journal.labs.length - 10 : 1;
 
   const handleClick = (step: number, dirrection: number) => {
     if ((step >= maxStep && dirrection === 1) || (step <= 0 && dirrection === -1)) {
@@ -36,36 +38,40 @@ export const Table = () => {
       }
     }
   }
-
-  return (
-    <div className={styles.table}>
-      <div className={styles.tableNavContainer}>
-        <p className={styles.tableNavText}>Студенты:</p>
-        <div className={styles.tableNav}>
-          <p className={styles.tableNavText}>Выполнение работ:</p>
-          <div className={styles.arrowsContainer}>
-            <div className={styles.arrow} onClick={() => handleClick(step, -1)}>
-              <img
-                src={'/arrow.svg'}
-                alt=""
-                width={'100%'}
-                style={{ transform: 'rotate(180deg)', filter: `grayscale(${checkArrow(step, maxStep, false)}%)` }}
-              />
-            </div>
-            <div className={styles.arrow} onClick={() => handleClick(step, 1)}>
-              <img
-                src={'/arrow.svg'}
-                alt=""
-                width={'100%'}
-                style={{ filter: `grayscale(${checkArrow(step, maxStep, true)}%)` }}
-              />
+  if (journal) {
+    return (
+      <div className={styles.tableContainer}>
+        <div className={styles.table}>
+          <div className={styles.tableNavContainer}>
+            <p className={styles.tableNavText}>Студенты:</p>
+            <div className={styles.tableNav}>
+              <p className={styles.tableNavText}>Выполнение работ:</p>
+              <div className={styles.arrowsContainer}>
+                <div className={styles.arrow} onClick={() => handleClick(step, -1)}>
+                  <img
+                    src={'/arrow.svg'}
+                    alt=""
+                    width={'100%'}
+                    style={{ transform: 'rotate(180deg)', filter: `grayscale(${checkArrow(step, maxStep, false)}%)` }}
+                  />
+                </div>
+                <div className={styles.arrow} onClick={() => handleClick(step, 1)}>
+                  <img
+                    src={'/arrow.svg'}
+                    alt=""
+                    width={'100%'}
+                    style={{ filter: `grayscale(${checkArrow(step, maxStep, true)}%)` }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
+          <div></div>
+          <ResultTable step={step} />
+          <History />
         </div>
       </div>
-      <div></div>
-      <ResultTable journal={journals[0]} step={step} />
-      <History />
-    </div>
-  );
+    );
+  }
+  return <div></div>
 }
