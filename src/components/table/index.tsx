@@ -3,10 +3,11 @@ import { ResultTable } from "./resultTable";
 import { History } from "./history";
 import { useState } from "react";
 import { useAppSelector } from "../../hooks";
+import { ShewhartMap } from "./ShewhartMap";
 
 export const Table = () => {
   const [step, setStep] = useState(0)
-
+  const [modalActive, setModalActive] = useState(false);
   const journal = useAppSelector((state) => state.journal.journal);
   const maxStep = journal ? journal.labs.length - 10 : 1;
 
@@ -38,6 +39,7 @@ export const Table = () => {
       }
     }
   }
+
   if (journal) {
     return (
       <div className={styles.tableContainer}>
@@ -66,10 +68,13 @@ export const Table = () => {
               </div>
             </div>
           </div>
-          <div></div>
+          <div className={styles.buttonContainer}>
+            <button className={styles.mapButton} onClick={()=>setModalActive(true)}>Статистика</button>
+          </div>
           <ResultTable step={step} />
           <History />
         </div>
+        <ShewhartMap active={modalActive} setActive={setModalActive} />
       </div>
     );
   }
