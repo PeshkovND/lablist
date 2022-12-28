@@ -18,12 +18,19 @@
     display: flex;
 }
 
-.modalContent {
-    overflow-y: auto;
-    max-height: 100vh;
+.modalWindow {
     width: 90vw;
     background: #ECF3FD;
     border-radius: 0.5vw;
+}
+
+.modalContent {
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 .title {
@@ -40,6 +47,35 @@
 }
 
 .graph {
-    width: 49%;
-    height: 100%;
+    margin-left: 5%;
+    width: 90%;
+    height: 50vh;
+}
+
+.modalContent::-webkit-scrollbar {
+    width: 0.7vw;
+}
+
+
+.modalContent::-webkit-scrollbar-thumb {
+    background: #C7E8EF;
+    border-radius: 0.5vw;
+}
+
+.modalContent::-webkit-scrollbar-track{
+    border: 0.15vw solid #C7E8EF;
+    border-radius: 0.5vw;
+    background-color: white;
+}
+
+.closeContainer {
+    display: flex;
+    justify-content: right;
+    margin-right: 1%;
+    margin-top: 0.7%;
+}
+
+.closeClickContainer {
+    width: 1%;
+    cursor: pointer;
 }

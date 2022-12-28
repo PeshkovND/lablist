@@ -65,3 +65,11 @@ export type JournalState = {
   loading: boolean,
   error: boolean
 }
+
+export type shewartMapType = {
+  [key: number]: {
+      A2: number;
+      D3: number;
+      D4: number;
+  };
+};

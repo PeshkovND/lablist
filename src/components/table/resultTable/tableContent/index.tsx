@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import styles from "./tableContent.module.css";
 import { Row } from "./row";
 import { StudentCard } from "./studentCard";
 import { StudentModal } from "./studentModal";
 import { User } from "../../../../types";
-import { useAppDispatch, useAppSelector } from "../../../../hooks";
-import { fetchUsers } from "../../../../store/userSlice";
-import { fetchLabs } from "../../../../store/labSlice";
+import { useAppSelector } from "../../../../hooks";
 
 interface ContentProps {
   step: number;
@@ -15,18 +13,6 @@ interface ContentProps {
 export const TableContent = (props: ContentProps) => {
   const [modalActive, setModalActive] = useState(false);
   const [modalStudent, setModalStudent] = useState<User | null>(null);
-
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(fetchUsers())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  useEffect(() => {
-    dispatch(fetchLabs())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const allUsers = useAppSelector((state) => state.users.users);
   const allLabs = useAppSelector((state) => state.labs.labs);
