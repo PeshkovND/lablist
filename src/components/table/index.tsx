@@ -13,8 +13,9 @@ export const Table = () => {
   const JournalLoading = useAppSelector((state) => state.journal.loading);
   const UsersLoading = useAppSelector((state) => state.users.loading);
   const LabsLoading = useAppSelector((state) => state.labs.loading);
+  const HistoryLoading = useAppSelector((state) => state.history.loading);
 
-  const loading = JournalLoading || UsersLoading || LabsLoading;
+  const loading = JournalLoading || UsersLoading || LabsLoading || HistoryLoading;
 
   const checkArrow = (step: number, maxStep: number, arrow: boolean): { grayscale: number, opacity: number } => {
     if (arrow === false) {
@@ -30,7 +31,7 @@ export const Table = () => {
 
   }
   const drawTable = () => {
-    if (loading) { console.log('loading'); return <Loading /> }
+    if (loading) { return <Loading /> }
     if (journal) {
 
       const handleClick = (step: number, dirrection: number) => {

@@ -1,12 +1,14 @@
 export type Journal = {
   _id: number;
-  labs: {
-    num: number;
-    deadline?: string;
-    name?: string
-  }[];
+  labs: JournalLab[];
   discription: string;
   students: string[]
+}
+
+export type JournalLab = {
+  num: number;
+  deadline?: string;
+  name?: string
 }
 
 export type Lab = {
@@ -33,11 +35,13 @@ export type Contact = {
 }
 
 export type HistoryType = {
-  id: number;
-  date: Date;
-  studentName: string;
-  labName: string;
-  status: number;
+  _id: string
+  date: string;
+  status?: string;
+  text: string;
+  journalId: string;
+  userId: string;
+  num: number;
 };
 
 export type Message = {
@@ -46,6 +50,13 @@ export type Message = {
   to: number;
   theme: string;
   content: string;
+}
+
+export type AllHistoryState = {
+  history: HistoryType[],
+  messages: HistoryType[],
+  loading: boolean,
+  error: boolean
 }
 
 export type AllUsersState = {

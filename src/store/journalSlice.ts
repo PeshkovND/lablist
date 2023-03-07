@@ -13,7 +13,7 @@ export const fetchJournal = createAsyncThunk<
   { rejectValue: string }
 >("journals/fetchJournal", async function (_, { rejectWithValue }) {
 
-  const response = await fetch("http://localhost:3001/journals/638099a7c67c5106b4829575");
+  const response = await fetch("http://localhost:3002/journals/640706a3b83da219ae6af40a");
 
   if (!response.ok) {
     return rejectWithValue("Server Error!");

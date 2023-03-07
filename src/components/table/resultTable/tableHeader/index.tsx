@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../../../hooks";
+import { Journal } from "../../../../types";
 import styles from "./tableHeader.module.css";
 
 interface HeaderProps {
@@ -6,9 +7,7 @@ interface HeaderProps {
 }
 
 export const TableHeader = (props: HeaderProps) => {
-  const journal = useAppSelector((state) => state.journal.journal);
-
-  if (journal) {
+  const journal = useAppSelector((state) => state.journal.journal) as Journal;
 
     const labData = [...journal.labs].sort((a, b) => a.num > b.num ? 1 : -1);
 
@@ -42,6 +41,4 @@ export const TableHeader = (props: HeaderProps) => {
         transform: `translate(calc(${props.step}*-10%))`
       }}>{parseLabs()}</div>
       </div>)
-  }
-  return <div></div>;
 }

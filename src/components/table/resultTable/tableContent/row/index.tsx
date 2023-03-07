@@ -1,5 +1,5 @@
 import styles from "./row.module.css";
-import { Lab, User } from "../../../../../types";
+import { Journal, JournalLab, Lab, User } from "../../../../../types";
 import { Score } from "./score";
 import { useAppSelector } from "../../../../../hooks";
 
@@ -9,13 +9,9 @@ interface RowProps {
 }
 
 export const Row = (props: RowProps) => {
-  const journal = useAppSelector((state) => state.journal.journal);
+  const journal = useAppSelector((state) => state.journal.journal) as Journal;
 
-  if (journal) {
-    const parseScore = (labs: {
-      num: number;
-      deadline?: Date | undefined;
-    }[]) => {
+    const parseScore = (labs: JournalLab[]) => {
       return labs.map(elem => {
         const lab = props.studentLabs.find(i => i.num === elem.num)
         if (lab)
@@ -26,9 +22,7 @@ export const Row = (props: RowProps) => {
 
     return (
       <div className={styles.rowContainer}>
-        {parseScore(props.studentLabs)}
+        {parseScore(journal.labs)}
       </div>
     )
-  }
-  return <div></div>
 };

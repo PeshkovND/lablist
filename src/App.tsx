@@ -8,6 +8,7 @@ import { useAppDispatch } from './hooks';
 import { fetchJournal } from './store/journalSlice';
 import { fetchUsers } from './store/userSlice';
 import { fetchLabs } from './store/labSlice';
+import { fetchHistory, fetchMessages } from './store/historySlice';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -16,6 +17,8 @@ function App() {
     dispatch(fetchJournal())
     dispatch(fetchUsers())
     dispatch(fetchLabs())
+    dispatch(fetchHistory())
+    dispatch(fetchMessages())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

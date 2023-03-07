@@ -1,26 +1,22 @@
 .historyElemContainer {
     width: 90%;
     margin: 0 auto;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
     overflow-wrap: break-word;
-}
-
-.historyElemContainer:last-child {
-    padding-bottom: 2vh;
 }
 
 .dateContainer {
     display: flex;
     width: 100%;
-    margin-bottom: 0.6vh;
+    margin-bottom: 0.3vw;
     align-items: center;
 }
 
 .boxStatus {
     border-radius: 0.2vw;
-    height: 2vh;
-    width: 2vh;
+    height: 1vw;
+    width: 1vw;
     margin-right: 0.5vw;
 }
 
@@ -34,6 +30,10 @@
 
 .boxStatus.send {
     background: #FFBD80;
+}
+
+.boxStatus.blue {
+    background: #1290ff;
 }
 
 .date {
@@ -52,6 +52,10 @@
 
 .date.send {
     color: #FFBD80;
+}
+
+.date.blue {
+    color: #1290ff;
 }
 
 .text {

@@ -1,25 +1,37 @@
 import styles from "./history.module.css";
 import { HistoryElem } from "./historyElem";
-import { historyData } from "../../../data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useAppSelector } from "../../../hooks";
+import { AllHistoryState } from "../../../types";
 
 export const History = () => {
-  const [data, setMainData] = useState(historyData);
-  useEffect(() => setMainData(historyData), []);
+  const [chooseButton, setChooseButton] = useState('history')
+  const data = useAppSelector((state) => state.history) as AllHistoryState;
 
-  const renderHistory = () => {
-    return data.map((elem) => {
-      return <HistoryElem key={elem.id} elem={elem} />;
-    });
-  };
+  const renderElems = () => {
+    if (chooseButton === 'history') {
+      if (data.history.length !== 0) {
+        return data.history.map((elem) => {
+          return <HistoryElem key={elem._id} elem={elem} />;
+        })
+      }
+      return <div className={styles.errorMessage}> Сообщений нет </div>
+    };
+    if (data.messages.length !== 0) {
+      return data.messages.map((elem) => {
+        return <HistoryElem key={elem._id} elem={elem} />;
+      })
+    }
+    return <div className={styles.errorMessage}> Сообщений нет </div>
+  }
 
   return (
     <div className={styles.historyContainer}>
       <div className={styles.togler}>
-        <div className={styles.historyButton}>История (7)</div>
-        <div className={styles.messageButton}>Сообщения (11)</div>
+        <div className={chooseButton === "history" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('history')}>История ({data.history.length})</div>
+        <div className={chooseButton === "messages" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('messages')}>Сообщения ({data.messages.length})</div>
       </div>
-      <div className={styles.elemContainer}>{renderHistory()}</div>
+      <div className={styles.elemContainer}>{renderElems()}</div>
     </div>
   );
 };
