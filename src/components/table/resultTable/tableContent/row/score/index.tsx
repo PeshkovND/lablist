@@ -1,11 +1,15 @@
 import styles from "./score.module.css";
 import { Lab } from "../../../../../../types";
+import { useAppSelector } from "../../../../../../hooks";
 
 interface ScoreProps {
   lab: Lab | undefined;
+  num: number;
 }
 
 export const Score = (props: ScoreProps) => {
+  const filter = useAppSelector((state) => state.filter);
+  
   const checkStatus = (elem: Lab | undefined) => {
     let color: string;
     if (props.lab) {
@@ -30,7 +34,17 @@ export const Score = (props: ScoreProps) => {
     );
   };
 
-  return <div className={styles.scoreContainer}>
+  const checkFilter = (labNum: number) => {
+    if (filter.labFilter || filter.studentFilter) {
+      if (labNum === filter.labFilter) {
+        return styles.scoreContainer + " " + styles.selected
+      }
+        return styles.scoreContainer + " " + styles.notSelected
+    }
+    return styles.scoreContainer
+  }
+
+  return <div className={checkFilter(props.num)}>
     {checkStatus(props.lab)}
   </div>;
 };

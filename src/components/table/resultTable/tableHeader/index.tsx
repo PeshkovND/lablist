@@ -1,4 +1,5 @@
-import { useAppSelector } from "../../../../hooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks";
+import { updateLabFilter } from "../../../../store/filterStore";
 import { Journal } from "../../../../types";
 import styles from "./tableHeader.module.css";
 
@@ -8,6 +9,8 @@ interface HeaderProps {
 
 export const TableHeader = (props: HeaderProps) => {
   const journal = useAppSelector((state) => state.journal.journal) as Journal;
+  const filter = useAppSelector((state) => state.filter);
+  const dispatch = useAppDispatch()
 
     const labData = [...journal.labs].sort((a, b) => a.num > b.num ? 1 : -1);
 
@@ -25,10 +28,20 @@ export const TableHeader = (props: HeaderProps) => {
       }
     }
 
+  const checkFilter = (labNum: number) => {
+    if (filter.labFilter || filter.studentFilter) {
+      if (labNum === filter.labFilter) {
+        return styles.labContainer + " " + styles.selected
+      }
+        return styles.labContainer + " " + styles.notSelected
+    }
+    return styles.labContainer
+  }
+
     const parseLabs = () => {
       return labData.map((elem) => {
         return (
-          <div className={styles.labContainer} key={elem.num}>
+          <div className={checkFilter(elem.num)} onClick={()=>dispatch(updateLabFilter(elem.num))} key={elem.num}>
             <p className={styles.labNumber}>№{elem.num}</p>
             {checkdeadline(elem.deadline)}
           </div>

@@ -1,9 +1,28 @@
 .historyElemContainer {
+    box-sizing: border-box;
     width: 90%;
     margin: 0 auto;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
+    padding-top: 0.3vw;
+    padding-bottom: 0.3vw;
+    margin-top: 0.35vw;
+    margin-bottom: 0.35vw;
     overflow-wrap: break-word;
+    transition: opacity 0.2s;
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: white;
+}
+
+.historyElemContainer.selected {
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
+.historyElemContainer.notSelected {
+    opacity: 0.3;
+    transition: opacity 0.2s;
 }
 
 .dateContainer {

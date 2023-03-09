@@ -5,6 +5,11 @@ export type Journal = {
   students: string[]
 }
 
+export type Filter = {
+  studentFilter: string | undefined;
+  labFilter: number | undefined;
+}
+
 export type JournalLab = {
   num: number;
   deadline?: string;
