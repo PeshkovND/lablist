@@ -8,26 +8,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    pointer-events: none;
+    animation-name: appear;
+    animation-duration: 300ms;
 }
 
-.modal.active {
-    opacity: 1;
-    pointer-events: all;
-}
 
 .modalContent {
     width: 85vmin;
     background: #ECF3FD;
     border-radius: 0.5vw;
-    transform: scale(0.5);
     padding-bottom: 2vmin;
-    transition: 0.2s all;
-}
-
-.modalContent.active {
-    transform: scale(1);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.3s;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
 }
 
 .closeContainer {
@@ -231,3 +225,23 @@
     border-radius: 0.5vw;
     background-color: white;
 }
+
+@keyframes appear {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateY(-150px);
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }

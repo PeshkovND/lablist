@@ -14,7 +14,6 @@ import { useAppSelector } from '../../../hooks';
 import styles from './shewhartMap.module.css'
 
 interface ModalProps {
-    active: boolean;
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -169,7 +168,7 @@ export const ShewhartMap = (props: ModalProps) => {
 
 
         return (
-            <div className={props.active ? styles.modal + ' ' + styles.active : styles.modal} onClick={() => props.setActive(false)}>
+            <div className={styles.modal} onClick={() => props.setActive(false)}>
                 <div className={styles.modalWindow} onClick={e => e.stopPropagation()}>
                     <div className={styles.closeContainer}>
                         <div onClick={() => props.setActive(false)} className={styles.closeClickContainer}>

@@ -1,4 +1,5 @@
 .modal {
+    display: flex;
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -7,21 +8,19 @@
     left: 0;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    display: none;
-}
-
-.modal.active {
-    opacity: 1;
-    pointer-events: all;
-    display: flex;
+    animation-name: appear;
+    animation-duration: 300ms;
 }
 
 .modalWindow {
     width: 90vw;
     background: #ECF3FD;
     border-radius: 0.5vw;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.3s;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
+    padding-bottom: 2vmin;
 }
 
 .modalContent {
@@ -62,7 +61,7 @@
     border-radius: 0.5vw;
 }
 
-.modalContent::-webkit-scrollbar-track{
+.modalContent::-webkit-scrollbar-track {
     border: 0.15vw solid #C7E8EF;
     border-radius: 0.5vw;
     background-color: white;
@@ -78,4 +77,24 @@
 .closeClickContainer {
     width: 1%;
     cursor: pointer;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-150px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }

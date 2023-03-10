@@ -30,6 +30,13 @@ export const Table = () => {
     return { grayscale: 0, opacity: 1 }
 
   }
+
+  const checkShewartMap = ()=> {
+    if(modalActive) {
+      return <ShewhartMap setActive={setModalActive} />
+    }
+  }
+
   const drawTable = () => {
     if (loading) { return <Loading /> }
     if (journal) {
@@ -76,7 +83,7 @@ export const Table = () => {
         </div>
         <ResultTable step={step} />
         <History />
-        <ShewhartMap active={modalActive} setActive={setModalActive} />
+        {checkShewartMap()}
       </div>)
     }
   }

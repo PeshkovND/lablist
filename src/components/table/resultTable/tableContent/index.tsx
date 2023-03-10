@@ -11,7 +11,6 @@ interface ContentProps {
 }
 
 export const TableContent = (props: ContentProps) => {
-  const [modalActive, setModalActive] = useState(false);
   const [modalStudent, setModalStudent] = useState<User | null>(null);
 
   const allUsers = useAppSelector((state) => state.users.users);
@@ -20,7 +19,6 @@ export const TableContent = (props: ContentProps) => {
 
 
   const setModalActiveStudent = (student: User) => {
-    setModalActive(true);
     setModalStudent(student)
   }
 
@@ -49,6 +47,13 @@ export const TableContent = (props: ContentProps) => {
     })
   }
 
+  const checkModal = () => {
+    if (modalStudent){
+      return <StudentModal key={modalStudent?._id} student={modalStudent} setStudent={setModalStudent} />
+    }
+    else return
+  }
+
   return (
     <div className={styles.tableNavContainer + " " + styles.scores}>
       <div className={styles.studentsContainer}>
@@ -61,7 +66,7 @@ export const TableContent = (props: ContentProps) => {
           {parseRow()}
         </div>
       </div>
-      <StudentModal key={modalStudent?._id} active={modalActive} setActive={setModalActive} student={modalStudent} setStudent={setModalStudent} />
+      {checkModal()}
     </div>
   );
 };
