@@ -79,7 +79,8 @@ export type AllLabsState = {
 export type JournalState = {
   journal: Journal | null,
   loading: boolean,
-  error: boolean
+  error: boolean,
+  lastDeadline: JournalLab | undefined
 }
 
 export type shewartMapType = {
