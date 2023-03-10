@@ -53,12 +53,23 @@
 }
 
 .studentElemContainer{
-    margin-top: 0.35vw;
-    margin-bottom: 0.35vw;
-    margin-right: 0.5vw;
-    cursor: pointer;
+    padding-top: 0.0875vw;
+    height: 5.774vw;
+    box-sizing: border-box;
+    padding-right: 0.5vw;
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: rgba(0, 0, 0, 0);
 }
 
-.studentElemContainer:first-child{
-    margin-top: 0;
+.studentElemContainer.selected {
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
+.studentElemContainer.notSelected {
+    opacity: 0.3;
+    transition: opacity 0.2s;
 }

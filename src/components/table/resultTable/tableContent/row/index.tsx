@@ -15,8 +15,8 @@ export const Row = (props: RowProps) => {
       return labs.map(elem => {
         const lab = props.studentLabs.find(i => i.num === elem.num)
         if (lab)
-          return <Score lab={lab} num={lab.num} key={String(lab.journalId) + String(lab.userId) + String(lab.num)} />
-        else return <Score lab={lab} num={elem.num} key={String(journal._id) + String(props.student._id) + String(elem.num)} />
+          return <Score userId={props.student._id} lab={lab} num={lab.num} key={String(lab.journalId) + String(lab.userId) + String(lab.num)} />
+        else return <Score userId={props.student._id} lab={lab} num={elem.num} key={String(journal._id) + String(props.student._id) + String(elem.num)} />
       })
     }
 

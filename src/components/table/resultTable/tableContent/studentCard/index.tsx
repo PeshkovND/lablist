@@ -1,13 +1,17 @@
 import styles from "./studentCard.module.css";
 import { User, Lab } from "../../../../../types";
+import { useAppDispatch } from "../../../../../hooks";
+import { updateStudentFilter } from "../../../../../store/filterStore";
 
 interface StudentProps {
+  setActive: (student: User) => void;
   student: User;
   labs: Lab[];
 }
 
 export const StudentCard = (props: StudentProps) => {
 
+  const dispatch = useAppDispatch()
 
   const checkPhoto = (elem: string | undefined) => {
     if (elem) {
@@ -30,7 +34,7 @@ export const StudentCard = (props: StudentProps) => {
   }
 
   return (
-    <div className={styles.studentCard}>
+    <div className={styles.studentCard} onClick={() => dispatch(updateStudentFilter(props.student._id))}>
       <div className={styles.studentPicContainer}>
         <img
           src={checkPhoto(props.student.photo)}
@@ -43,9 +47,9 @@ export const StudentCard = (props: StudentProps) => {
         <div className={styles.attentionContainer}>
           {checkAttention(props.labs)}
         </div>
-        <div>
-          <p className={styles.name}>{props.student.surname}</p>
-          <p className={styles.name}>{props.student.name}</p>
+        <div className={styles.name}>
+          <span className={styles.hoverName} onClick={(e) => {props.setActive(props.student);
+          e.stopPropagation()}}>{props.student.surname} <br/> {props.student.name} </span>
         </div>
       </div>
 

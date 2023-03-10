@@ -18,7 +18,7 @@ export const HistoryElem = (props: HistoryElemProps) => {
     return strDay + "." + strMonth + "." + strYear;
   };
 
-  const user = useAppSelector((state) => state.users.users.find(e => e._id === props.elem.userId)) as User;
+  const user = useAppSelector((state) => state.users.users.find(e => e._id === props.elem.userId)) as User;                                 
   const parseStatus = (status: string | undefined) => {
     switch (status) {
       case "Принята":
@@ -38,9 +38,9 @@ export const HistoryElem = (props: HistoryElemProps) => {
     }
   }
 
-  const checkFilter = (labNum: number) => {
+  const checkFilter = (labNum: number, userId: string) => {
     if (filter.labFilter || filter.studentFilter) {
-      if (labNum === filter.labFilter) {
+      if (labNum === filter.labFilter || userId === filter.studentFilter) {
         return styles.historyElemContainer + " " + styles.selected
       }
         return styles.historyElemContainer + " " + styles.notSelected
@@ -51,7 +51,7 @@ export const HistoryElem = (props: HistoryElemProps) => {
   const statusStyle = parseStatus(props.elem.status);
 
   return (
-    <div className={checkFilter(props.elem.num)}>
+    <div className={checkFilter(props.elem.num, props.elem.userId)}>
       <div className={styles.dateContainer}>
         <div className={styles.boxStatus + " " + statusStyle}></div>
         <p className={styles.date + " " + statusStyle}>

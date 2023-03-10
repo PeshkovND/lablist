@@ -29,7 +29,7 @@ export const TableHeader = (props: HeaderProps) => {
     }
 
   const checkFilter = (labNum: number) => {
-    if (filter.labFilter || filter.studentFilter) {
+    if (filter.labFilter) {
       if (labNum === filter.labFilter) {
         return styles.labContainer + " " + styles.selected
       }
@@ -41,7 +41,7 @@ export const TableHeader = (props: HeaderProps) => {
     const parseLabs = () => {
       return labData.map((elem) => {
         return (
-          <div className={checkFilter(elem.num)} onClick={()=>dispatch(updateLabFilter(elem.num))} key={elem.num}>
+          <div className={checkFilter(elem.num)} onClick={(e)=>{dispatch(updateLabFilter(elem.num))}} key={elem.num}>
             <p className={styles.labNumber}>№{elem.num}</p>
             {checkdeadline(elem.deadline)}
           </div>

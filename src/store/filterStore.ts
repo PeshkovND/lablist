@@ -32,6 +32,6 @@ const filterSlice = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { updateLabFilter } = filterSlice.actions;
+export const { updateLabFilter, updateStudentFilter } = filterSlice.actions;
 
 export default filterSlice.reducer;

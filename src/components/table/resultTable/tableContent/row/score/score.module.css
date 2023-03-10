@@ -21,13 +21,20 @@
     transition: opacity 0.2s;
 }
 
+.scoreContainer.selectedRow{
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
 .score {
     display: table;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 90%;
-    height: 90%;
+    width: 4.8vw;
+    height: 4.8vw;
     border-radius: 0.5vw;
     cursor: pointer;
 }

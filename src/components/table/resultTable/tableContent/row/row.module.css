@@ -1,19 +1,8 @@
 .rowContainer{
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 5.424vw;
-    padding-bottom: 0.175vw;
-    padding-top: 0.175vw;
-
-}
-
-.rowContainer:first-child{
-    padding-top: 0;
-}
-
-.rowContainer:last-child{
-    border-bottom: none;
-    padding-bottom: 0.175vw;
+    height: 5.774vw;
 }

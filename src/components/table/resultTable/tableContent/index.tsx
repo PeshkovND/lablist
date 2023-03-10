@@ -16,18 +16,31 @@ export const TableContent = (props: ContentProps) => {
 
   const allUsers = useAppSelector((state) => state.users.users);
   const allLabs = useAppSelector((state) => state.labs.labs);
+  const filter = useAppSelector((state) => state.filter);
+
 
   const setModalActiveStudent = (student: User) => {
     setModalActive(true);
     setModalStudent(student)
   }
 
+  const checkFilter = (id: string) => {
+    if (filter.studentFilter) {
+      if (id === filter.studentFilter) {
+        return styles.studentElemContainer + " " + styles.selected
+      }
+        return styles.studentElemContainer + " " + styles.notSelected
+    }
+    return styles.studentElemContainer
+  }
+
   const parseStudents = () => {
     return allUsers.map(elem => {
       const studentLabs = allLabs.filter(i => elem._id === i.userId)
-      return <div className={styles.studentElemContainer} key={elem._id} onClick={() => setModalActiveStudent(elem)}><StudentCard student={elem} labs={studentLabs} /></div>
+      return <div className={checkFilter(elem._id)} key={elem._id}><StudentCard setActive={setModalActiveStudent} student={elem} labs={studentLabs} /></div>
     })
   }
+
 
   const parseRow = () => {
     return allUsers.map(elem => {

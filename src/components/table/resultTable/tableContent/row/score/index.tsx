@@ -3,6 +3,7 @@ import { Lab } from "../../../../../../types";
 import { useAppSelector } from "../../../../../../hooks";
 
 interface ScoreProps {
+  userId: string;
   lab: Lab | undefined;
   num: number;
 }
@@ -34,17 +35,20 @@ export const Score = (props: ScoreProps) => {
     );
   };
 
-  const checkFilter = (labNum: number) => {
+  const checkFilter = (labNum: number, userId: string) => {
     if (filter.labFilter || filter.studentFilter) {
       if (labNum === filter.labFilter) {
         return styles.scoreContainer + " " + styles.selected
+      }
+      if (userId === filter.studentFilter) {
+        return styles.scoreContainer + " " + styles.selectedRow
       }
         return styles.scoreContainer + " " + styles.notSelected
     }
     return styles.scoreContainer
   }
 
-  return <div className={checkFilter(props.num)}>
+  return <div className={checkFilter(props.num, props.userId)}>
     {checkStatus(props.lab)}
   </div>;
 };
