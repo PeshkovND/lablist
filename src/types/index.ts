@@ -61,7 +61,10 @@ export type AllHistoryState = {
   history: HistoryType[],
   messages: HistoryType[],
   loading: boolean,
-  error: boolean
+  error: boolean,
+  historyCount: number,
+  messagesCount: number,
+  updating: boolean,
 }
 
 export type AllUsersState = {
@@ -89,4 +92,9 @@ export type shewartMapType = {
       D3: number;
       D4: number;
   };
+};
+
+export type MessagesResponse = {
+  data: HistoryType[],
+  count: number
 };

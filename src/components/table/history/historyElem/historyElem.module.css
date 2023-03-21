@@ -10,7 +10,7 @@
     transition: opacity 0.2s;
     border-style: dashed none;
     border-width: 0.15vw;
-    border-color: white;
+    border-color: transparent;
 }
 
 .historyElemContainer.selected {
