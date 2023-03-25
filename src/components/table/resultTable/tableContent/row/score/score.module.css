@@ -21,7 +21,7 @@
     transition: opacity 0.2s;
 }
 
-.scoreContainer.selectedRow{
+.scoreContainer.selectedRow {
     border-style: dashed none;
     border-width: 0.15vw;
     border-color: #224973;
@@ -49,6 +49,7 @@
 }
 
 .score {
+    box-sizing: border-box;
     display: table;
     margin-left: auto;
     margin-right: auto;
@@ -57,6 +58,20 @@
     height: 4.8vw;
     border-radius: 0.5vw;
     cursor: pointer;
+}
+
+.score.none {
+    opacity: 0;
+    border-style: dashed;
+    border-color: gray;
+    color: gray;
+    border-width: 0.15vw;
+    transition: 0.2s all;
+}
+
+.score.none:hover {
+    transition: 0.2s all;
+    opacity: 1;
 }
 
 .score.done {
@@ -75,10 +90,14 @@
     font-family: 'Lora', serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 1.2vw;  
+    font-size: 1.2vw;
     letter-spacing: 0.06vw;
     color: #FFFFFF;
     margin: 0;
+}
+
+.scoreNumber.none {
+    color: gray;
 }
 
 .centerText {

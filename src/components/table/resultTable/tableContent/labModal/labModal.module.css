@@ -1,0 +1,204 @@
+.modal {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: appear;
+    animation-duration: 300ms;
+}
+
+
+.modalContent {
+    width: 75vmin;
+    background: #ECF3FD;
+    border-radius: 0.5vw;
+    padding-bottom: 2vmin;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.3s;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
+}
+
+.layout{
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+}
+
+.closeContainer {
+    position: relative;
+    left: 1.7%;
+    display: flex;
+    justify-content: right;
+    margin-top: 0.8%;
+}
+
+.closeClickContainer {
+    width: 2%;
+    cursor: pointer;
+}
+
+.studentProfileContainer {
+    height: 12vmin;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1%;
+}
+
+.studentPhotoContainer {
+    height: 100%;
+    margin-right: 2%;
+    background-color: #FFFFFF;
+    border-radius: 0.5vw;
+}
+
+.studentPhoto {
+    border-radius: 0.5vw;
+    height: 100%;
+}
+
+.studentNameContainer {
+    flex-grow: 1;
+}
+
+.studentCourseContainer {
+    flex-grow: 4;
+}
+
+.studentName {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.1vmin;
+    letter-spacing: 0.04em;
+    color: #181818;
+}
+
+.groupInfo {
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vmin;
+    letter-spacing: 0.02em;
+    color: #181818;
+}
+
+.groupInfo p {
+    margin-top: 2%;
+    margin-bottom: 0;
+    margin-right: 2%;
+
+}
+
+.group {
+    color: #224973;
+}
+
+.labInfo{
+    font-size: 2.5vmin;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    letter-spacing: 0.04em;
+    color: #181818;
+}
+
+.form{
+    font-size: 2.5vmin;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    letter-spacing: 0.04em;
+    color: #181818;
+}
+
+.inputContainer {
+    margin-top: 0.5vmin;
+    display: flex;
+    align-items: center;
+}
+
+.input{
+    margin-left: 0.5vmin;
+    text-align: center;
+    font-size: 4vmin;
+    width: 5vmin;
+    border-radius: 0.5vw;
+    border: none;
+    border: solid 0.3vmin #224973
+}
+
+.input:focus{
+    outline: none;
+
+}
+
+.buttonsContainer{
+    margin-top: 1.5vmin;
+    display: flex;
+    margin-right: 1.5%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.button{
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0.5vw;
+    padding: 0.9vmin;
+    width: 25%;
+    border: none;
+    font-size: 2.5vmin;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    letter-spacing: 0.04em;
+    color: rgb(255, 255, 255);
+}
+
+.button.done{
+    background-color: #259D88;
+}
+
+.button.comeback{
+    background-color: #D5A0C8;
+}
+
+.error{
+    color: red;
+    margin-left: 0.7vmin;
+    opacity: 0;
+    transition: 0.2s all;
+    user-select: none
+}
+
+.error.active{
+    user-select: auto;
+    opacity: 1;
+    transition: 0.2s all;
+}
+
+@keyframes appear {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateY(-150px);
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }
