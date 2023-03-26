@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { JournalLab, Lab, User } from "../../../../../types";
+import { useAppSelector } from "../../../../../hooks";
+import { Journal, JournalLab, KafkaMessage, Lab, User } from "../../../../../types";
 import styles from "./labModal.module.css";
 
 interface ModalProps {
@@ -14,7 +15,9 @@ interface ModalProps {
 export const LabModal = (props: ModalProps) => {
 
   const [input, setInput] = useState<string>(props.mark ? String(props.mark.score) : "");
+  const [status, setStatus] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
+  const journal = useAppSelector(state => state.journal.journal) as Journal
 
   const checkPhoto = (elem: string | undefined) => {
     if (elem) {
@@ -52,6 +55,26 @@ export const LabModal = (props: ModalProps) => {
   const validateForm = () => {
     if (input === "") {
       setError(true)
+      setStatus("")
+    }
+    else {
+      const message: KafkaMessage = {
+        num: props.lab.num,
+        userId: props.student._id,
+        journalId: journal._id,
+        text: "№" + props.lab.num + (props.lab.name ? " " + props.lab.name : ""),
+        status: status,
+        score: Number(input)
+      }
+
+      fetch("http://localhost:3001/journal", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
+      });
+      closeForm()
     }
   }
 
@@ -99,8 +122,8 @@ export const LabModal = (props: ModalProps) => {
             <div className={error ? styles.error + " " + styles.active : styles.error}>Введите оценку</div>
           </div>
           <div className={styles.buttonsContainer}>
-            <button className={styles.button + " " + styles.done} type="submit">Принять</button>
-            <button className={styles.button + " " + styles.comeback} type="submit">Вернуть на доработку</button>
+            <button className={styles.button + " " + styles.done} type="submit" onClick={()=> setStatus("Принята")}>Принять</button>
+            <button className={styles.button + " " + styles.comeback} type="submit" onClick={()=> setStatus("Возвращена на доработку")}>Вернуть на доработку</button>
           </div>
         </form>
       </div>

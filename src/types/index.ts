@@ -1,5 +1,5 @@
 export type Journal = {
-  _id: number;
+  _id: string;
   labs: JournalLab[];
   discription: string;
   students: string[]
@@ -17,11 +17,13 @@ export type JournalLab = {
 }
 
 export type Lab = {
+  _id: string;
   userId: string;
   journalId: string;
   num: number;
   status: string;
   score: number;
+  order: number;
 }
 
 export type User = {
@@ -47,6 +49,7 @@ export type HistoryType = {
   journalId: string;
   userId: string;
   num: number;
+  order: number;
 };
 
 export type Message = {
@@ -65,6 +68,8 @@ export type AllHistoryState = {
   historyCount: number,
   messagesCount: number,
   updating: boolean,
+  historyLastOrder: number,
+  messagesLastOrder: number,
 }
 
 export type AllUsersState = {
@@ -76,7 +81,8 @@ export type AllUsersState = {
 export type AllLabsState = {
   labs: Lab[],
   loading: boolean,
-  error: boolean
+  error: boolean,
+  lastOrder: number
 }
 
 export type JournalState = {
@@ -96,5 +102,15 @@ export type shewartMapType = {
 
 export type MessagesResponse = {
   data: HistoryType[],
-  count: number
+  count: number,
+  order: number,
 };
+
+export type KafkaMessage = {
+  num: number,
+  userId: string,
+  journalId: string,
+  text: string,
+  status: string,
+  score: number
+}
