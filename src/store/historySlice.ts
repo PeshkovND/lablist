@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { AllHistoryState, MessagesResponse } from "../types";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { AllHistoryState, HistoryType, MessagesResponse } from "../types";
 
 const dataLimit = 15;
 
@@ -131,7 +131,20 @@ export const updateMessages = createAsyncThunk<
 const historySlice = createSlice({
   name: "history",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    update(state, action: PayloadAction<HistoryType>) {
+      if (action.payload.status) {
+        state.history = [action.payload, ...state.history]
+        state.historyLastOrder = action.payload.order
+        state.historyCount += 1
+      }
+      else {
+        state.messages = [action.payload, ...state.messages]
+        state.messagesLastOrder = action.payload.order
+        state.messagesCount += 1
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchHistory.pending, (state) => {
@@ -206,6 +219,6 @@ const historySlice = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { } = historySlice.actions;
+export const { update } = historySlice.actions;
 
 export default historySlice.reducer;

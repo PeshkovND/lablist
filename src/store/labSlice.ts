@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AllLabsState, Lab } from "../types";
 
 const initialState: AllLabsState = {
@@ -46,7 +46,14 @@ export const updateLabs = createAsyncThunk<
 const labSlice = createSlice({
     name: "labs",
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        updateLab(state, action: PayloadAction<Lab>) {
+            state.labs = state.labs.map(elem => elem._id === action.payload._id ? action.payload : elem);
+        },
+        addLab(state, action: PayloadAction<Lab>) {
+            state.labs = [...state.labs, action.payload]
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchLabs.pending, (state) => {
@@ -80,6 +87,6 @@ const labSlice = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { } = labSlice.actions;
+export const { updateLab, addLab } = labSlice.actions;
 
 export default labSlice.reducer;

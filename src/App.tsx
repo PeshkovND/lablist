@@ -9,6 +9,7 @@ import { fetchJournal } from './store/journalSlice';
 import { fetchUsers } from './store/userSlice';
 import { fetchLabs, updateLabs } from './store/labSlice';
 import { fetchHistory, fetchMessages, updateHistory, updateMessages } from './store/historySlice';
+import { appSockets, WebsocketProvider } from './contexts/WebSocketContext';
 
 function App() {
   const labLastOrder = useAppSelector((state) => state.labs.lastOrder);
@@ -45,6 +46,7 @@ function App() {
   }, [labLastOrder])
 
   return (
+    <WebsocketProvider value={appSockets}>
     <div className={styles.main}>
       <Header />
       <div style={{ height: "100vh", width: "100%" }}>
@@ -55,6 +57,7 @@ function App() {
         <Table />
       </div>
     </div>
+    </WebsocketProvider>
   );
 }
 

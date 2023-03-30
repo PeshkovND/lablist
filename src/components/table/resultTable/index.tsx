@@ -1,8 +1,12 @@
 import styles from "./resultTable.module.css";
 import { TableHeader } from "./tableHeader";
 import { TableContent } from "./tableContent";
-import { Journal } from "../../../types";
-import { useAppSelector } from "../../../hooks";
+import { HistoryType, Journal, Lab } from "../../../types";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { useContext, useEffect } from "react";
+import { WebsocketContext } from "../../../contexts/WebSocketContext";
+import { update } from "../../../store/historySlice";
+import { addLab, updateLab } from "../../../store/labSlice";
 
 interface ResultProps {
   step: number;
@@ -10,6 +14,29 @@ interface ResultProps {
 
 export const ResultTable = (props: ResultProps) => {
   const journal = useAppSelector((state) => state.journal.journal) as Journal;
+  const appSockets = useContext(WebsocketContext)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    appSockets.messagesSocket.on('Message: ' + journal._id, (data: HistoryType) => {
+      dispatch(update(data))
+    })
+
+    appSockets.labsSocket.on('New Lab: ' + journal._id, (data: Lab) => {
+      dispatch(addLab(data))
+    })
+
+    appSockets.labsSocket.on('Update Lab: ' + journal._id, (data: Lab) => {
+      dispatch(updateLab(data))
+    })
+
+    return () => {
+      appSockets.messagesSocket.off('Message: ' + journal._id)
+      appSockets.labsSocket.off('New Lab: ' + journal._id)
+      appSockets.labsSocket.off('Update Lab: : ' + journal._id)
+    }
+  }, [journal])
+  
   const manCount = (len: number) => {
     const rem: number = len % 10
     if (rem <= 4 && rem >= 2) {
