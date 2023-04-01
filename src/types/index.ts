@@ -23,7 +23,6 @@ export type Lab = {
   num: number;
   status: string;
   score: number;
-  order: number;
 }
 
 export type User = {
@@ -49,7 +48,6 @@ export type HistoryType = {
   journalId: string;
   userId: string;
   num: number;
-  order: number;
 };
 
 export type Message = {
@@ -67,9 +65,8 @@ export type AllHistoryState = {
   error: boolean,
   historyCount: number,
   messagesCount: number,
-  updating: boolean,
-  historyLastOrder: number,
-  messagesLastOrder: number,
+  historyUpdating: boolean,
+  messagesUpdating: boolean,
 }
 
 export type AllUsersState = {
@@ -82,7 +79,6 @@ export type AllLabsState = {
   labs: Lab[],
   loading: boolean,
   error: boolean,
-  lastOrder: number
 }
 
 export type JournalState = {
@@ -103,7 +99,6 @@ export type shewartMapType = {
 export type MessagesResponse = {
   data: HistoryType[],
   count: number,
-  order: number,
 };
 
 export type KafkaMessage = {

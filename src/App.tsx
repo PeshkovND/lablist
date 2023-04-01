@@ -7,13 +7,11 @@ import styles from "./App.module.css";
 import { useAppDispatch, useAppSelector } from './hooks';
 import { fetchJournal } from './store/journalSlice';
 import { fetchUsers } from './store/userSlice';
-import { fetchLabs, updateLabs } from './store/labSlice';
-import { fetchHistory, fetchMessages, updateHistory, updateMessages } from './store/historySlice';
+import { fetchLabs } from './store/labSlice';
+import { fetchHistory, fetchMessages } from './store/historySlice';
 import { appSockets, WebsocketProvider } from './contexts/WebSocketContext';
 
 function App() {
-  const labLastOrder = useAppSelector((state) => state.labs.lastOrder);
-  const historyData = useAppSelector((state) => state.history);
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -24,26 +22,6 @@ function App() {
     dispatch(fetchMessages())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      dispatch(updateHistory(historyData.historyLastOrder))
-      dispatch(updateMessages(historyData.messagesLastOrder))
-    }, 120000)
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [historyData.historyLastOrder, historyData.messagesLastOrder])
-
-  useEffect(() => {
-    const interval = setTimeout(() => {
-      dispatch(updateLabs(labLastOrder))
-    }, 120000)
-    return () => {
-      clearInterval(interval);
-    };
-  }, [labLastOrder])
 
   return (
     <WebsocketProvider value={appSockets}>

@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AllHistoryState, HistoryType, MessagesResponse } from "../types";
 
 const dataLimit = 15;
+let messageDataOffset = 0;
+let historyDataOffset = 0;
 
 const initialState: AllHistoryState = {
   history: [],
@@ -10,9 +12,8 @@ const initialState: AllHistoryState = {
   error: false,
   historyCount: 0,
   messagesCount: 0,
-  updating: false,
-  historyLastOrder: -1,
-  messagesLastOrder: -1,
+  historyUpdating: false,
+  messagesUpdating: false,
 };
 
 export const fetchHistory = createAsyncThunk<
@@ -22,7 +23,7 @@ export const fetchHistory = createAsyncThunk<
 >("history/fetchHistory", async function (_, { rejectWithValue }) {
   const url = (
     'http://localhost:3003/640706a3b83da219ae6af40a/history?' +
-    new URLSearchParams({ limit: String(dataLimit) }).toString()
+    new URLSearchParams({ offset: "0", limit: String(dataLimit) }).toString()
   );
 
   const response = await fetch(url);
@@ -42,7 +43,7 @@ export const fetchMessages = createAsyncThunk<
 >("history/fetchMessages", async function (_, { rejectWithValue }) {
   const url = (
     'http://localhost:3003/640706a3b83da219ae6af40a/messages?' +
-    new URLSearchParams({ limit: String(dataLimit) }).toString()
+    new URLSearchParams({ offset: "0", limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
 
@@ -58,10 +59,11 @@ export const paggingUpdateHistory = createAsyncThunk<
   MessagesResponse,
   number,
   { rejectValue: string }
->("history/updateHistory", async function (lastElem, { rejectWithValue }) {
-  const url = (
+>("history/updateHistory", async function (step, { rejectWithValue }) {
+  historyDataOffset += step
+  const url: string = (
     'http://localhost:3003/640706a3b83da219ae6af40a/history?' +
-    new URLSearchParams({ lessOrder: String(lastElem), limit: String(dataLimit) }).toString()
+    new URLSearchParams({ offset: String(historyDataOffset), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
 
@@ -71,34 +73,17 @@ export const paggingUpdateHistory = createAsyncThunk<
 
   const data = await response.json();
   return data;
-});
-
-export const updateHistory = createAsyncThunk<
-    MessagesResponse,
-    number,
-    { rejectValue: string }
->("labs/updateHistory", async function (order, { rejectWithValue }) {
-    const url = (
-        'http://localhost:3003/640706a3b83da219ae6af40a/history?' +
-        new URLSearchParams({ greatOrder: String(order) }).toString()
-    );
-    const response = await fetch(url);
-
-    if (!response.ok) {
-        return rejectWithValue("Server Error!");
-    }
-    const data = await response.json();
-    return data;
 });
 
 export const paggingUpdateMessages = createAsyncThunk<
   MessagesResponse,
   number,
   { rejectValue: string }
->("history/updateMessages", async function (lastElem, { rejectWithValue }) {
+>("history/updateMessages", async function (step, { rejectWithValue }) {
+  messageDataOffset += step
   const url = (
     'http://localhost:3003/640706a3b83da219ae6af40a/messages?' +
-    new URLSearchParams({ lessOrder: String(lastElem), limit: String(dataLimit) }).toString()
+    new URLSearchParams({ offset: String(messageDataOffset), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
 
@@ -110,38 +95,20 @@ export const paggingUpdateMessages = createAsyncThunk<
   return data;
 });
 
-export const updateMessages = createAsyncThunk<
-    MessagesResponse,
-    number,
-    { rejectValue: string }
->("labs/updateMessages", async function (order, { rejectWithValue }) {
-    const url = (
-        'http://localhost:3003/640706a3b83da219ae6af40a/messages?' +
-        new URLSearchParams({ greatOrder: String(order) }).toString()
-    );
-    const response = await fetch(url);
-
-    if (!response.ok) {
-        return rejectWithValue("Server Error!");
-    }
-    const data = await response.json();
-    return data;
-});
-
 const historySlice = createSlice({
   name: "history",
   initialState: initialState,
   reducers: {
-    update(state, action: PayloadAction<HistoryType>) {
+    updateMessages(state, action: PayloadAction<HistoryType>) {
       if (action.payload.status) {
         state.history = [action.payload, ...state.history]
-        state.historyLastOrder = action.payload.order
         state.historyCount += 1
+        historyDataOffset += 1
       }
       else {
         state.messages = [action.payload, ...state.messages]
-        state.messagesLastOrder = action.payload.order
         state.messagesCount += 1
+        messageDataOffset += 1
       }
     },
   },
@@ -152,11 +119,8 @@ const historySlice = createSlice({
         state.error = false
       })
       .addCase(fetchHistory.fulfilled, (state, action) => {
-        if (action.payload.data.length > 0) {
-          state.history = action.payload.data
-          state.historyCount = action.payload.count
-          state.historyLastOrder = action.payload.order
-        }
+        state.history = action.payload.data
+        state.historyCount = action.payload.count
         state.loading = false
       })
       .addCase(fetchHistory.rejected, (state, action) => {
@@ -170,7 +134,6 @@ const historySlice = createSlice({
       .addCase(fetchMessages.fulfilled, (state, action) => {
         state.messages = action.payload.data
         state.messagesCount = action.payload.count
-        state.messagesLastOrder = action.payload.order
         state.loading = false
       })
       .addCase(fetchMessages.rejected, (state, action) => {
@@ -178,47 +141,33 @@ const historySlice = createSlice({
         state.error = true
       })
       .addCase(paggingUpdateHistory.pending, (state) => {
-        state.updating = true
+        state.historyUpdating = true
         state.error = false
       })
       .addCase(paggingUpdateHistory.fulfilled, (state, action) => {
         state.history = [...state.history, ...action.payload.data]
-        state.updating = false
+        state.historyUpdating = false
       })
       .addCase(paggingUpdateHistory.rejected, (state, action) => {
-        state.updating = false
+        state.historyUpdating = false
         state.error = true
       })
       .addCase(paggingUpdateMessages.pending, (state) => {
-        state.updating = true
+        state.messagesUpdating = true
         state.error = false
       })
       .addCase(paggingUpdateMessages.fulfilled, (state, action) => {
         state.messages = [...state.messages, ...action.payload.data]
-        state.updating = false
+        state.messagesUpdating = false
       })
       .addCase(paggingUpdateMessages.rejected, (state, action) => {
-        state.updating = false
+        state.messagesUpdating = false
         state.error = true
-      })
-      .addCase(updateHistory.fulfilled, (state, action) => {
-        if (action.payload.data.length > 0) {
-          state.history = [...action.payload.data, ...state.history]
-          state.historyLastOrder = action.payload.order
-          state.historyCount = action.payload.count
-        }
-      })
-      .addCase(updateMessages.fulfilled, (state, action) => {
-        if (action.payload.data.length > 0) {
-          state.messages = [...action.payload.data, ...state.messages]
-          state.messagesLastOrder = action.payload.order
-          state.messagesCount = action.payload.count
-        }
       })
   }
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { update } = historySlice.actions;
+export const { updateMessages } = historySlice.actions;
 
 export default historySlice.reducer;

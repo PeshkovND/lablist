@@ -5,7 +5,7 @@ import { HistoryType, Journal, Lab } from "../../../types";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { useContext, useEffect } from "react";
 import { WebsocketContext } from "../../../contexts/WebSocketContext";
-import { update } from "../../../store/historySlice";
+import { updateMessages } from "../../../store/historySlice";
 import { addLab, updateLab } from "../../../store/labSlice";
 
 interface ResultProps {
@@ -19,7 +19,7 @@ export const ResultTable = (props: ResultProps) => {
 
   useEffect(() => {
     appSockets.messagesSocket.on('Message: ' + journal._id, (data: HistoryType) => {
-      dispatch(update(data))
+      dispatch(updateMessages(data))
     })
 
     appSockets.labsSocket.on('New Lab: ' + journal._id, (data: Lab) => {
