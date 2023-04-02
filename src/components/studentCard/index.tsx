@@ -4,7 +4,7 @@ import { Lab, User } from "../../types";
 import styles from "./studentCard.module.css";
 
 interface StudentProps {
-  setActive: (student: User) => void;
+  setActive: React.Dispatch<React.SetStateAction<User | null>>;
   student: User;
   labs: Lab[];
 }

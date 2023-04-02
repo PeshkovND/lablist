@@ -1,33 +1,31 @@
-.resultTableContainer {
+.tableContentContainer {
     height: 77vh;
     width: 100%;
     align-items: center;
 }
 
-.tableNavContainer {
+.tableContentHeaderContainer {
     display: grid;
     height: 8%;
     grid-template-columns: 25% 75%;
     align-items: center;
     margin-left: 0.5vw;
-    margin-right: 0.7vw;
     background: #E8E8E8;
-}
-
-.tableNavContainer.header {
     overflow-y: scroll;
     margin-right: 0;
 }
 
-.tableNavContainer.header::-webkit-scrollbar {
+
+.tableContentHeaderContainer::-webkit-scrollbar {
     width: 0.7vw;
 }
 
-.tableNavContainer.header::-webkit-scrollbar-track{
+.tableContentHeaderContainer::-webkit-scrollbar-track{
     width: 0.7vw;
 }
 
-.group {
+.discription {
+    width: 100%;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -36,6 +34,9 @@
     letter-spacing: 0.04em;
     color: #181818;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .count {
@@ -49,7 +50,7 @@
     margin:0
 }
 
-.tableNavContainer {
+.tableJournalContainer {
     display: grid;
     grid-template-columns: 25% 75%;
     align-items: center;
@@ -58,23 +59,23 @@
     background: #E8E8E8;
 }
 
-.tableNavContainer.scores {
+.tableJournalContainer.scores {
     margin-right: 0;
     height: 92%;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
-.tableNavContainer.scores::-webkit-scrollbar {
+.tableJournalContainer.scores::-webkit-scrollbar {
     width: 0.7vw;
 }
 
 
-.tableNavContainer.scores::-webkit-scrollbar-thumb {
+.tableJournalContainer.scores::-webkit-scrollbar-thumb {
     background: #C7E8EF;
     border-radius: 0.5vw;
 }
 
-.tableNavContainer.scores::-webkit-scrollbar-track{
+.tableJournalContainer.scores::-webkit-scrollbar-track{
     border: 0.15vw solid #C7E8EF;
     border-radius: 0.5vw;
     background-color: white;

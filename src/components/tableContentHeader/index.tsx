@@ -18,9 +18,7 @@ export const TableContentHeader = (props: HeaderProps) => {
 
   const dateMaker = (date: string) => {
     const strDay: string = date.substring(8, 10);
-
     const strMonth: string = date.substring(5, 7);
-
     return strDay + "." + strMonth;
   };
 
@@ -62,8 +60,11 @@ export const TableContentHeader = (props: HeaderProps) => {
   };
 
   return (
-    <div className={styles.headerWindow}><div className={styles.headerContainer} style={{
-      transform: `translate(calc(${props.step}*-10%))`
-    }}>{parseLabs()}</div>
+    <div className={styles.headerWindow}>
+      <div className={styles.headerContainer} style={{
+        transform: `translate(calc(${props.step}*-10%))`
+      }}>
+        {parseLabs()}
+      </div>
     </div>)
 }

@@ -31,8 +31,6 @@ export const Table = () => {
 
   const loading = JournalLoading || UsersLoading || LabsLoading || HistoryLoading;
 
-
-
   const drawTable = () => {
     if (loading) { return <Loading /> }
     if (journal) {
