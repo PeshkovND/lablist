@@ -1,0 +1,49 @@
+.journalCardContainer {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.3125vw;
+    margin-bottom: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    padding-left: 0.5vw;
+}
+
+.journalName {
+    width:fit-content;
+    color: #224973;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.145vw;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 0.15vw solid white;
+}
+
+.journalName a {
+    color: #224973;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.145vw;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.journalName:hover{
+    transition: border-bottom 0.2s;
+    border-bottom: 0.15vw solid #224973;
+}
+
+.date{
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.83vw;
+    letter-spacing: 0.02em;
+    color: #9498A0;
+    margin: 0;
+    padding-top: 0.3vw;
+}

@@ -1,0 +1,27 @@
+.title {
+    font-family: 'Lora', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2vw;
+    letter-spacing: 0.06vw;
+    color: #000000;
+    margin: 0;
+}
+
+.subtitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    letter-spacing: 0.06vw;
+    color: #9498A0;
+}
+
+.notFound{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-size: 1.2vw;
+    letter-spacing: 0.06vw;
+    color: #000000;
+
+}

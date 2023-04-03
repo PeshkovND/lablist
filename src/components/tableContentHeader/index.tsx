@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { updateLabFilter } from "../../store/filterStore";
 import { Journal, JournalLab } from "../../types";
+import { dateMaker } from "../../utils/dateMaker";
 import styles from "./tableContentHeader.module.css"
 
 
@@ -15,16 +16,10 @@ export const TableContentHeader = (props: HeaderProps) => {
   const dispatch = useAppDispatch()
 
   const labData = [...journal.labs].sort((a, b) => a.num > b.num ? 1 : -1);
-
-  const dateMaker = (date: string) => {
-    const strDay: string = date.substring(8, 10);
-    const strMonth: string = date.substring(5, 7);
-    return strDay + "." + strMonth;
-  };
-
+  
   const renderDeadline = (deadline: string | undefined) => {
     if (deadline) {
-      return <p className={styles.labDeadline}>{'Срок ' + dateMaker(deadline)}</p>
+      return <p className={styles.labDeadline}>{'Срок ' + dateMaker(deadline).substring(0, 5)}</p>
     }
   }
 

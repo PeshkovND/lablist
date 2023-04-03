@@ -10,11 +10,11 @@ const initialState: JournalState = {
 
 export const fetchJournal = createAsyncThunk<
   Journal,
-  undefined,
+  string,
   { rejectValue: string }
->("journals/fetchJournal", async function (_, { rejectWithValue }) {
+>("journals/fetchJournal", async function (id, { rejectWithValue }) {
 
-  const response = await fetch("http://localhost:3002/journals/640706a3b83da219ae6af40a");
+  const response = await fetch("http://localhost:3002/journals/" + id);
 
   if (!response.ok) {
     return rejectWithValue("Server Error!");

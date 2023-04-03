@@ -9,11 +9,11 @@ const initialState: AllUsersState = {
 
 export const fetchUsers = createAsyncThunk<
   User[],
-  undefined,
+  string,
   { rejectValue: string }
->("users/fetchUsers", async function (_, { rejectWithValue }) {
+>("users/fetchUsers", async function (id, { rejectWithValue }) {
 
-  const response = await fetch("http://localhost:3004/640706a3b83da219ae6af40a");
+  const response = await fetch("http://localhost:3004/" + id);
 
   if (!response.ok) {
     return rejectWithValue("Server Error!");

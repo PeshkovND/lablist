@@ -1,8 +1,8 @@
 .main {
   display: grid;
-  grid-template-columns: 7vw 93vw;
+  grid-template-columns: 7fr 93fr;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
 }
 
 .content {
@@ -14,6 +14,6 @@
 
 .over {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   height: 16vh;
 }

@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { AllHistoryState } from "../../types";
 import { paggingUpdateHistory, paggingUpdateMessages } from "../../store/historySlice";
 import { PaggingLoading } from "../paggingLoading";
+import { useParams } from "react-router-dom";
 
 
 export const History = () => {
@@ -13,6 +14,7 @@ export const History = () => {
   const dispatch = useAppDispatch()
   const data = useAppSelector((state) => state.history) as AllHistoryState
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>
+  const { id } = useParams();
 
   const updating = chooseButton === 'history' ? data.historyUpdating : data.messagesUpdating
 
@@ -20,12 +22,12 @@ export const History = () => {
     const { scrollHeight, clientHeight } = ref.current;
     if (chooseButton === 'history') {
       if (scrollHeight === clientHeight && !updating && data.history.length !== data.historyCount) {
-        dispatch(paggingUpdateHistory(paginationStep))
+        dispatch(paggingUpdateHistory([paginationStep, id as string]))
       }
     }
     else {
       if (scrollHeight === clientHeight && !updating && data.messages.length !== data.messagesCount) {
-        dispatch(paggingUpdateMessages(paginationStep))
+        dispatch(paggingUpdateMessages([paginationStep, id as string]))
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,12 +38,12 @@ export const History = () => {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
       if (chooseButton === 'history') {
         if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.history.length !== data.historyCount) {
-          dispatch(paggingUpdateHistory(paginationStep))
+          dispatch(paggingUpdateHistory([paginationStep, id as string]))
         }
       }
       else {
         if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.messages.length !== data.messagesCount) {
-          dispatch(paggingUpdateMessages(paginationStep))
+          dispatch(paggingUpdateMessages([paginationStep, id as string]))
         }
       }
     }

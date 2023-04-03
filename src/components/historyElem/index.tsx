@@ -1,5 +1,6 @@
 import { useAppSelector } from "../../hooks";
 import { HistoryType, User } from "../../types";
+import { dateMaker } from "../../utils/dateMaker";
 import styles from "./historyElem.module.css";
 
 interface HistoryElemProps {
@@ -8,16 +9,6 @@ interface HistoryElemProps {
 
 export const HistoryElem = (props: HistoryElemProps) => {
   const filter = useAppSelector((state) => state.filter);
-  const dateMaker = (date: string) => {
-    const strDay: string = date.substring(8, 10);
-
-    const strMonth: string = date.substring(5, 7);
-
-    const strYear: string = date.substring(0, 4);
-
-    return strDay + "." + strMonth + "." + strYear;
-  };
-
   const user = useAppSelector((state) => state.users.users.find(e => e._id === props.elem.userId)) as User;                                 
   const parseStatus = (status: string | undefined) => {
     switch (status) {

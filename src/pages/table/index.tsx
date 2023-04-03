@@ -9,8 +9,11 @@ import { Loading } from "../../components/loading";
 import { TableHeader } from "../../components/tableHeader";
 import { TableContent } from "../../components/tableContent";
 import { History } from "../../components/history";
+import { useParams } from "react-router-dom";
 
 export const Table = () => {
+  const { id } = useParams();
+
   const [step, setStep] = useState(0)
   
   const journal = useAppSelector((state) => state.journal.journal);
@@ -21,11 +24,13 @@ export const Table = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchJournal())
-    dispatch(fetchUsers())
-    dispatch(fetchLabs())
-    dispatch(fetchHistory())
-    dispatch(fetchMessages())
+    if (id) {
+    dispatch(fetchJournal(id))
+    dispatch(fetchUsers(id))
+    dispatch(fetchLabs(id))
+    dispatch(fetchHistory(id))
+    dispatch(fetchMessages(id))
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

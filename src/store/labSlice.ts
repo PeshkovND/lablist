@@ -9,11 +9,11 @@ const initialState: AllLabsState = {
 
 export const fetchLabs = createAsyncThunk<
     Lab[],
-    undefined,
+    string,
     { rejectValue: string }
->("labs/fetchLabs", async function (_, { rejectWithValue }) {
+>("labs/fetchLabs", async function (id, { rejectWithValue }) {
 
-    const response = await fetch("http://localhost:3002/journals/640706a3b83da219ae6af40a/labs");
+    const response = await fetch("http://localhost:3002/journals/" + id + "/labs");
 
     if (!response.ok) {
         return rejectWithValue("Server Error!");

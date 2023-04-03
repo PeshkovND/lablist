@@ -18,11 +18,11 @@ const initialState: AllHistoryState = {
 
 export const fetchHistory = createAsyncThunk<
   MessagesResponse,
-  undefined,
+  string,
   { rejectValue: string }
->("history/fetchHistory", async function (_, { rejectWithValue }) {
+>("history/fetchHistory", async function (id, { rejectWithValue }) {
   const url = (
-    'http://localhost:3003/640706a3b83da219ae6af40a/history?' +
+    'http://localhost:3003/' + id + '/history?' +
     new URLSearchParams({ offset: "0", limit: String(dataLimit) }).toString()
   );
 
@@ -38,11 +38,11 @@ export const fetchHistory = createAsyncThunk<
 
 export const fetchMessages = createAsyncThunk<
   MessagesResponse,
-  undefined,
+  string,
   { rejectValue: string }
->("history/fetchMessages", async function (_, { rejectWithValue }) {
+>("history/fetchMessages", async function (id, { rejectWithValue }) {
   const url = (
-    'http://localhost:3003/640706a3b83da219ae6af40a/messages?' +
+    'http://localhost:3003/' + id + '/messages?' +
     new URLSearchParams({ offset: "0", limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
@@ -57,12 +57,12 @@ export const fetchMessages = createAsyncThunk<
 
 export const paggingUpdateHistory = createAsyncThunk<
   MessagesResponse,
-  number,
+  [number, string],
   { rejectValue: string }
->("history/updateHistory", async function (step, { rejectWithValue }) {
+>("history/updateHistory", async function ([step, id], { rejectWithValue }) {
   historyDataOffset += step
   const url: string = (
-    'http://localhost:3003/640706a3b83da219ae6af40a/history?' +
+    'http://localhost:3003/' + id + '/history?' +
     new URLSearchParams({ offset: String(historyDataOffset), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
@@ -77,12 +77,12 @@ export const paggingUpdateHistory = createAsyncThunk<
 
 export const paggingUpdateMessages = createAsyncThunk<
   MessagesResponse,
-  number,
+  [number, string],
   { rejectValue: string }
->("history/updateMessages", async function (step, { rejectWithValue }) {
+>("history/updateMessages", async function ([step, id], { rejectWithValue }) {
   messageDataOffset += step
   const url = (
-    'http://localhost:3003/640706a3b83da219ae6af40a/messages?' +
+    'http://localhost:3003/' + id + '/messages?' +
     new URLSearchParams({ offset: String(messageDataOffset), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);

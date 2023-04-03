@@ -2,7 +2,8 @@ export type Journal = {
   _id: string;
   labs: JournalLab[];
   discription: string;
-  students: string[]
+  students: string[];
+  dateOfCreation: string;
 }
 
 export type Filter = {
@@ -50,14 +51,6 @@ export type HistoryType = {
   num: number;
 };
 
-export type Message = {
-  id: number;
-  from: number;
-  to: number;
-  theme: string;
-  content: string;
-}
-
 export type AllHistoryState = {
   history: HistoryType[],
   messages: HistoryType[],
@@ -77,6 +70,12 @@ export type AllUsersState = {
 
 export type AllLabsState = {
   labs: Lab[],
+  loading: boolean,
+  error: boolean,
+}
+
+export type AllJournalsState = {
+  journals: Journal[] | null,
   loading: boolean,
   error: boolean,
 }

@@ -1,26 +1,36 @@
 .searcher {
-    display: inline-flex;
+    box-sizing: border-box;
+    display: flex;
+    width: 30%;
     border-bottom: 0.05vw solid #224973;
-    width: auto;
-    height: 3.5vh;
+    height: 2.5vw;
     align-items: center;
-    margin-left: 1.3vw;
-    margin-top: 1.3vw;
+    margin-bottom: 2vw;
 }
 
 .searchField {
-    width: 20vw;
-    height: 3.5vh;
+    min-width: 93%;
+    max-width: 93%;
+    min-height: 2.5vw;
+    max-height: 2.5vw;
     border: 0;
     background: none;
-    margin-left: 0.6vw;
 }
 
 .searchField:focus {
     outline: none;
 }
 
+.searchButton {
+    cursor: pointer;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    min-width: 7%;
+    max-width: 7%;
+}
+
 .searchIcon {
-    width: 2.5vh;
-    height: 2.5vh;
+    padding: 0;
+    width: 100%;
 }

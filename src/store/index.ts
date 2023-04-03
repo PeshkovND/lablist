@@ -3,7 +3,8 @@ import userReducer from './userSlice'
 import labReducer from './labSlice'
 import journalReducer from './journalSlice'
 import historyReducer from './historySlice'
-import filterStore from './filterStore'
+import filterReducer from './filterStore'
+import allJournalsReducer from './allJournalSlice'
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
         users: userReducer,
         journal: journalReducer,
         history: historyReducer,
-        filter: filterStore
+        filter: filterReducer,
+        allJournals: allJournalsReducer,
     }
 })
 
