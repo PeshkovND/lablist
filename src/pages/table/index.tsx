@@ -16,21 +16,25 @@ export const Table = () => {
   const { id } = useParams();
 
   const [step, setStep] = useState(0)
-  
-  const journal = useAppSelector((state) => state.journal.journal);
+
+  const journal = useAppSelector((state) => state.journal);
   const JournalLoading = useAppSelector((state) => state.journal.loading);
   const UsersLoading = useAppSelector((state) => state.users.loading);
+  const UsersError = useAppSelector((state) => state.users.error);
   const LabsLoading = useAppSelector((state) => state.labs.loading);
-  const HistoryLoading = useAppSelector((state) => state.history.loading);
+  const LabsError = useAppSelector((state) => state.labs.error);
+  const HistoryLoading = useAppSelector((state) => state.history.historyLoading);
+  const MessagesLoading = useAppSelector((state) => state.history.messagesLoading);
+  const HistoryError = useAppSelector((state) => state.history.error);
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (id) {
-    dispatch(fetchJournal(id))
-    dispatch(fetchUsers(id))
-    dispatch(fetchLabs(id))
-    dispatch(fetchHistory(id))
-    dispatch(fetchMessages(id))
+      dispatch(fetchJournal(id))
+      dispatch(fetchUsers(id))
+      dispatch(fetchLabs(id))
+      dispatch(fetchHistory(id))
+      dispatch(fetchMessages(id))
     }
     return () => {
       console.log("dropped")
@@ -43,14 +47,20 @@ export const Table = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const loading = JournalLoading || UsersLoading || LabsLoading || HistoryLoading;
+  const loading = JournalLoading || UsersLoading || LabsLoading || HistoryLoading || MessagesLoading;
 
   const drawTable = () => {
     if (loading) { return <Loading /> }
-    if (journal) {
+    if (journal.error || UsersError || LabsError || HistoryError) {
+      return <div className={styles.errorContainer}>
+        <p className={styles.errorMessage}>Ошибка загрузки данных</p>
+        <button className={styles.errorButton} onClick={() => dispatch(fetchJournal(id as string))}>Повторить</button>
+      </div>
+    }
+    if (journal.journal) {
 
       return (<div className={styles.table}>
-        <TableHeader step={step} setStep={setStep}/>
+        <TableHeader step={step} setStep={setStep} />
         <TableContent step={step} />
         <History />
       </div>)

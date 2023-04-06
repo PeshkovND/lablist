@@ -8,7 +8,8 @@ const dataLimit = 15;
 const initialState: AllHistoryState = {
   history: [],
   messages: [],
-  loading: false,
+  historyLoading: false,
+  messagesLoading: false,
   error: false,
   historyUpdating: false,
   messagesUpdating: false,
@@ -69,7 +70,6 @@ export const paggingUpdateHistory = createAsyncThunk<
     new URLSearchParams({ cursor: String(cursor), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
-
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }
@@ -114,7 +114,8 @@ const historySlice = createSlice({
     dropMessages(state) {
       state.history = []
       state.messages = []
-      state.loading = false
+      state.historyLoading = false
+      state.messagesUpdating = false
       state.error = false
       state.historyCount = 0
       state.messagesCount = 0
@@ -129,31 +130,31 @@ const historySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchHistory.pending, (state) => {
-        state.loading = true
+        state.historyLoading = true
         state.error = false
       })
       .addCase(fetchHistory.fulfilled, (state, action) => {
         state.history = action.payload.data
         state.historyCount = action.payload.count
-        state.loading = false
+        state.historyLoading = false
         state.historyCursor = action.payload.afterCursor
       })
       .addCase(fetchHistory.rejected, (state, action) => {
-        state.loading = false
+        state.historyLoading = false
         state.error = true
       })
       .addCase(fetchMessages.pending, (state) => {
-        state.loading = true
+        state.messagesLoading = true
         state.error = false
       })
       .addCase(fetchMessages.fulfilled, (state, action) => {
         state.messages = action.payload.data
         state.messagesCount = action.payload.count
-        state.loading = false
+        state.messagesLoading = false
         state.messagesCursor = action.payload.afterCursor
       })
       .addCase(fetchMessages.rejected, (state, action) => {
-        state.loading = false
+        state.messagesLoading = false
         state.error = true
       })
       .addCase(paggingUpdateHistory.pending, (state) => {

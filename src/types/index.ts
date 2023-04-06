@@ -54,7 +54,8 @@ export type HistoryType = {
 export type AllHistoryState = {
   history: HistoryType[],
   messages: HistoryType[],
-  loading: boolean,
+  historyLoading: boolean,
+  messagesLoading: boolean,
   error: boolean,
   historyCount: number,
   messagesCount: number,

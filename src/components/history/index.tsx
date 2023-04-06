@@ -16,16 +16,17 @@ export const History = () => {
   const { id } = useParams();
 
   const updating = chooseButton === 'history' ? data.historyUpdating : data.messagesUpdating
+  const error = chooseButton === 'history' ? data.historyPaggingError : data.messagesPaggingError
 
   useEffect(() => {
     const { scrollHeight, clientHeight } = ref.current;
     if (chooseButton === 'history') {
-      if (scrollHeight === clientHeight && !updating && data.historyCursor) {
+      if (scrollHeight === clientHeight && !updating && data.historyCursor && !error) {
         dispatch(paggingUpdateHistory([data.historyCursor, id as string]))
       }
     }
     else {
-      if (scrollHeight === clientHeight && !updating && data.messagesCursor) {
+      if (scrollHeight === clientHeight && !updating && data.messagesCursor && !error) {
         dispatch(paggingUpdateMessages([data.messagesCursor, id as string]))
       }
     }
@@ -36,12 +37,12 @@ export const History = () => {
     if (ref.current) {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
       if (chooseButton === 'history') {
-        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.historyCursor) {
+        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.historyCursor && !error) {
           dispatch(paggingUpdateHistory([data.historyCursor, id as string]))
         }
       }
       else {
-        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.messagesCursor) {
+        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.messagesCursor && !error) {
           dispatch(paggingUpdateMessages([data.messagesCursor, id as string]))
         }
       }
@@ -51,6 +52,16 @@ export const History = () => {
   const checkLoading = () => {
     if (updating) {
       return <PaggingLoading />
+    }
+  }
+
+  const checkError = () => {
+    if (error) {
+      return <div className={styles.errorContainer}>
+        <p className={styles.errorMessage}>Ошибка</p>
+        <button className={styles.errorButton} onClick={() => chooseButton === 'history' ? dispatch(paggingUpdateHistory([data.historyCursor as string, id as string])) : 
+      dispatch(paggingUpdateMessages([data.messagesCursor as string, id as string]))}>Повторить</button>
+      </div>
     }
   }
 
@@ -80,6 +91,7 @@ export const History = () => {
       <div className={styles.elemContainer} onScroll={() => scrollHandler()} ref={ref}>
         {renderElems()}
         {checkLoading()}
+        {checkError()}
       </div>
     </div>
   );
