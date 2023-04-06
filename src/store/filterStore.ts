@@ -27,11 +27,16 @@ const filterSlice = createSlice({
         state.studentFilter = action.payload
         state.labFilter = undefined
       }
+    },
+
+    dropFilters(state) {
+      state.studentFilter = undefined
+      state.labFilter = undefined
     }
   },
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { updateLabFilter, updateStudentFilter } = filterSlice.actions;
+export const { updateLabFilter, updateStudentFilter, dropFilters } = filterSlice.actions;
 
 export default filterSlice.reducer;

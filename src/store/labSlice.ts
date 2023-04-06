@@ -33,6 +33,11 @@ const labSlice = createSlice({
         addLab(state, action: PayloadAction<Lab>) {
             state.labs = [...state.labs, action.payload]
         },
+        dropLabs(state) {
+            state.labs = []
+            state.loading = false
+            state.error = false
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -52,6 +57,6 @@ const labSlice = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { updateLab, addLab } = labSlice.actions;
+export const { updateLab, addLab, dropLabs } = labSlice.actions;
 
 export default labSlice.reducer;

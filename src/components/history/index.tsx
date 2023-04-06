@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 
 export const History = () => {
   const [chooseButton, setChooseButton] = useState('history')
-  const paginationStep = 15;
   const dispatch = useAppDispatch()
   const data = useAppSelector((state) => state.history) as AllHistoryState
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>
@@ -21,29 +20,29 @@ export const History = () => {
   useEffect(() => {
     const { scrollHeight, clientHeight } = ref.current;
     if (chooseButton === 'history') {
-      if (scrollHeight === clientHeight && !updating && data.history.length !== data.historyCount) {
-        dispatch(paggingUpdateHistory([paginationStep, id as string]))
+      if (scrollHeight === clientHeight && !updating && data.historyCursor) {
+        dispatch(paggingUpdateHistory([data.historyCursor, id as string]))
       }
     }
     else {
-      if (scrollHeight === clientHeight && !updating && data.messages.length !== data.messagesCount) {
-        dispatch(paggingUpdateMessages([paginationStep, id as string]))
+      if (scrollHeight === clientHeight && !updating && data.messagesCursor) {
+        dispatch(paggingUpdateMessages([data.messagesCursor, id as string]))
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [data.historyCursor, data.messagesCursor])
 
   const scrollHandler = () => {
     if (ref.current) {
       const { scrollTop, scrollHeight, clientHeight } = ref.current;
       if (chooseButton === 'history') {
-        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.history.length !== data.historyCount) {
-          dispatch(paggingUpdateHistory([paginationStep, id as string]))
+        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.historyCursor) {
+          dispatch(paggingUpdateHistory([data.historyCursor, id as string]))
         }
       }
       else {
-        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.messages.length !== data.messagesCount) {
-          dispatch(paggingUpdateMessages([paginationStep, id as string]))
+        if (scrollHeight - (scrollTop + clientHeight) <= 5 && !updating && data.messagesCursor) {
+          dispatch(paggingUpdateMessages([data.messagesCursor, id as string]))
         }
       }
     }

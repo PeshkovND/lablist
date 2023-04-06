@@ -2,18 +2,22 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { AllHistoryState, HistoryType, MessagesResponse } from "../types";
 
 const dataLimit = 15;
-let messageDataOffset = 0;
-let historyDataOffset = 0;
+// let messageDataOffset = 0;
+// let historyDataOffset = 0;
 
 const initialState: AllHistoryState = {
   history: [],
   messages: [],
   loading: false,
   error: false,
-  historyCount: 0,
-  messagesCount: 0,
   historyUpdating: false,
   messagesUpdating: false,
+  historyCount: 0,
+  messagesCount: 0,
+  historyCursor: null,
+  messagesCursor: null,
+  historyPaggingError: false,
+  messagesPaggingError: false,
 };
 
 export const fetchHistory = createAsyncThunk<
@@ -23,7 +27,7 @@ export const fetchHistory = createAsyncThunk<
 >("history/fetchHistory", async function (id, { rejectWithValue }) {
   const url = (
     'http://localhost:3003/' + id + '/history?' +
-    new URLSearchParams({ offset: "0", limit: String(dataLimit) }).toString()
+    new URLSearchParams({ limit: String(dataLimit) }).toString()
   );
 
   const response = await fetch(url);
@@ -43,7 +47,7 @@ export const fetchMessages = createAsyncThunk<
 >("history/fetchMessages", async function (id, { rejectWithValue }) {
   const url = (
     'http://localhost:3003/' + id + '/messages?' +
-    new URLSearchParams({ offset: "0", limit: String(dataLimit) }).toString()
+    new URLSearchParams({ limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
 
@@ -57,13 +61,12 @@ export const fetchMessages = createAsyncThunk<
 
 export const paggingUpdateHistory = createAsyncThunk<
   MessagesResponse,
-  [number, string],
+  [string, string],
   { rejectValue: string }
->("history/updateHistory", async function ([step, id], { rejectWithValue }) {
-  historyDataOffset += step
+>("history/updateHistory", async function ([cursor, id], { rejectWithValue }) {
   const url: string = (
     'http://localhost:3003/' + id + '/history?' +
-    new URLSearchParams({ offset: String(historyDataOffset), limit: String(dataLimit) }).toString()
+    new URLSearchParams({ cursor: String(cursor), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
 
@@ -77,13 +80,12 @@ export const paggingUpdateHistory = createAsyncThunk<
 
 export const paggingUpdateMessages = createAsyncThunk<
   MessagesResponse,
-  [number, string],
+  [string, string],
   { rejectValue: string }
->("history/updateMessages", async function ([step, id], { rejectWithValue }) {
-  messageDataOffset += step
+>("history/updateMessages", async function ([cursor, id], { rejectWithValue }) {
   const url = (
     'http://localhost:3003/' + id + '/messages?' +
-    new URLSearchParams({ offset: String(messageDataOffset), limit: String(dataLimit) }).toString()
+    new URLSearchParams({ cursor: String(cursor), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
 
@@ -103,14 +105,26 @@ const historySlice = createSlice({
       if (action.payload.status) {
         state.history = [action.payload, ...state.history]
         state.historyCount += 1
-        historyDataOffset += 1
       }
       else {
         state.messages = [action.payload, ...state.messages]
         state.messagesCount += 1
-        messageDataOffset += 1
       }
     },
+    dropMessages(state) {
+      state.history = []
+      state.messages = []
+      state.loading = false
+      state.error = false
+      state.historyCount = 0
+      state.messagesCount = 0
+      state.historyUpdating = false
+      state.messagesUpdating = false
+      state.historyCursor = null
+      state.messagesCursor = null
+      state.historyPaggingError = false
+      state.messagesPaggingError = false
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -122,6 +136,7 @@ const historySlice = createSlice({
         state.history = action.payload.data
         state.historyCount = action.payload.count
         state.loading = false
+        state.historyCursor = action.payload.afterCursor
       })
       .addCase(fetchHistory.rejected, (state, action) => {
         state.loading = false
@@ -135,6 +150,7 @@ const historySlice = createSlice({
         state.messages = action.payload.data
         state.messagesCount = action.payload.count
         state.loading = false
+        state.messagesCursor = action.payload.afterCursor
       })
       .addCase(fetchMessages.rejected, (state, action) => {
         state.loading = false
@@ -142,32 +158,34 @@ const historySlice = createSlice({
       })
       .addCase(paggingUpdateHistory.pending, (state) => {
         state.historyUpdating = true
-        state.error = false
+        state.historyPaggingError = false
       })
       .addCase(paggingUpdateHistory.fulfilled, (state, action) => {
         state.history = [...state.history, ...action.payload.data]
         state.historyUpdating = false
+        state.historyCursor = action.payload.afterCursor
       })
       .addCase(paggingUpdateHistory.rejected, (state, action) => {
         state.historyUpdating = false
-        state.error = true
+        state.historyPaggingError = true
       })
       .addCase(paggingUpdateMessages.pending, (state) => {
         state.messagesUpdating = true
-        state.error = false
+        state.messagesPaggingError = false
       })
       .addCase(paggingUpdateMessages.fulfilled, (state, action) => {
         state.messages = [...state.messages, ...action.payload.data]
         state.messagesUpdating = false
+        state.messagesCursor = action.payload.afterCursor
       })
       .addCase(paggingUpdateMessages.rejected, (state, action) => {
         state.messagesUpdating = false
-        state.error = true
+        state.messagesPaggingError = true
       })
   }
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { updateMessages } = historySlice.actions;
+export const { updateMessages, dropMessages } = historySlice.actions;
 
 export default historySlice.reducer;

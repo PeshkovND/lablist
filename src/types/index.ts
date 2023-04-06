@@ -60,6 +60,10 @@ export type AllHistoryState = {
   messagesCount: number,
   historyUpdating: boolean,
   messagesUpdating: boolean,
+  historyCursor: string | null
+  messagesCursor: string | null
+  historyPaggingError: boolean,
+  messagesPaggingError: boolean,
 }
 
 export type AllUsersState = {
@@ -98,6 +102,7 @@ export type shewartMapType = {
 export type MessagesResponse = {
   data: HistoryType[],
   count: number,
+  afterCursor: string | null
 };
 
 export type KafkaMessage = {

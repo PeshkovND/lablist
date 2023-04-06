@@ -27,7 +27,14 @@ export const fetchJournal = createAsyncThunk<
 const journalSlice = createSlice({
   name: "journals",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    dropJournal (state) {
+      state.journal = null
+      state.loading = false
+      state.error = false
+      state.lastDeadline = undefined
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchJournal.pending, (state) => {
@@ -62,6 +69,6 @@ const setLastDealineLab = (labs: JournalLab[]) => {
 }
 
 // eslint-disable-next-line no-empty-pattern
-export const {} = journalSlice.actions;
+export const { dropJournal } = journalSlice.actions;
 
 export default journalSlice.reducer;

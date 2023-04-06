@@ -26,7 +26,13 @@ export const fetchUsers = createAsyncThunk<
 const userSlice = createSlice({
   name: "users",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    dropUsers(state){
+      state.users = []
+      state.loading = false
+      state.error = false
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.pending, (state) => {
@@ -45,6 +51,6 @@ const userSlice = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { } = userSlice.actions;
+export const { dropUsers } = userSlice.actions;
 
 export default userSlice.reducer;
