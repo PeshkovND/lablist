@@ -59,7 +59,7 @@ export const Journals = () => {
     <div>
       <h1 className={styles.title}>Мои журналы</h1>
       <p className={styles.subtitle}>На этой странице представлены все созданные вами журналы.</p>
-      <Searcher value={value} setValue={setValue} actionHandler={(value) => onSearchComlite(value)} />
+      <Searcher value={value} setValue={setValue} actionHandler={(value) => onSearchComlite(value)} placeHolder="Найти журнал"/>
       {parseJournals()}
     </div>
   )

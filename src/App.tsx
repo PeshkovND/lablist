@@ -1,6 +1,5 @@
 import { Header } from "./components/header";
 import { Profile } from "./components/profile";
-import { Searcher } from "./components/searcher";
 import styles from "./App.module.css";
 import { appSockets, WebsocketProvider } from './contexts/WebSocketContext';
 

@@ -57,6 +57,10 @@ export const LabModal = (props: ModalProps) => {
       setError(true)
       setStatus("")
     }
+    else if (props.mark?.status === status && props.mark.score === Number(input)) {
+        setStatus("")
+        closeForm()
+      }
     else {
       const message: KafkaMessage = {
         num: props.lab.num,
@@ -122,8 +126,8 @@ export const LabModal = (props: ModalProps) => {
             <div className={error ? styles.error + " " + styles.active : styles.error}>Введите оценку</div>
           </div>
           <div className={styles.buttonsContainer}>
-            <button className={styles.button + " " + styles.done} type="submit" onClick={()=> setStatus("Принята")}>Принять</button>
-            <button className={styles.button + " " + styles.comeback} type="submit" onClick={()=> setStatus("Возвращена на доработку")}>Вернуть на доработку</button>
+            <button className={styles.button + " " + styles.done} type="submit" onClick={() => setStatus("Принята")}>Принять</button>
+            <button className={styles.button + " " + styles.comeback} type="submit" onClick={() => setStatus("Возвращена на доработку")}>Вернуть на доработку</button>
           </div>
         </form>
       </div>

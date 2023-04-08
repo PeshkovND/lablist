@@ -15,6 +15,20 @@
     max-height: 2.5vw;
     border: 0;
     background: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    letter-spacing: 0.06vw;
+}
+
+.searchField::placeholder {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    letter-spacing: 0.06vw;
+    color: #224973;
 }
 
 .searchField:focus {
