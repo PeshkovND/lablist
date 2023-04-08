@@ -35,6 +35,14 @@
 
 .title {
     text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5vw;
+    letter-spacing: 0.06vw;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 1vw;
 }
 
 .graphContainer {
@@ -78,6 +86,37 @@
 .closeClickContainer {
     width: 1%;
     cursor: pointer;
+}
+
+.togler {
+    margin: 0 auto;
+    width: 15%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.button {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #9498A0;
+    border-bottom: 0.05vw solid rgba(0,0,0,0);
+
+    cursor: pointer;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.button.active {
+    color: #181818;
+
+    border-bottom: 0.05vw solid #224973;
+    transition: color 0.2s, border-bottom 0.2s;
 }
 
 @keyframes appear {

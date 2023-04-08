@@ -28,13 +28,17 @@ export const Table = () => {
   const HistoryError = useAppSelector((state) => state.history.error);
   const dispatch = useAppDispatch()
 
+  const fetchAll = (id: string)=> {
+    dispatch(fetchJournal(id))
+    dispatch(fetchUsers(id))
+    dispatch(fetchLabs(id))
+    dispatch(fetchHistory(id))
+    dispatch(fetchMessages(id))
+  }
+
   useEffect(() => {
     if (id) {
-      dispatch(fetchJournal(id))
-      dispatch(fetchUsers(id))
-      dispatch(fetchLabs(id))
-      dispatch(fetchHistory(id))
-      dispatch(fetchMessages(id))
+      fetchAll(id)
     }
     return () => {
       console.log("dropped")
@@ -54,7 +58,7 @@ export const Table = () => {
     if (journal.error || UsersError || LabsError || HistoryError) {
       return <div className={styles.errorContainer}>
         <p className={styles.errorMessage}>Ошибка загрузки данных</p>
-        <button className={styles.errorButton} onClick={() => dispatch(fetchJournal(id as string))}>Повторить</button>
+        <button className={styles.errorButton} onClick={() => fetchAll(id as string)}>Повторить</button>
       </div>
     }
     if (journal.journal) {

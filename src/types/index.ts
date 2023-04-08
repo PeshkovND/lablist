@@ -94,9 +94,9 @@ export type JournalState = {
 
 export type shewartMapType = {
   [key: number]: {
-      A2: number;
-      D3: number;
-      D4: number;
+    A2: number;
+    D3: number;
+    D4: number;
   };
 };
 
@@ -113,4 +113,16 @@ export type KafkaMessage = {
   text: string,
   status: string,
   score: number
+}
+
+export type ShewartMapValues = {
+  UCL: number,
+  LCL: number,
+  RLCL: number,
+  RUCL: number,
+  Labels: string[][],
+  S: number[],
+  R: number[],
+  meanS: number,
+  meanR: number,
 }
