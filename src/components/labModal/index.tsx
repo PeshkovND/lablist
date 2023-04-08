@@ -16,7 +16,7 @@ export const LabModal = (props: ModalProps) => {
 
   const [input, setInput] = useState<string>(props.mark ? String(props.mark.score) : "");
   const [status, setStatus] = useState<string>("");
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const journal = useAppSelector(state => state.journal.journal) as Journal
 
   const checkPhoto = (elem: string | undefined) => {
@@ -39,11 +39,16 @@ export const LabModal = (props: ModalProps) => {
   }
 
   const validateInput = (mark: string) => {
+    setError(null)
     const numberMark = Number(mark)
     if ((numberMark <= 10 && numberMark >= 0) || mark === "") {
-      if (input === "0" && mark !== "") return
+      if (input === "0" && mark !== "") {
+        setError("Допустимы значения от 0 до 10")
+        return
+      }
       setInput(mark)
     }
+    else setError("Допустимы значения от 0 до 10")
   }
 
   const closeForm = () => {
@@ -54,7 +59,7 @@ export const LabModal = (props: ModalProps) => {
 
   const validateForm = () => {
     if (input === "") {
-      setError(true)
+      setError("Введите оценку")
       setStatus("")
     }
     else if (props.mark?.status === status && props.mark.score === Number(input)) {
@@ -122,8 +127,8 @@ export const LabModal = (props: ModalProps) => {
         }}>
           <div className={styles.inputContainer}>
             <div>Оценка: </div>
-            <input className={styles.input} type="text" value={input} onChange={(e) => validateInput(e.target.value)} onFocus={() => setError(false)} />
-            <div className={error ? styles.error + " " + styles.active : styles.error}>Введите оценку</div>
+            <input className={styles.input} type="text" value={input} onChange={(e) => validateInput(e.target.value)} onFocus={() => setError(null)} />
+            <div className={error ? styles.error + " " + styles.active : styles.error}>{error}</div>
           </div>
           <div className={styles.buttonsContainer}>
             <button className={styles.button + " " + styles.done} type="submit" onClick={() => setStatus("Принята")}>Принять</button>

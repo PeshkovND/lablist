@@ -52,19 +52,13 @@ export type HistoryType = {
 };
 
 export type AllHistoryState = {
-  history: HistoryType[],
   messages: HistoryType[],
-  historyLoading: boolean,
-  messagesLoading: boolean,
+  loading: boolean,
   error: boolean,
-  historyCount: number,
-  messagesCount: number,
-  historyUpdating: boolean,
-  messagesUpdating: boolean,
-  historyCursor: string | null
-  messagesCursor: string | null
-  historyPaggingError: boolean,
-  messagesPaggingError: boolean,
+  updating: boolean,
+  count: number,
+  cursor: string | null,
+  paggingError: boolean,
 }
 
 export type AllUsersState = {

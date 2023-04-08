@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { dropJournal, fetchJournal } from "../../store/journalSlice";
 import { dropUsers, fetchUsers } from "../../store/userSlice";
-import { dropMessages, fetchHistory, fetchMessages } from "../../store/historySlice";
+import { dropMessages, fetchHistory } from "../../store/historySlice";
 import { dropLabs, fetchLabs } from "../../store/labSlice";
 import { Loading } from "../../components/loading";
 import { TableHeader } from "../../components/tableHeader";
@@ -11,6 +11,7 @@ import { TableContent } from "../../components/tableContent";
 import { History } from "../../components/history";
 import { useParams } from "react-router-dom";
 import { dropFilters } from "../../store/filterStore";
+import { fetchMessages } from "../../store/messagesSlice";
 
 export const Table = () => {
   const { id } = useParams();
@@ -23,9 +24,10 @@ export const Table = () => {
   const UsersError = useAppSelector((state) => state.users.error);
   const LabsLoading = useAppSelector((state) => state.labs.loading);
   const LabsError = useAppSelector((state) => state.labs.error);
-  const HistoryLoading = useAppSelector((state) => state.history.historyLoading);
-  const MessagesLoading = useAppSelector((state) => state.history.messagesLoading);
+  const HistoryLoading = useAppSelector((state) => state.history.loading);
+  const MessagesLoading = useAppSelector((state) => state.messages.loading);
   const HistoryError = useAppSelector((state) => state.history.error);
+  const MessagesError = useAppSelector((state) => state.messages.error);
   const dispatch = useAppDispatch()
 
   const fetchAll = (id: string)=> {
@@ -55,7 +57,7 @@ export const Table = () => {
 
   const drawTable = () => {
     if (loading) { return <Loading /> }
-    if (journal.error || UsersError || LabsError || HistoryError) {
+    if (journal.error || UsersError || LabsError || HistoryError || MessagesError) {
       return <div className={styles.errorContainer}>
         <p className={styles.errorMessage}>Ошибка загрузки данных</p>
         <button className={styles.errorButton} onClick={() => fetchAll(id as string)}>Повторить</button>

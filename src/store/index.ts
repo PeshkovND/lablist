@@ -5,6 +5,7 @@ import journalReducer from './journalSlice'
 import historyReducer from './historySlice'
 import filterReducer from './filterStore'
 import allJournalsReducer from './allJournalSlice'
+import messagesReducer from './messagesSlice'
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         history: historyReducer,
         filter: filterReducer,
         allJournals: allJournalsReducer,
+        messages: messagesReducer
     }
 })
 

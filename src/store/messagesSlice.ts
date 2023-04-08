@@ -15,16 +15,15 @@ const initialState: AllHistoryState = {
   paggingError: false,
 };
 
-export const fetchHistory = createAsyncThunk<
+export const fetchMessages = createAsyncThunk<
   MessagesResponse,
   string,
   { rejectValue: string }
->("history/fetchHistory", async function (id, { rejectWithValue }) {
+>("messages/fetchMessages", async function (id, { rejectWithValue }) {
   const url = (
-    'http://localhost:3003/' + id + '/history?' +
+    'http://localhost:3003/' + id + '/messages?' +
     new URLSearchParams({ limit: String(dataLimit) }).toString()
   );
-
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -35,16 +34,17 @@ export const fetchHistory = createAsyncThunk<
   return data;
 });
 
-export const paggingUpdateHistory = createAsyncThunk<
+export const paggingUpdateMessages = createAsyncThunk<
   MessagesResponse,
   [string, string],
   { rejectValue: string }
->("history/updateHistory", async function ([cursor, id], { rejectWithValue }) {
-  const url: string = (
-    'http://localhost:3003/' + id + '/history?' +
+>("messages/updateMessages", async function ([cursor, id], { rejectWithValue }) {
+  const url = (
+    'http://localhost:3003/' + id + '/messages?' +
     new URLSearchParams({ cursor: String(cursor), limit: String(dataLimit) }).toString()
   );
   const response = await fetch(url);
+
   if (!response.ok) {
     return rejectWithValue("Server Error!");
   }
@@ -53,52 +53,52 @@ export const paggingUpdateHistory = createAsyncThunk<
   return data;
 });
 
-const historySlice = createSlice({
-  name: "history",
+const messagesSlice = createSlice({
+  name: "messages",
   initialState: initialState,
   reducers: {
     updateMessages(state, action: PayloadAction<HistoryType>) {
-      if (action.payload.status) {
+      if (!action.payload.status) {
         state.messages = [action.payload, ...state.messages]
         state.count += 1
       }
     },
     dropMessages(state) {
-      state.messages = []
-      state.loading = false
-      state.updating = false
-      state.error = false
-      state.count = 0
-      state.cursor = null
-      state.paggingError = false
+        state.messages = []
+        state.loading = false
+        state.updating = false
+        state.error = false
+        state.count = 0
+        state.cursor = null
+        state.paggingError = false
     }
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchHistory.pending, (state) => {
+      .addCase(fetchMessages.pending, (state) => {
         state.loading = true
         state.error = false
       })
-      .addCase(fetchHistory.fulfilled, (state, action) => {
+      .addCase(fetchMessages.fulfilled, (state, action) => {
         state.messages = action.payload.data
         state.count = action.payload.count
         state.loading = false
         state.cursor = action.payload.afterCursor
       })
-      .addCase(fetchHistory.rejected, (state, action) => {
+      .addCase(fetchMessages.rejected, (state, action) => {
         state.loading = false
         state.error = true
       })
-      .addCase(paggingUpdateHistory.pending, (state) => {
+      .addCase(paggingUpdateMessages.pending, (state) => {
         state.updating = true
         state.paggingError = false
       })
-      .addCase(paggingUpdateHistory.fulfilled, (state, action) => {
+      .addCase(paggingUpdateMessages.fulfilled, (state, action) => {
         state.messages = [...state.messages, ...action.payload.data]
         state.updating = false
         state.cursor = action.payload.afterCursor
       })
-      .addCase(paggingUpdateHistory.rejected, (state, action) => {
+      .addCase(paggingUpdateMessages.rejected, (state, action) => {
         state.updating = false
         state.paggingError = true
       })
@@ -106,6 +106,6 @@ const historySlice = createSlice({
 });
 
 // eslint-disable-next-line no-empty-pattern
-export const { updateMessages, dropMessages } = historySlice.actions;
+export const { updateMessages, dropMessages } = messagesSlice.actions;
 
-export default historySlice.reducer;
+export default messagesSlice.reducer;
