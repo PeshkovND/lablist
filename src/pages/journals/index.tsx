@@ -16,19 +16,27 @@ export const Journals = () => {
   const searchValue = searchParams.get('value');
 
   useEffect(() => {
-    if (searchValue) dispatch(fetchAllJournals(searchValue))
-    else dispatch(fetchAllJournals(""))
+    dispatch(fetchAllJournals(searchValue ?? ""))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue])
 
   useEffect(() => {
     if (searchValue) {
+      console.log("valued")
       setValue(searchValue)
     }
-  }, [])
+    else setValue("")
+  }, [searchValue])
 
 
   const parseJournals = () => {
     if (journals.loading) { return <Loading /> }
+    if (journals.error) {
+      return <div className={styles.errorContainer}>
+        <p className={styles.errorMessage}>Ошибка загрузки данных</p>
+        <button className={styles.errorButton} onClick={() => dispatch(fetchAllJournals(searchValue ?? ""))}>Повторить</button>
+      </div>
+    }
     if (journals.journals) {
       if (journals.journals.length === 0) {
         return (
@@ -56,7 +64,7 @@ export const Journals = () => {
   }
 
   return (
-    <div>
+    <div className={styles.journalsContainer}>
       <h1 className={styles.title}>Мои журналы</h1>
       <p className={styles.subtitle}>На этой странице представлены все созданные вами журналы.</p>
       <Searcher value={value} setValue={setValue} actionHandler={(value) => onSearchComlite(value)} placeHolder="Найти журнал"/>

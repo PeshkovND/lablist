@@ -1,3 +1,7 @@
+.journalsContainer {
+    padding-bottom: 0.5vw;
+}
+
 .title {
     font-family: 'Lora', serif;
     font-style: normal;
@@ -24,4 +28,39 @@
     letter-spacing: 0.06vw;
     color: #000000;
 
+}
+
+.errorContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.errorMessage {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8vw;
+    letter-spacing: 0.04em;
+    margin: 0;
+    color: #224973;
+    margin-bottom: 1vw;
+}
+
+.errorButton {
+    cursor: pointer;
+    background-color: #224973;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-size: 1.5vw;
+    letter-spacing: 0.04em;
+    margin: 0;
+    color: white;
+    margin-bottom: 1vw;
+    padding: 1vw;
+    border-radius: 2vw;
+    border: none
 }

@@ -58,12 +58,12 @@
     height: 4.8vw;
     border-radius: 0.5vw;
     cursor: pointer;
-    transition: 0.2s all;
+    transition: opacity 0.2s;
 }
 
 .score:hover {
     opacity: 0.7;
-    transition: 0.2s all;
+    transition: opacity 0.2s;
 }
 
 .score.none {
@@ -72,11 +72,11 @@
     border-color: gray;
     color: gray;
     border-width: 0.15vw;
-    transition: 0.2s all;
+    transition: opacity 0.2s;
 }
 
 .score.none:hover {
-    transition: 0.2s all;
+    transition: opacity 0.2s;
     opacity: 1;
 }
 
