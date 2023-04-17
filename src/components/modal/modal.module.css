@@ -1,0 +1,80 @@
+.modal {
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    animation-name: appear;
+    animation-duration: 300ms;
+}
+
+.modalWindow {
+    background: #ECF3FD;
+    border-radius: 0.5vw;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.3s;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
+}
+
+.modalContent {
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modalContent::-webkit-scrollbar {
+  width: 0.7vw;
+}
+
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: #C7E8EF;
+  border-radius: 0.5vw;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  border: 0.15vw solid #C7E8EF;
+  border-radius: 0.5vw;
+  background-color: white;
+}
+
+.closeContainer {
+    display: flex;
+    justify-content: right;
+    margin-right: 1.5vmin;
+    margin-top: 1vmin;
+}
+
+.closeClickContainer {
+    width: 1.5vmin;
+    cursor: pointer;
+}
+
+@keyframes appear {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateY(-150px);
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }

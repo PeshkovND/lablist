@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./labModal.module.css";
 import { useAppSelector } from "../../hooks";
 import { Journal, JournalLab, KafkaMessage, Lab, User } from "../../types";
+import { Modal } from "../modal";
 
 interface ModalProps {
   student: User;
@@ -36,6 +37,7 @@ export const LabModal = (props: ModalProps) => {
         </div>
       )
     }
+    return <></>
   }
 
   const validateInput = (mark: string) => {
@@ -63,9 +65,9 @@ export const LabModal = (props: ModalProps) => {
       setStatus("")
     }
     else if (props.mark?.status === status && props.mark.score === Number(input)) {
-        setStatus("")
-        closeForm()
-      }
+      setStatus("")
+      closeForm()
+    }
     else {
       const message: KafkaMessage = {
         num: props.lab.num,
@@ -87,18 +89,9 @@ export const LabModal = (props: ModalProps) => {
     }
   }
 
-  return <div className={styles.modal} onClick={() => closeForm()}>
-    <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+  return (
+    <Modal setModal={() => closeForm()} width={"75vmin"}>
       <div className={styles.layout}>
-        <div className={styles.closeContainer}>
-          <div onClick={() => closeForm()} className={styles.closeClickContainer}>
-            <img
-              src={'/close.svg'}
-              width={'100%'}
-              alt='Закрыть'
-            />
-          </div>
-        </div>
         <div className={styles.studentProfileContainer}>
           <div className={styles.studentPhotoContainer}>
             <img
@@ -136,6 +129,5 @@ export const LabModal = (props: ModalProps) => {
           </div>
         </form>
       </div>
-    </div>
-  </div>;
+    </Modal>)
 };

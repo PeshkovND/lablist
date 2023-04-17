@@ -58,6 +58,12 @@
     height: 4.8vw;
     border-radius: 0.5vw;
     cursor: pointer;
+    transition: 0.2s all;
+}
+
+.score:hover {
+    opacity: 0.7;
+    transition: 0.2s all;
 }
 
 .score.none {

@@ -13,7 +13,8 @@ import { shewartMapCoef } from '../../data/shewartMapCoef';
 import { useAppSelector } from '../../hooks';
 import styles from './shewhartMap.module.css'
 import { useState } from 'react';
-import { Journal, ShewartMapValues } from '../../types';
+import { Journal, Lab, ShewartMapValues, User } from '../../types';
+import { Modal } from '../modal';
 
 interface ModalProps {
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -70,7 +71,7 @@ export const ShewhartMap = (props: ModalProps) => {
   const allLabs = useAppSelector((state) => state.labs.labs);
   const [chooseButton, setChooseButton] = useState('students')
 
-  const studentsMaps = (journal: Journal): ShewartMapValues => {
+  const studentsMaps = (journal: Journal, allUsers: User[], allLabs: Lab[]): ShewartMapValues => {
       let studentsS: number[] = []
       let labels: string[][] = []
       let studentsMeanR: number = 0;
@@ -122,8 +123,7 @@ export const ShewhartMap = (props: ModalProps) => {
 
     
   const labsMaps = (journal: Journal): ShewartMapValues => {
-    let labsS: number[] = []
-    let labels: string[][] = []
+    let labsS: number[] = []; let labels: string[][] = [];
     let labsR: number[] = []
     let labsMeanR: number = 0;
     let labsMeanS: number = 0;
@@ -174,7 +174,7 @@ export const ShewhartMap = (props: ModalProps) => {
   if (journal) {
     let data: ShewartMapValues;
     if (chooseButton === "students") {
-      data = studentsMaps(journal)
+      data = studentsMaps(journal, allUsers, allLabs)
     }
     else {
       data = labsMaps(journal)
@@ -243,18 +243,7 @@ export const ShewhartMap = (props: ModalProps) => {
 
 
     return (
-      <div className={styles.modal} onClick={() => props.setActive(false)}>
-        <div className={styles.modalWindow} onClick={e => e.stopPropagation()}>
-          <div className={styles.closeContainer}>
-            <div onClick={() => props.setActive(false)} className={styles.closeClickContainer}>
-              <img
-                src={'/close.svg'}
-                width={'100%'}
-                alt='Закрыть'
-              />
-            </div>
-          </div>
-          <div className={styles.modalContent}>
+        <Modal setModal={() => props.setActive(false)} width={"90vw"}>
             <h2 className={styles.title}>Контрольные карты</h2>
             <div className={styles.togler}>
               <div className={chooseButton === "students" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('students')}>Студенты</div>
@@ -266,9 +255,7 @@ export const ShewhartMap = (props: ModalProps) => {
             <div className={styles.graph}>
               <Line options={optionsR} data={dataR} updateMode='none' />
             </div>
-          </div>
-        </div>
-      </div>
+        </Modal>
     )
   }
   return null
