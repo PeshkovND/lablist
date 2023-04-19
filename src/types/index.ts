@@ -24,6 +24,9 @@ export type Lab = {
   num: number;
   status: string;
   score: number;
+  dateOfCreation: Date,
+  version: number,
+  isActual: boolean,
 }
 
 export type User = {
@@ -106,7 +109,9 @@ export type KafkaMessage = {
   journalId: string,
   text: string,
   status: string,
-  score: number
+  score: number,
+  date: Date,
+  version: number
 }
 
 export type ShewartMapValues = {

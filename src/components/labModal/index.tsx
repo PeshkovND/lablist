@@ -75,16 +75,19 @@ export const LabModal = (props: ModalProps) => {
         journalId: journal._id,
         text: "№" + props.lab.num + (props.lab.name ? " " + props.lab.name : ""),
         status: status,
-        score: Number(input)
+        score: Number(input),
+        date: new Date(),
+        version: props.mark ? props.mark.version + 1 : 0
       }
 
-      fetch("http://localhost:3001/journal", {
+      const response = fetch("http://localhost:3001/journal", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(message),
       });
+      console.log(response)
       closeForm()
     }
   }
