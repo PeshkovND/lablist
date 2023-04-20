@@ -70,8 +70,7 @@ export const LabModal = (props: ModalProps) => {
       date: new Date(),
       version: props.mark ? props.mark.version + 1 : 0
     }
-    
-    console.log(message.version)
+
     const response = await fetch("http://localhost:3001/journal", {
       method: "POST",
       headers: {

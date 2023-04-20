@@ -57,9 +57,8 @@ export const Score = (props: ScoreProps) => {
 
   const checkDeadline = (num: number, userId: string) => {
     if (journal.lastDeadline?.deadline) {
-      const journalLab = journal.journal?.labs.find(e => e.num === num) as JournalLab
-      if (journalLab.deadline && journalLab.deadline <= journal.lastDeadline.deadline) {
-        if (journal.lastDeadline.num === journalLab.num && journalLab.num !== filter.labFilter) {
+      if (props.journalLab.num <= journal.lastDeadline.num) {
+        if (journal.lastDeadline.num === props.journalLab.num && props.journalLab.num !== filter.labFilter) {
           if (userId === filter.studentFilter) {
             return styles.deadlined + " " + styles.lastWithstudentFilter
           }

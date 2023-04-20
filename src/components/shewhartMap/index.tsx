@@ -13,7 +13,7 @@ import { shewartMapCoef } from '../../data/shewartMapCoef';
 import { useAppSelector } from '../../hooks';
 import styles from './shewhartMap.module.css'
 import { useState } from 'react';
-import { Journal, Lab, ShewartMapValues, User } from '../../types';
+import { Journal, ShewartMapValues } from '../../types';
 import { Modal } from '../modal';
 
 interface ModalProps {
@@ -47,7 +47,7 @@ export const optionsS = {
     },
     title: {
       display: true,
-      text: 'Карта среднего значения',
+      text: 'Карта средних значений',
     },
   },
 };
@@ -71,7 +71,7 @@ export const ShewhartMap = (props: ModalProps) => {
   const allLabs = useAppSelector((state) => state.labs.labs);
   const [chooseButton, setChooseButton] = useState('students')
 
-  const studentsMaps = (journal: Journal, allUsers: User[], allLabs: Lab[]): ShewartMapValues => {
+  const studentsMaps = (journal: Journal): ShewartMapValues => {
       let studentsS: number[] = []
       let labels: string[][] = []
       let studentsMeanR: number = 0;
@@ -81,16 +81,15 @@ export const ShewhartMap = (props: ModalProps) => {
       const allStudentsCount = allUsers.length
       allUsers.forEach(elem => {
         let sum = 0;
-
         let min = Infinity;
         let max = 0;
         let studentLabsCount = 0
-        allLabs.forEach(i => {
-          if (elem._id === i.userId) {
+        allLabs.forEach(lab => {
+          if (elem._id === lab.userId && lab.isActual) {
             studentLabsCount += 1
-            sum += i.score
-            if (i.score > max) max = i.score
-            if (i.score < min) min = i.score
+            sum += lab.score
+            if (lab.score > max) max = lab.score
+            if (lab.score < min) min = lab.score
           }
         }
         );
@@ -122,11 +121,17 @@ export const ShewhartMap = (props: ModalProps) => {
     }
 
     
-  const labsMaps = (journal: Journal): ShewartMapValues => {
-    let labsS: number[] = []; let labels: string[][] = [];
+  const labsMaps = (journal: Journal): ShewartMapValues[] => {
+    let labsS: number[] = []; let 
+    labels: string[][] = [];
     let labsR: number[] = []
     let labsMeanR: number = 0;
     let labsMeanS: number = 0;
+    let deadlineLabsS: number[] = []; 
+    let deadlineLabels: string[][] = [];
+    let deadlineLabsR: number[] = []
+    let deadlineLabsMeanR: number = 0;
+    let deadlineLabsMeanS: number = 0;
     const allLabsCount = journal.labs.length
     const allStudentsCount = allUsers.length
     journal.labs.forEach(elem => {
@@ -134,17 +139,41 @@ export const ShewhartMap = (props: ModalProps) => {
       let min = Infinity;
       let max = 0;
       let labsCount = 0
+      let deadlineSum = 0;
+      let deadlineMin = Infinity;
+      let deadlineMax = 0;
       const labName = "№" + elem.num;
-      allLabs.forEach(i => {
-        if (elem.num === i.num) {
+      allLabs.forEach(lab => {
+        if (elem.num === lab.num && lab.isActual) {
           labsCount += 1
-          sum += i.score
-          if (i.score > max) max = i.score
-          if (i.score < min) min = i.score
+          sum += lab.score
+          if (lab.score > max) max = lab.score
+          if (lab.score < min) min = lab.score
+          if (elem.deadline) {
+            const moment = require('moment')
+            const x = new moment(elem.deadline)
+            const y = new moment(lab.dateOfCreation)
+            const diff = y.diff(x, 'days')
+            deadlineSum += diff
+            if (diff > deadlineMax) deadlineMax = diff
+            if (diff < deadlineMin) deadlineMin = diff
+          }
         }
       }
       );
       const mean = sum / allUsers.length
+      if (elem.deadline) {
+        const deadlineMean = deadlineSum / allUsers.length
+        deadlineLabsS.push(deadlineMean)
+        deadlineLabels.push([labName])
+        deadlineLabsMeanS += deadlineMean / allLabsCount
+        if (deadlineMin === Infinity) {
+          deadlineMin = 0
+        }
+        const r = deadlineMax - deadlineMin
+        deadlineLabsR.push(r)
+        deadlineLabsMeanR += r / (allLabsCount)
+      }
       labsS.push(mean)
       labels.push([labName])
       labsMeanS += mean / allLabsCount
@@ -168,32 +197,55 @@ export const ShewhartMap = (props: ModalProps) => {
       meanS: labsMeanS
     }
 
-    return value
+    const deadlineValue: ShewartMapValues = {
+      UCL: deadlineLabsMeanS + deadlineLabsMeanR * shewartMapCoef[allStudentsCount].A2,
+      LCL: deadlineLabsMeanS - deadlineLabsMeanR * shewartMapCoef[allStudentsCount].A2,
+      RLCL: shewartMapCoef[allStudentsCount].D3 * deadlineLabsMeanR,
+      RUCL: shewartMapCoef[allStudentsCount].D4 * deadlineLabsMeanR,
+      Labels: deadlineLabels,
+      S: deadlineLabsS,
+      R: deadlineLabsR,
+      meanR: deadlineLabsMeanR,
+      meanS: deadlineLabsMeanS
+    }
+
+    return [value, deadlineValue]
   }
 
   if (journal) {
     let data: ShewartMapValues;
-    if (chooseButton === "students") {
-      data = studentsMaps(journal, allUsers, allLabs)
-    }
-    else {
-      data = labsMaps(journal)
+    let meanLabel = "Средний балл по группе"
+    let valuesLabel = 'Средний балл';
+    let rangeLabel = 'Размах баллов'
+    const labsCountedMaps = labsMaps(journal);
+    switch (chooseButton) {
+      case "students":
+        data = studentsMaps(journal)
+        break
+      case "labs":
+        data = labsCountedMaps[0]
+        break
+      default:
+        data = labsCountedMaps[1]
+        meanLabel = "Средняя разница по группе"
+        valuesLabel = 'Средняя разница между установленным и фактическим сроками сдачи';
+        rangeLabel = 'Размах разницы'
     }
 
     const dataS = {
       labels: data.Labels,
       datasets: [
         {
-          label: 'Средний балл по группе',
-          data: data.Labels.map(() => data.meanS),
-          backgroundColor: 'orange',
-          borderColor: 'orange',
-        },
-        {
-          label: 'Средний балл',
+          label: valuesLabel,
           data: data.S.map((e) => e),
           backgroundColor: 'rgb(53, 162, 235)',
           borderColor: 'rgb(53, 162, 235)',
+        },
+        {
+          label: meanLabel,
+          data: data.Labels.map(() => data.meanS),
+          backgroundColor: 'orange',
+          borderColor: 'orange',
         },
         {
           label: 'Верхняя контрольная граница',
@@ -214,16 +266,16 @@ export const ShewhartMap = (props: ModalProps) => {
       labels: data.Labels,
       datasets: [
         {
+          label: rangeLabel,
+          data: data.R.map((e) => e),
+          backgroundColor: 'rgb(53, 162, 235)',
+          borderColor: 'rgb(53, 162, 235)',
+        },
+        {
           label: 'Средний размах по группе',
           data: data.Labels.map(() => data.meanR),
           backgroundColor: 'orange',
           borderColor: 'orange',
-        },
-        {
-          label: 'Размах баллов',
-          data: data.R.map((e) => e),
-          backgroundColor: 'rgb(53, 162, 235)',
-          borderColor: 'rgb(53, 162, 235)',
         },
         {
           label: 'Верхняя контрольная граница',
@@ -246,8 +298,9 @@ export const ShewhartMap = (props: ModalProps) => {
         <Modal setModal={() => props.setActive(false)} width={"90vw"}>
             <h2 className={styles.title}>Контрольные карты</h2>
             <div className={styles.togler}>
-              <div className={chooseButton === "students" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('students')}>Студенты</div>
-              <div className={chooseButton === "labs" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('labs')}>Работы</div>
+              <div className={chooseButton === "students" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('students')}>Средние баллы студентов</div>
+              <div className={chooseButton === "labs" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('labs')}>Средние баллы работ</div>
+              <div className={chooseButton === "deadlines" ? styles.button + ' ' + styles.active : styles.button} onClick={() => setChooseButton('deadlines')}> Средние разцины от срока сдачи</div>
             </div>
             <div className={styles.graph}>
               <Line options={optionsS} data={dataS} updateMode='none' />
