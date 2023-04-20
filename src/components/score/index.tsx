@@ -17,9 +17,17 @@ export const Score = (props: ScoreProps) => {
   const filter = useAppSelector((state) => state.filter);
   const journal = useAppSelector((state) => state.journal);
 
+  const onClick = () => {
+    props.setModalLab(props.journalLab);
+    props.setModalLabStudent(props.user);
+    if (props.lab) {
+      props.setModalMark(props.lab)
+    }
+  }
+
   const checkStatus = (elem: Lab | undefined) => {
     let color: string;
-    if (props.lab) {
+    if (props.lab && props.lab.isActual) {
       switch (props.lab.status) {
         case "Принята":
           color = styles.done;
@@ -32,23 +40,14 @@ export const Score = (props: ScoreProps) => {
       }
     }
     else  return (
-      <div className={styles.score + ' ' + styles.none} onClick={() => {
-        props.setModalLab(props.journalLab);
-        props.setModalLabStudent(props.user)
-      }}>
+      <div className={styles.score + ' ' + styles.none} onClick={() => onClick()}>
         <div className={styles.centerText}>
           <p className={styles.scoreNumber + " " + styles.none}>+</p>
         </div>
       </div>
     );
     return (
-      <div className={styles.score + ' ' + color} onClick={() => {
-        props.setModalLab(props.journalLab);
-        props.setModalLabStudent(props.user);
-        if (props.lab) {
-          props.setModalMark(props.lab)
-        }
-      }}>
+      <div className={styles.score + ' ' + color} onClick={() =>onClick()}>
         <div className={styles.centerText}>
           <p className={styles.scoreNumber}>{props.lab.score}</p>
         </div>

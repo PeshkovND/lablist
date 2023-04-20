@@ -43,7 +43,6 @@ export const Table = () => {
       fetchAll(id)
     }
     return () => {
-      console.log("dropped")
       dispatch(dropFilters())
       dispatch(dropJournal())
       dispatch(dropMessages())

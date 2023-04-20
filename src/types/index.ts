@@ -103,7 +103,7 @@ export type MessagesResponse = {
   afterCursor: string | null
 };
 
-export type KafkaMessage = {
+export type KafkaNewMessage = {
   num: number,
   userId: string,
   journalId: string,
@@ -111,6 +111,11 @@ export type KafkaMessage = {
   status: string,
   score: number,
   date: Date,
+  version: number
+}
+
+export type KafkaDeleteMessage = {
+  _id: string,
   version: number
 }
 

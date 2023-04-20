@@ -22,7 +22,6 @@ export const Journals = () => {
 
   useEffect(() => {
     if (searchValue) {
-      console.log("valued")
       setValue(searchValue)
     }
     else setValue("")

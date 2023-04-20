@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./labModal.module.css";
 import { useAppSelector } from "../../hooks";
-import { Journal, JournalLab, KafkaMessage, Lab, User } from "../../types";
+import { Journal, JournalLab, KafkaDeleteMessage, KafkaNewMessage, Lab, User } from "../../types";
 import { Modal } from "../modal";
 
 interface ModalProps {
@@ -15,7 +15,7 @@ interface ModalProps {
 
 export const LabModal = (props: ModalProps) => {
 
-  const [input, setInput] = useState<string>(props.mark ? String(props.mark.score) : "");
+  const [input, setInput] = useState<string>(props.mark?.isActual ? String(props.mark.score) : "");
   const [status, setStatus] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const journal = useAppSelector(state => state.journal.journal) as Journal
@@ -59,36 +59,66 @@ export const LabModal = (props: ModalProps) => {
     props.setMark(null)
   }
 
+  const addLab = async () => {
+    const message: KafkaNewMessage = {
+      num: props.lab.num,
+      userId: props.student._id,
+      journalId: journal._id,
+      text: "№" + props.lab.num + (props.lab.name ? " " + props.lab.name : ""),
+      status: status,
+      score: Number(input),
+      date: new Date(),
+      version: props.mark ? props.mark.version + 1 : 0
+    }
+    
+    console.log(message.version)
+    const response = await fetch("http://localhost:3001/journal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    });
+  }
+
+  const deleteLab = async () => {
+    const mark = props.mark as Lab
+    const message: KafkaDeleteMessage = {
+      _id: mark._id,
+      version: mark.version + 1
+    }
+    const response = await fetch("http://localhost:3001/journal/delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    });
+  }
+
   const validateForm = () => {
-    if (input === "") {
+    if (input === "" && status !== "Удалить") {
       setError("Введите оценку")
       setStatus("")
     }
-    else if (props.mark?.status === status && props.mark.score === Number(input)) {
+    else if (props.mark?.status === status && props.mark.score === Number(input) && props.mark.isActual) {
       setStatus("")
       closeForm()
     }
     else {
-      const message: KafkaMessage = {
-        num: props.lab.num,
-        userId: props.student._id,
-        journalId: journal._id,
-        text: "№" + props.lab.num + (props.lab.name ? " " + props.lab.name : ""),
-        status: status,
-        score: Number(input),
-        date: new Date(),
-        version: props.mark ? props.mark.version + 1 : 0
-      }
-
-      const response = fetch("http://localhost:3001/journal", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(message),
-      });
-      console.log(response)
+      if (status !== "Удалить") {
+        addLab()
+    }
+    else {
+      deleteLab()
+    }
       closeForm()
+    }
+  }
+
+  const checkDeleteButton = () => {
+    if (props.mark?.isActual) {
+      return <button className={styles.button + " " + styles.delete} type="submit" onClick={() => setStatus("Удалить")}>Удалить</button>
     }
   }
 
@@ -129,6 +159,7 @@ export const LabModal = (props: ModalProps) => {
           <div className={styles.buttonsContainer}>
             <button className={styles.button + " " + styles.done} type="submit" onClick={() => setStatus("Принята")}>Принять</button>
             <button className={styles.button + " " + styles.comeback} type="submit" onClick={() => setStatus("Возвращена на доработку")}>Вернуть на доработку</button>
+            {checkDeleteButton()}
           </div>
         </form>
       </div>
