@@ -69,8 +69,7 @@ export const TableContent = (props: ResultProps) => {
 
   const parseStudents = () => {
     return allUsers.map(elem => {
-      const studentLabs = allLabs.filter(i => elem._id === i.userId)
-      return <div className={checkFilter(elem._id)} key={elem._id}><StudentCard setActive={setModalStudent} student={elem} labs={studentLabs} /></div>
+      return <div className={checkFilter(elem._id)} key={elem._id}><StudentCard setActive={setModalStudent} student={elem} /></div>
     })
   }
 

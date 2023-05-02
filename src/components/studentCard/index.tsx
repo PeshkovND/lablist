@@ -1,38 +1,33 @@
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { updateStudentFilter } from "../../store/filterStore";
-import { Lab, User } from "../../types";
+import { User } from "../../types";
 import styles from "./studentCard.module.css";
 
 interface StudentProps {
   setActive: React.Dispatch<React.SetStateAction<User | null>>;
   student: User;
-  labs: Lab[];
 }
 
 export const StudentCard = (props: StudentProps) => {
 
   const dispatch = useAppDispatch()
+  const labs = useAppSelector(state => state.labs.labs)
 
   const checkPhoto = (elem: string | undefined) => {
     if (elem) {
       return elem
     }
-    else {
-      return '/unk.svg'
-    }
+    return '/unk.svg'
   }
 
-  const checkAttention = (array: Lab[]) => {
-    const res = array.find(elem => elem.status === "Сдана на проверку")
+  const checkAttention = () => {
+    const res = labs.find(elem => elem.status === "Сдана на проверку" && elem.userId === props.student._id)
     if (res) {
       return <img src="/attention.svg" alt="" height={"100%"} />
     }
-
-    else {
-      return
-    }
+    return
   }
-
+  
   return (
     <div className={styles.studentCard} onClick={() => dispatch(updateStudentFilter(props.student._id))}>
       <div className={styles.studentPicContainer}>
@@ -45,7 +40,7 @@ export const StudentCard = (props: StudentProps) => {
 
       <div className={styles.studentNameContainer}>
         <div className={styles.attentionContainer}>
-          {checkAttention(props.labs)}
+          {checkAttention()}
         </div>
         <div className={styles.name}>
           <span className={styles.hoverName} onClick={(e) => {props.setActive(props.student);

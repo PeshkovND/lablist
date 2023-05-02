@@ -38,18 +38,18 @@ export const Score = (props: ScoreProps) => {
         default:
           color = styles.return;
       }
+      return (
+        <div className={styles.score + ' ' + color} onClick={() =>onClick()}>
+          <div className={styles.centerText}>
+            <p className={styles.scoreNumber}>{props.lab.score}</p>
+          </div>
+        </div>
+      );
     }
-    else  return (
+    return (
       <div className={styles.score + ' ' + styles.none} onClick={() => onClick()}>
         <div className={styles.centerText}>
           <p className={styles.scoreNumber + " " + styles.none}>+</p>
-        </div>
-      </div>
-    );
-    return (
-      <div className={styles.score + ' ' + color} onClick={() =>onClick()}>
-        <div className={styles.centerText}>
-          <p className={styles.scoreNumber}>{props.lab.score}</p>
         </div>
       </div>
     );

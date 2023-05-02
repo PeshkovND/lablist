@@ -50,7 +50,7 @@ export const Journals = () => {
     }
   }
 
-  const onSearchComlite = (findValue: string) => {
+  const onSearchComplite = (findValue: string) => {
     if (findValue)
       navigation({
         pathname: '/',
@@ -66,7 +66,7 @@ export const Journals = () => {
     <div className={styles.journalsContainer}>
       <h1 className={styles.title}>Мои журналы</h1>
       <p className={styles.subtitle}>На этой странице представлены все созданные вами журналы.</p>
-      <Searcher value={value} setValue={setValue} actionHandler={(value) => onSearchComlite(value)} placeHolder="Найти журнал"/>
+      <Searcher value={value} setValue={setValue} actionHandler={(value) => onSearchComplite(value)} placeHolder="Найти журнал"/>
       {parseJournals()}
     </div>
   )

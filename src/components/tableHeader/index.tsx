@@ -29,7 +29,6 @@ export const TableHeader = (props: tableHeaderProps) => {
           return { grayscale: 100, opacity: 0.7 }
         }
         return { grayscale: 0, opacity: 1 }
-    
       }
 
     const handleClick = (step: number, dirrection: number) => {
