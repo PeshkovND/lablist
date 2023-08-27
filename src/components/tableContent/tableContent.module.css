@@ -1,0 +1,128 @@
+.tableContentContainer {
+    height: 77vh;
+    width: 100%;
+    align-items: center;
+}
+
+.tableContentHeaderContainer {
+    display: grid;
+    height: 8%;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+    margin-left: 0.5vw;
+    background: #E8E8E8;
+    overflow-y: scroll;
+    margin-right: 0;
+}
+
+
+.tableContentHeaderContainer::-webkit-scrollbar {
+    width: 0.7vw;
+}
+
+.tableContentHeaderContainer::-webkit-scrollbar-track{
+    width: 0.7vw;
+}
+
+.discription {
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1vw;
+
+    letter-spacing: 0.04em;
+    color: #181818;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.count {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.85vw;
+
+    letter-spacing: 0.02em;
+    color: #181818;
+    margin:0
+}
+
+.tableJournalContainer {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+    margin-left: 0.5vw;
+    margin-right: 0.7vw;
+    background: #E8E8E8;
+}
+
+.tableJournalContainer.scores {
+    margin-right: 0;
+    max-height: 92%;
+    overflow-y: scroll;
+}
+
+.tableJournalContainer.scores::-webkit-scrollbar {
+    width: 0.7vw;
+}
+
+
+.tableJournalContainer.scores::-webkit-scrollbar-thumb {
+    background: #C7E8EF;
+    border-radius: 0.5vw;
+}
+
+.tableJournalContainer.scores::-webkit-scrollbar-track{
+    border: 0.15vw solid #C7E8EF;
+    border-radius: 0.5vw;
+    background-color: white;
+}
+
+.scoresWindow{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-top-right-radius: 0.5vw;
+    border-top-left-radius: 0.5vw;
+    overflow-x: hidden;
+}
+
+.scoresConteiner{
+    width: 100%;
+    transition: translate;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.studentsContainer{
+    width: 100%;
+    height: 100%;
+}
+
+.studentElemContainer{
+    padding-top: 0.0875vw;
+    height: 5.774vw;
+    box-sizing: border-box;
+    padding-right: 0.5vw;
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.studentElemContainer.selected {
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
+.studentElemContainer.notSelected {
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+

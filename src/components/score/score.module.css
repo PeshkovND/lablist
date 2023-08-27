@@ -1,0 +1,112 @@
+.scoreContainer {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 10%;
+    max-width: 10%;
+    height: 100%;
+    transition: opacity 0.2s;
+}
+
+.scoreContainer.selected {
+    border-style: none dashed;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
+.scoreContainer.notSelected {
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+
+.scoreContainer.selectedRow {
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
+.scoreContainer.deadlined {
+    background-color: #00000011;
+}
+
+.scoreContainer.deadlined.last {
+    border-style: none dotted none dotted;
+    border-color: #9498A0;
+    border-left-color: transparent;
+    border-width: 0.15vw;
+}
+
+.scoreContainer.deadlined.lastWithstudentFilter {
+    border-style: dashed dotted dashed dotted;
+    border-right-color: #9498A0;
+    border-left-color: transparent;
+    border-top-color: #224973;
+    border-bottom-color: #224973;
+    border-width: 0.15vw;
+}
+
+.score {
+    box-sizing: border-box;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 4.8vw;
+    height: 4.8vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.score:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.score.none {
+    opacity: 0;
+    border-style: dashed;
+    border-color: gray;
+    color: gray;
+    border-width: 0.15vw;
+    transition: opacity 0.2s;
+}
+
+.score.none:hover {
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.score.done {
+    background: #259D88;
+}
+
+.score.send {
+    background: #FFBD80;
+}
+
+.score.return {
+    background: #D5A0C8;
+}
+
+.scoreNumber {
+    font-family: 'Lora', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2vw;
+    letter-spacing: 0.06vw;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.scoreNumber.none {
+    color: gray;
+}
+
+.centerText {
+    display: table-cell;
+    vertical-align: middle;
+}

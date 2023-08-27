@@ -1,0 +1,113 @@
+.historyElemContainer {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 0.3vw;
+    padding-bottom: 0.3vw;
+    margin-top: 0.35vw;
+    margin-bottom: 0.35vw;
+    overflow-wrap: break-word;
+    transition: opacity 0.2s;
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: transparent;
+}
+
+.historyElemContainer.selected {
+    border-style: dashed none;
+    border-width: 0.15vw;
+    border-color: #224973;
+    transition: opacity 0.2s;
+}
+
+.historyElemContainer.notSelected {
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+
+.dateContainer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.3vw;
+    align-items: center;
+}
+
+.boxStatus {
+    border-radius: 0.2vw;
+    height: 1vw;
+    width: 1vw;
+    margin-right: 0.5vw;
+}
+
+.boxStatus.remake {
+    background: #D5A0C8;
+}
+
+.boxStatus.done {
+    background: #259D88;
+}
+
+.boxStatus.send {
+    background: #FFBD80;
+}
+
+.boxStatus.blue {
+    background: #1290ff;
+}
+
+.date {
+    margin: 0;
+    font-size: 1vw;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.date.remake {
+    color: #D5A0C8;
+}
+
+.date.done {
+    color: #259D88;
+}
+
+.date.send {
+    color: #FFBD80;
+}
+
+.date.blue {
+    color: #1290ff;
+}
+
+.text {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.85vw;
+
+    letter-spacing: 0.02em;
+
+    margin: 0;
+}
+
+.text.name {
+    color: #224973;
+}
+
+.text.labName {
+    color: #181818;
+}
+
+.text.statusWord {
+    color: #181818;
+}
+
+.text.done {
+    color: #259D88;
+}
+
+.text.send {
+    color: #FFBD80;
+}
+
+.text.remake {
+    color: #D5A0C8;
+}

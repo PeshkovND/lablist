@@ -1,0 +1,8 @@
+.rowContainer{
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 5.774vw;
+}
