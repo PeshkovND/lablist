@@ -1,0 +1,189 @@
+.studentProfileContainer {
+    height: 12vmin;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 3.5%;
+    margin-bottom: 3%;
+}
+
+.studentPhotoContainer {
+    height: 100%;
+    margin-right: 2%;
+    background-color: #FFFFFF;
+    border-radius: 0.5vw;
+}
+
+.studentPhoto {
+    border-radius: 0.5vw;
+    height: 100%;
+}
+
+.studentNameContainer {
+    flex-grow: 1;
+}
+
+.studentCourseContainer {
+    flex-grow: 4;
+}
+
+.studentName {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.1vmin;
+    letter-spacing: 0.04em;
+    color: #181818;
+}
+
+.groupInfo {
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vmin;
+    letter-spacing: 0.02em;
+    color: #181818;
+}
+
+.groupInfo p {
+    margin-top: 2%;
+    margin-bottom: 0;
+    margin-right: 2%;
+
+}
+
+.group {
+    color: #224973;
+}
+
+.infoGridContainer {
+    margin: 0 auto;
+    display: grid;
+    width: 93%;
+    max-height: 34vmin;
+    margin-bottom: 1%;
+}
+
+.infoContainer {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 0.5vw;
+    max-height: 31vmin;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    color: #224973;
+    font-weight: 400;
+    font-size: 2vmin;
+    letter-spacing: 0.02em;
+    padding-bottom: 1.5vmin;
+    padding-top: 1.5vmin;
+}
+
+.infoContentContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    color: #224973;
+    font-weight: 600;
+    font-size: 2.6vmin;
+    letter-spacing: 0.04em;
+
+    margin: 0;
+}
+
+.info {
+    margin-top: 2%;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.subtitle{
+    color: #181818;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.anotherInfoContainer{
+    height: 100%;
+    overflow: auto;
+    background: #E8E8E8;
+    border-radius: 0.5vw;
+}
+
+.anotherInfoContainer::-webkit-scrollbar {
+    width: 1.6vmin;
+}
+
+
+.anotherInfoContainer::-webkit-scrollbar-thumb {
+    background: #C7E8EF;
+    border-radius: 0.5vw;
+}
+
+.anotherInfoContainer::-webkit-scrollbar-track{
+    border: 0.3vmin solid #C7E8EF;
+    border-radius: 0.5vw;
+    background-color: white;
+}
+
+.compliteContainer{
+    display: grid;
+    grid-template-columns: 48.1185% 48.1185%;
+    margin-left: 3.5%;
+    width: 93%;
+    background-color: white;
+    border-radius: 0.5vw;
+}
+
+.statistic{
+    width: 90%;
+    height: 90%;
+    margin: 4% auto;
+}
+
+.counter {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.3vmin;
+    letter-spacing: 0.02em;
+
+
+    color: #181818;
+}
+
+.counter span{
+    color: #224973;
+}
+
+.messagesContainer{
+    margin-top: 3%;
+    overflow-y: auto;
+}
+
+.messagesContainer::-webkit-scrollbar {
+    width: 1.6vmin;
+}
+
+
+.messagesContainer::-webkit-scrollbar-thumb {
+    background: #C7E8EF;
+    border-radius: 0.5vw;
+}
+
+.messagesContainer::-webkit-scrollbar-track{
+    border: 0.3vmin solid #C7E8EF;
+    border-radius: 0.5vw;
+    background-color: white;
+}

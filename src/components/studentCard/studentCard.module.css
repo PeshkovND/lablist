@@ -1,0 +1,62 @@
+.studentCard {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 0.5vw;
+    height: 5.424vw;
+
+}
+
+.studentPicContainer{
+    margin-left: 2.7%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+}
+
+.studentPicAlign {
+    height: 85%;
+}
+
+
+.studentPic {
+    height: 100%;
+    border-radius: 0.5vw;
+}
+
+.studentNameContainer {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.attentionContainer {
+    height: 25%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2.8%;
+    margin-top: 3%;
+}
+
+.name {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    color: #181818;
+    margin: 0;
+}
+
+.hoverName:hover{
+    text-decoration: underline;
+}
+
+.name:last-child {
+    margin-bottom: 0.35vw;
+}

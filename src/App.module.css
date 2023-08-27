@@ -1,0 +1,19 @@
+.main {
+  display: grid;
+  grid-template-columns: 7fr 93fr;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.content {
+  height: 100vh;
+  width: 100%;
+  width: 97%;
+  margin: 0 auto;
+}
+
+.over {
+  display: flex;
+  justify-content: right;
+  height: 16vh;
+}
